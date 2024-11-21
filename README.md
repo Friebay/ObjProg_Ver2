@@ -261,38 +261,40 @@ Projektui sukompiliuoti naudojami šie .cmd failai:
 ![3sprendimas.png](https://github.com/Friebay/ObjProg_Ver1/blob/v1.0/greicio_duomenys/3sprendimas.png?raw=true)
 
 # v1.1 versija
-## Vektorius, CMake, Klasė, O1
+## Klasė
+## Vektorius, CMake, O1
 
-Failo dydis diske: 417 792 bytes
-Greitis:
+- Failo dydis diske: 417 792 bytes
+- Greitis:
 ![structO1.png](https://github.com/Friebay/ObjProg_Ver2/blob/v1.1/greicio_duomenys/structO1.png?raw=true)
 
-## Vektorius, CMake, Klasė, O2
+## Vektorius, CMake, O2
 
-Failo dydis diske: 471 040 bytes
-Greitis:
+- Failo dydis diske: 471 040 bytes
+- Greitis:
 ![structO2.png](https://github.com/Friebay/ObjProg_Ver2/blob/v1.1/greicio_duomenys/structO2.png?raw=true)
 
-## Vektorius, CMake, Klasė, O3
+### Vektorius, CMake, O3
 
-Failo dydis diske: 409 600 bytes
-Greitis:
+- Failo dydis diske: 409 600 bytes
+- Greitis:
 ![structO3.png](https://github.com/Friebay/ObjProg_Ver2/blob/v1.1/greicio_duomenys/structO3.png?raw=true)
 
-## Vektorius, CMake, Struct, O1
+## Struct
+### Vektorius, CMake, O1
 
-Failo dydis diske: 417 792 bytes
-Greitis:
+- Failo dydis diske: 417 792 bytes
+- Greitis:
 ![classO1.png](https://github.com/Friebay/ObjProg_Ver2/blob/v1.1/greicio_duomenys/classO1.png?raw=true)
 
-## Vektorius, CMake, Struct, O2
+### Vektorius, CMake, O2
 
-Failo dydis diske: 462 848 bytes
-Greitis:
+- Failo dydis diske: 462 848 bytes
+- Greitis:
 ![classO2.png](https://github.com/Friebay/ObjProg_Ver2/blob/v1.1/greicio_duomenys/classO2.png?raw=true)
 
-## Vektorius, CMake, Struct, O3
+### Vektorius, CMake, O3
 
-Failo dydis diske: 524 288 bytes
-Greitis:
+- Failo dydis diske: 524 288 bytes
+- Greitis:
 ![classO3.png](https://github.com/Friebay/ObjProg_Ver2/blob/v1.1/greicio_duomenys/classO3.png?raw=true)
