@@ -2,36 +2,49 @@
 #include "List_funkcijos.h"
 #include "Vec_funkcijos_papildomos.h"
 
-void List_skaiciuotiIsFailo(List_Studentas& studentas, bool tinkamiPazymiai, list<List_Studentas>& studentai) {
-    if (tinkamiPazymiai && !studentas.pazymiai.empty()) {
-        studentas.egzaminoPazymys = studentas.pazymiai.back();
-        studentas.pazymiai.pop_back();
+void List_skaiciuotiIsFailo(List_Studentas& studentas, bool tinkamiPazymiai, std::list<List_Studentas>& studentai) {
+    if (tinkamiPazymiai && !studentas.getPazymiai().empty()) {
+        std::list<int> pazymiai = studentas.getPazymiai();
+        
+        // Set egzamino pažymys as the last grade
+        studentas.setEgzaminoPazymys(pazymiai.back());
+        pazymiai.pop_back();
+        
+        // Calculate average and median
+        float vidurkis = List_skaiciuotiVidurki(pazymiai);
+        float mediana = List_skaiciuotiMediana(pazymiai);
+        
+        studentas.setVidurkis(vidurkis);
+        studentas.setMediana(mediana);
 
-        studentas.vidurkis = List_skaiciuotiVidurki(studentas.pazymiai);
-        studentas.mediana = List_skaiciuotiMediana(studentas.pazymiai);
+        // Calculate final grades
+        const float egzaminoBalas = 0.6 * studentas.getEgzaminoPazymys();
+        const float vidurkioBalas = 0.4 * vidurkis;
+        const float medianosBalas = 0.4 * mediana;
 
-        const double egzaminoBalas = 0.6 * studentas.egzaminoPazymys;
-        const double vidurkioBalas = 0.4 * studentas.vidurkis;
-        const double medianosBalas = 0.4 * studentas.mediana;
+        studentas.setGalutinisVidurkis(vidurkioBalas + egzaminoBalas);
+        studentas.setGalutineMediana(medianosBalas + egzaminoBalas);
 
-        studentas.galutinisVidurkis = vidurkioBalas + egzaminoBalas;
-        studentas.galutineMediana = medianosBalas + egzaminoBalas;
-
-        studentai.push_back(move(studentas));
+        // Add student to the list
+        studentai.push_back(studentas);
     } else {
-        cout << "Klaida: truksta pazymiu studentui " << studentas.vardas << " " << studentas.pavarde << "\n";
+        std::cout << "Klaida: truksta pazymiu studentui " 
+                  << studentas.getVardas() << " " 
+                  << studentas.getPavarde() << "\n";
     }
 }
-
-void List_skaitytiDuomenisIsFailo(const string& failoPavadinimas, list<List_Studentas>& studentai, long long& trukmeSkaitymo, long long& trukmeVidurkio) {
+void List_skaitytiDuomenisIsFailo(const std::string& failoPavadinimas, 
+                                   std::list<List_Studentas>& studentai, 
+                                   long long& trukmeSkaitymo, 
+                                   long long& trukmeVidurkio) {
     auto pradziaSkaitymo = std::chrono::high_resolution_clock::now();
 
-    ifstream failas(failoPavadinimas, std::ios::in | std::ios::binary);
+    std::ifstream failas(failoPavadinimas, std::ios::in | std::ios::binary);
     if (!failas) {
-        throw runtime_error("Failo " + failoPavadinimas + " nera.");
+        throw std::runtime_error("Failo " + failoPavadinimas + " nera.");
     }
 
-    string buffer;
+    std::string buffer;
     buffer.reserve(1048576); // Buferio dydis baitais
 
     // Praleidžia antraštę
@@ -39,14 +52,14 @@ void List_skaitytiDuomenisIsFailo(const string& failoPavadinimas, list<List_Stud
 
     while (getline(failas, buffer)) {
         if (buffer.length() < 52) { // Minimalaus ilgio patikrinimas
-            throw runtime_error("Netinkamas eilutes ilgis");
+            throw std::runtime_error("Netinkamas eilutes ilgis");
         }
 
         List_Studentas studentas;
         
         // Skaito vardą ir pavardę
-        studentas.vardas = buffer.substr(0, 16);
-        studentas.pavarde = buffer.substr(16, 32);
+        studentas.setVardas(buffer.substr(0, 16));
+        studentas.setPavarde(buffer.substr(16, 32));
 
         // Funkcija ištrinti whitespace iš string
         auto trim = [](std::string &str) {
@@ -60,11 +73,14 @@ void List_skaitytiDuomenisIsFailo(const string& failoPavadinimas, list<List_Stud
             }).base(), str.end());
         };
 
-        trim(studentas.pavarde);
+        std::string pavarde = studentas.getPavarde();
+        trim(pavarde);
+        studentas.setPavarde(pavarde);
 
         // Pažymiai prasideda nuo 52 simbolio
         size_t pozicija = 52;
         bool tinkamiPazymiai = true;
+        std::list<int> pazymiai;
         
         while (pozicija < buffer.length()) {
             // Praleidžia whitespace
@@ -92,7 +108,7 @@ void List_skaitytiDuomenisIsFailo(const string& failoPavadinimas, list<List_Stud
             }
 
             if (tinkamas) {
-                studentas.pazymiai.push_back(grade);
+                pazymiai.push_back(grade);
             } else {
                 tinkamiPazymiai = false;
                 break;
@@ -102,8 +118,18 @@ void List_skaitytiDuomenisIsFailo(const string& failoPavadinimas, list<List_Stud
             while (pozicija < buffer.length() && isspace(buffer[pozicija])) pozicija++;
         }
 
+        // Nustatome pažymius
+        studentas.setPazymiai(pazymiai);
+
         // Paskaičiuoja rezultatus
-        List_skaiciuotiIsFailo(studentas, tinkamiPazymiai, studentai);
+        if (tinkamiPazymiai && !pazymiai.empty()) {
+            studentas.skaiciuotiRezultatus();
+            studentai.push_back(studentas);
+        } else {
+            std::cout << "Klaida: truksta pazymiu studentui " 
+                      << studentas.getVardas() << " " 
+                      << studentas.getPavarde() << "\n";
+        }
     }
 
     auto pabaigaSkaitymo = std::chrono::high_resolution_clock::now();
@@ -112,34 +138,43 @@ void List_skaitytiDuomenisIsFailo(const string& failoPavadinimas, list<List_Stud
 }
 
 
-void List_skaitytiIrIsvestiDuomenis(const string& ivestiesFailoPavadinimas, const string& irasymoFailoPavadinimas, long long& trukmeSkaitymo, long long& trukmeVidurkio, long long& trukmeIrasymo) {
-    list<List_Studentas> studentai;
+void List_skaitytiIrIsvestiDuomenis(const std::string& ivestiesFailoPavadinimas, 
+                                    const std::string& irasymoFailoPavadinimas, 
+                                    long long& trukmeSkaitymo, 
+                                    long long& trukmeVidurkio, 
+                                    long long& trukmeIrasymo) {
+    std::list<List_Studentas> studentai;
     List_skaitytiDuomenisIsFailo(ivestiesFailoPavadinimas, studentai, trukmeSkaitymo, trukmeVidurkio);
 
     auto pradziaIrasimo = std::chrono::high_resolution_clock::now();
     
     // Naudoja stringstream buferiui
-    ostringstream buffer;
+    std::ostringstream buffer;
 
     // Įrašo antraštę į buferį
-    buffer << left << setw(16) << "Pavarde" 
-           << setw(16) << "Vardas" 
-           << setw(25) << "Galutinis Vidurkis" 
+    buffer << std::left << std::setw(16) << "Pavarde" 
+           << std::setw(16) << "Vardas" 
+           << std::setw(25) << "Galutinis Vidurkis" 
            << "Galutine Mediana\n";
-    buffer << string(70, '-') << "\n";
+    buffer << std::string(70, '-') << "\n";
+
+    // Sort students by surname
+    studentai.sort([](const List_Studentas& a, const List_Studentas& b) {
+        return a.getPavarde() < b.getPavarde();
+    });
 
     for (const auto& studentas : studentai) {
-        buffer << left << setw(16) << studentas.pavarde
-               << setw(16) << studentas.vardas
-               << setw(25) << fixed << setprecision(2) << studentas.galutinisVidurkis
-               << fixed << setprecision(2) << studentas.galutineMediana
+        buffer << std::left << std::setw(16) << studentas.getPavarde()
+               << std::setw(16) << studentas.getVardas()
+               << std::setw(25) << std::fixed << std::setprecision(2) << studentas.getGalutinisVidurkis()
+               << std::fixed << std::setprecision(2) << studentas.getGalutineMediana()
                << "\n";
     }
 
     // Atidaro failą įrašymui
-    ofstream irasymoFailas(irasymoFailoPavadinimas, std::ios::out | std::ios::binary);
+    std::ofstream irasymoFailas(irasymoFailoPavadinimas, std::ios::out | std::ios::binary);
     if (!irasymoFailas) {
-        throw runtime_error("Nepavyko atidaryti isvesties failo " + irasymoFailoPavadinimas);
+        throw std::runtime_error("Nepavyko atidaryti isvesties failo " + irasymoFailoPavadinimas);
     }
 
     // Įrašo visą buferį vienu metu
@@ -149,28 +184,32 @@ void List_skaitytiIrIsvestiDuomenis(const string& ivestiesFailoPavadinimas, cons
     auto pabaigaIrasimo = std::chrono::high_resolution_clock::now();
     trukmeIrasymo = std::chrono::duration_cast<std::chrono::milliseconds>(pabaigaIrasimo - pradziaIrasimo).count();
 }
-
-void List_padalintiRezultatuFaila(const string& ivestiesFailoPavadinimas, const string& islaikiusiuFailoPavadinimas, const string& neislaikiusiuFailoPavadinimas, long long& laikasSkaitymo, long long& rusiavimoLaikas, long long& laikasRasymo) {
+void List_padalintiRezultatuFaila(const std::string& ivestiesFailoPavadinimas, 
+                                   const std::string& islaikiusiuFailoPavadinimas, 
+                                   const std::string& neislaikiusiuFailoPavadinimas, 
+                                   long long& laikasSkaitymo, 
+                                   long long& rusiavimoLaikas, 
+                                   long long& laikasRasymo) {
     auto pradziaSkaitymo = std::chrono::high_resolution_clock::now();
     
     // Atidaro duomenis binariniu režimu
-    ifstream ivestiesFailas(ivestiesFailoPavadinimas, std::ios::in | std::ios::binary);
+    std::ifstream ivestiesFailas(ivestiesFailoPavadinimas, std::ios::in | std::ios::binary);
     if (!ivestiesFailas) {
-        throw runtime_error("Nepavyko atidaryti ivesties failo " + ivestiesFailoPavadinimas);
+        throw std::runtime_error("Nepavyko atidaryti ivesties failo " + ivestiesFailoPavadinimas);
     }
 
     // Perskaito duomenis į buferį
     ivestiesFailas.seekg(0, std::ios::end);
     size_t failoDydis = ivestiesFailas.tellg();
     ivestiesFailas.seekg(0, std::ios::beg);
-    string failoTurinys(failoDydis, '\0');
+    std::string failoTurinys(failoDydis, '\0');
     ivestiesFailas.read(&failoTurinys[0], failoDydis);
     ivestiesFailas.close();
 
-    ofstream islaikiusiuFailas(islaikiusiuFailoPavadinimas, std::ios::out | std::ios::binary);
-    ofstream neislaikiusiuFailas(neislaikiusiuFailoPavadinimas, std::ios::out | std::ios::binary);
+    std::ofstream islaikiusiuFailas(islaikiusiuFailoPavadinimas, std::ios::out | std::ios::binary);
+    std::ofstream neislaikiusiuFailas(neislaikiusiuFailoPavadinimas, std::ios::out | std::ios::binary);
     if (!islaikiusiuFailas || !neislaikiusiuFailas) {
-        throw runtime_error("Nepavyko atidaryti išvesties failų");
+        throw std::runtime_error("Nepavyko atidaryti išvesties failų");
     }
 
     size_t pos = 0;
@@ -185,38 +224,41 @@ void List_padalintiRezultatuFaila(const string& ivestiesFailoPavadinimas, const 
     pos = newline_pos + 1;
 
     // Naudojame list su List_Studentas struktūra
-    list<List_Studentas> studentai;
-    list<List_Studentas> vargsiukai;
+    std::list<List_Studentas> studentai;
+    std::list<List_Studentas> vargsiukai;
 
     while (pos < failoTurinys.size()) {
         newline_pos = failoTurinys.find('\n', pos);
-        string_view line(failoTurinys.data() + pos, newline_pos - pos);
+        std::string_view line(failoTurinys.data() + pos, newline_pos - pos);
         pos = newline_pos + 1;
 
         List_Studentas student;
         size_t word_start = line.find_first_not_of(" \t");
         size_t word_end = line.find(' ', word_start);
 
-        if (word_end != string_view::npos) {
-            student.pavarde = string(line.substr(word_start, word_end - word_start));
+        if (word_end != std::string_view::npos) {
+            student.setPavarde(std::string(line.substr(word_start, word_end - word_start)));
             word_start = line.find_first_not_of(" \t", word_end);
             word_end = line.find(' ', word_start);
 
-            if (word_end != string_view::npos) {
-                student.vardas = string(line.substr(word_start, word_end - word_start));
+            if (word_end != std::string_view::npos) {
+                student.setVardas(std::string(line.substr(word_start, word_end - word_start)));
                 word_start = line.find_first_not_of(" \t", word_end);
                 word_end = line.find(' ', word_start);
 
-                if (word_end != string_view::npos) {
-                    student.galutinisVidurkis = std::stof(string(line.substr(word_start, 
+                if (word_end != std::string_view::npos) {
+                    float galutinisVidurkis = std::stof(std::string(line.substr(word_start, 
                                                         word_end - word_start)));
                     word_start = line.find_first_not_of(" \t", word_end);
-                    student.galutineMediana = std::stof(string(line.substr(word_start)));
+                    float galutineMediana = std::stof(std::string(line.substr(word_start)));
                     
-                    if (student.galutinisVidurkis >= 5.0f) {
-                        studentai.emplace_back(std::move(student));
+                    student.setGalutinisVidurkis(galutinisVidurkis);
+                    student.setGalutineMediana(galutineMediana);
+                    
+                    if (galutinisVidurkis >= 5.0f) {
+                        studentai.push_back(student);
                     } else {
-                        vargsiukai.emplace_back(std::move(student));
+                        vargsiukai.push_back(student);
                     }
                 }
             }
@@ -225,45 +267,44 @@ void List_padalintiRezultatuFaila(const string& ivestiesFailoPavadinimas, const 
 
     auto pabaigaSkaitymo = std::chrono::high_resolution_clock::now();
     laikasSkaitymo = std::chrono::duration_cast<std::chrono::milliseconds>(pabaigaSkaitymo - pradziaSkaitymo).count();
-    cout << "Failo skaitymas uztruko " << laikasSkaitymo << " ms." << endl;
+    std::cout << "Failo skaitymas uztruko " << laikasSkaitymo << " ms." << std::endl;
 
     auto pradetiRusiavima = std::chrono::high_resolution_clock::now();
 
     // Rūšiuojame abu sąrašus
     studentai.sort([](const List_Studentas& a, const List_Studentas& b) {
-        return a.galutinisVidurkis > b.galutinisVidurkis;
+        return a.getGalutinisVidurkis() > b.getGalutinisVidurkis();
     });
     
     vargsiukai.sort([](const List_Studentas& a, const List_Studentas& b) {
-        return a.galutinisVidurkis > b.galutinisVidurkis;
+        return a.getGalutinisVidurkis() > b.getGalutinisVidurkis();
     });
 
     auto pabaigaRusiavimo = std::chrono::high_resolution_clock::now();
     rusiavimoLaikas = std::chrono::duration_cast<std::chrono::milliseconds>(pabaigaRusiavimo - pradetiRusiavima).count();
-    cout << "Rusiavimas uztruko " << rusiavimoLaikas << " ms." << endl;
+    std::cout << "Rusiavimas uztruko " << rusiavimoLaikas << " ms." << std::endl;
 
     auto pradetiRasyma = std::chrono::high_resolution_clock::now();
 
     // Rašome kietiakus (likusius studentai konteineryje)
     for (const auto& studentas : studentai) {
-        islaikiusiuFailas << left << setw(15) << studentas.pavarde << " " 
-                         << setw(15) << studentas.vardas << " " 
-                         << setw(24) << studentas.galutinisVidurkis << " " 
-                         << studentas.galutineMediana << "\n";
+        islaikiusiuFailas << std::left << std::setw(15) << studentas.getPavarde() << " " 
+                          << std::setw(15) << studentas.getVardas() << " " 
+                          << std::setw(24) << studentas.getGalutinisVidurkis() << " " 
+                          << studentas.getGalutineMediana() << "\n";
     }
 
     // Rašome vargšiukus
     for (const auto& studentas : vargsiukai) {
-        neislaikiusiuFailas << left << setw(15) << studentas.pavarde << " " 
-                           << setw(15) << studentas.vardas << " " 
-                           << setw(24) << studentas.galutinisVidurkis << " " 
-                           << studentas.galutineMediana << "\n";
+        neislaikiusiuFailas << std::left << std::setw(15) << studentas.getPavarde() << " " 
+                            << std::setw(15) << studentas.getVardas() << " " 
+                            << std::setw(24) << studentas.getGalutinisVidurkis() << " " 
+                            << studentas.getGalutineMediana() << "\n";
     }
 
     auto pabaigaRasymo = std::chrono::high_resolution_clock::now();
     laikasRasymo = std::chrono::duration_cast<std::chrono::milliseconds>(pabaigaRasymo - pradetiRasyma).count();
-    cout << "Rasymas uztruko " << laikasRasymo << " ms." << endl;
-
+    
     // Uždaryti failus
     islaikiusiuFailas.close();
     neislaikiusiuFailas.close();
