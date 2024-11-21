@@ -1,80 +1,89 @@
 #include "Vec_failo_apdorojimas.h"
 
-void skaiciuotiIsFailo(Studentas& studentas, bool tinkamiPazymiai, vector<Studentas>& studentai) {
-    if (tinkamiPazymiai && !studentas.pazymiai.empty()) {
-        studentas.egzaminoPazymys = studentas.pazymiai.back();
-        studentas.pazymiai.pop_back();
+void skaiciuotiIsFailo(Studentas& studentas, bool tinkamiPazymiai, std::vector<Studentas>& studentai) {
+    if (tinkamiPazymiai && !studentas.getPazymiai().empty()) {
+        // Extract and set the exam score
+        std::vector<int> pazymiai = studentas.getPazymiai();
+        int egzaminoPazymys = pazymiai.back();
+        pazymiai.pop_back();
 
-        studentas.vidurkis = skaiciuotiVidurki(studentas.pazymiai);
-        studentas.mediana = skaiciuotiMediana(studentas.pazymiai);
+        studentas.setEgzaminoPazymys(egzaminoPazymys);
+        studentas.setPazymiai(pazymiai);
 
-        const double egzaminoBalas = 0.6 * studentas.egzaminoPazymys;
-        const double vidurkioBalas = 0.4 * studentas.vidurkis;
-        const double medianosBalas = 0.4 * studentas.mediana;
+        // Calculate results
+        studentas.skaiciuotiRezultatus();
 
-        studentas.galutinisVidurkis = vidurkioBalas + egzaminoBalas;
-        studentas.galutineMediana = medianosBalas + egzaminoBalas;
-
-        studentai.push_back(move(studentas));
+        // Add the student to the vector
+        studentai.push_back(std::move(studentas));
     } else {
-        cout << "Klaida: truksta pazymiu studentui " << studentas.vardas << " " << studentas.pavarde << "\n";
+        std::cout << "Klaida: truksta pazymiu studentui " 
+                  << studentas.getVardas() << " " 
+                  << studentas.getPavarde() << "\n";
     }
 }
 
-void skaitytiDuomenisIsFailo(const string& failoPavadinimas, vector<Studentas>& studentai, long long& trukmeSkaitymo, long long& trukmeVidurkio) {
+void skaitytiDuomenisIsFailo(
+    const std::string& failoPavadinimas, 
+    std::vector<Studentas>& studentai, 
+    long long& trukmeSkaitymo, 
+    long long& trukmeVidurkio) 
+{
     auto pradziaSkaitymo = std::chrono::high_resolution_clock::now();
 
-    ifstream failas(failoPavadinimas, std::ios::in | std::ios::binary);
+    std::ifstream failas(failoPavadinimas, std::ios::in | std::ios::binary);
     if (!failas) {
-        throw runtime_error("Failo " + failoPavadinimas + " nera.");
+        throw std::runtime_error("Failo " + failoPavadinimas + " nera.");
     }
 
-    string buffer;
+    std::string buffer;
     buffer.reserve(1048576); // Buferio dydis baitais
 
     // Praleidžia antraštę
-    getline(failas, buffer);
+    std::getline(failas, buffer);
 
-    while (getline(failas, buffer)) {
+    while (std::getline(failas, buffer)) {
         if (buffer.length() < 52) { // Minimalaus ilgio patikrinimas
-            throw runtime_error("Netinkamas eilutes ilgis");
+            throw std::runtime_error("Netinkamas eilutes ilgis");
         }
 
         Studentas studentas;
-        
+
         // Skaito vardą ir pavardę
-        studentas.vardas = buffer.substr(0, 16);
-        studentas.pavarde = buffer.substr(16, 32);
+        std::string vardas = buffer.substr(0, 16);
+        std::string pavarde = buffer.substr(16, 32);
 
         // Funkcija ištrinti whitespace iš string
         auto trim = [](std::string &str) {
-            // Ištrinti pradžioję esantį whitespace
             str.erase(str.begin(), std::find_if(str.begin(), str.end(), [](unsigned char ch) {
                 return !std::isspace(ch);
             }));
-            // Ištrinti pabaigoje esantį whitespace
             str.erase(std::find_if(str.rbegin(), str.rend(), [](unsigned char ch) {
                 return !std::isspace(ch);
             }).base(), str.end());
         };
 
-        trim(studentas.pavarde);
+        trim(vardas);
+        trim(pavarde);
+
+        studentas.setVardas(vardas);
+        studentas.setPavarde(pavarde);
 
         // Pažymiai prasideda nuo 52 simbolio
         size_t pozicija = 52;
         bool tinkamiPazymiai = true;
+        std::vector<int> pazymiai;
         
         while (pozicija < buffer.length()) {
             // Praleidžia whitespace
-            while (pozicija < buffer.length() && isspace(buffer[pozicija])) pozicija++;
+            while (pozicija < buffer.length() && std::isspace(buffer[pozicija])) pozicija++;
             if (pozicija >= buffer.length()) break;
 
             int grade = 0;
             bool tinkamas = true;
-            
+
             // Patikrina ar skaičius
-            if (isdigit(buffer[pozicija])) {
-                while (pozicija < buffer.length() && isdigit(buffer[pozicija])) {
+            if (std::isdigit(buffer[pozicija])) {
+                while (pozicija < buffer.length() && std::isdigit(buffer[pozicija])) {
                     grade = grade * 10 + (buffer[pozicija] - '0');
                     pozicija++;
                 }
@@ -84,21 +93,22 @@ void skaitytiDuomenisIsFailo(const string& failoPavadinimas, vector<Studentas>& 
                     tinkamas = false;
                 }
             } else {
-                // Jeigu ne skaičius:
                 tinkamas = false; // Netinkamas
                 pozicija++; // Eina į kitą poziciją
             }
 
             if (tinkamas) {
-                studentas.pazymiai.push_back(grade);
+                pazymiai.push_back(grade);
             } else {
                 tinkamiPazymiai = false;
                 break;
             }
-            
+
             // Praleidžia whitespace
-            while (pozicija < buffer.length() && isspace(buffer[pozicija])) pozicija++;
+            while (pozicija < buffer.length() && std::isspace(buffer[pozicija])) pozicija++;
         }
+
+        studentas.setPazymiai(pazymiai);
 
         // Paskaičiuoja rezultatus
         skaiciuotiIsFailo(studentas, tinkamiPazymiai, studentai);
@@ -108,6 +118,7 @@ void skaitytiDuomenisIsFailo(const string& failoPavadinimas, vector<Studentas>& 
     trukmeSkaitymo = std::chrono::duration_cast<std::chrono::milliseconds>(pabaigaSkaitymo - pradziaSkaitymo).count();
     trukmeVidurkio = 0;
 }
+
 
 void skaitytiIrIsvestiDuomenis(const string& ivestiesFailoPavadinimas, const string& irasymoFailoPavadinimas, long long& trukmeSkaitymo, long long& trukmeVidurkio, long long& trukmeIrasymo) {
     vector<Studentas> studentai;

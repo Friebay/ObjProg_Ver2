@@ -58,38 +58,33 @@ void rusiuotiPagalVidurkiMazejanciai(vector<Studentas>& studentai) {
     });
 }
 
-// Įveda studento duomenis
 void ivestiStudentoDuomenis(Studentas& studentas) {
-    cout << "Vardas: ";
-    cin >> studentas.vardas;
+    std::string vardas, pavarde;
+    std::vector<int> pazymiai;
+    int egzaminoPazymys;
 
-    cout << "Pavarde: ";
-    cin >> studentas.pavarde;
+    std::cout << "Vardas: ";
+    std::cin >> vardas;
 
-    cout << "Iveskite pazymius (iveskite -1, kad baigtumete):\n";
+    std::cout << "Pavarde: ";
+    std::cin >> pavarde;
+
+    std::cout << "Iveskite pazymius (iveskite -1, kad baigtumete):\n";
     while (true) {
         int pazymys = gautiPazymi("Pazymys (arba -1, kad baigtumete): ");
         if (pazymys == -1) break;
-        studentas.pazymiai.push_back(pazymys);
+        pazymiai.push_back(pazymys);
     }
 
-    studentas.egzaminoPazymys = gautiPazymi("Egzamino pazymys: ");
-    if (studentas.egzaminoPazymys == -1){
-        studentas.egzaminoPazymys = 0;
-    }
+    egzaminoPazymys = gautiPazymi("Egzamino pazymys: ");
+    if (egzaminoPazymys == -1) egzaminoPazymys = 0;
 
-    // Skaičiuoja vidurkį ir medianą, jei yra pažymių
-    if (!studentas.pazymiai.empty()) {
-        studentas.vidurkis = skaiciuotiVidurki(studentas.pazymiai);
-        studentas.mediana = skaiciuotiMediana(studentas.pazymiai);
-    }
+    studentas.setVardas(vardas);
+    studentas.setPavarde(pavarde);
+    studentas.setPazymiai(pazymiai);
+    studentas.setEgzaminoPazymys(egzaminoPazymys);
 
-    const double egzaminoBalas = 0.6 * studentas.egzaminoPazymys;
-    const double vidurkioBalas = 0.4 * studentas.vidurkis;
-    const double medianosBalas = 0.4 * studentas.mediana;
-
-    studentas.galutinisVidurkis = vidurkioBalas + egzaminoBalas;
-    studentas.galutineMediana = medianosBalas + egzaminoBalas;
+    studentas.skaiciuotiRezultatus();
 }
 
 // Skaičiuoja pažymių medianą
