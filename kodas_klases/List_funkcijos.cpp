@@ -3,61 +3,50 @@
 #include "List_generuoti_failus.h"
 #include "Vec_funkcijos_papildomos.h"
 
-
-// Įveda studento duomenis
 void List_ivestiStudentoDuomenis(List_Studentas& studentas) {
     cout << "Vardas: ";
-    cin >> studentas.vardas;
-
+    cin >> studentas.getVardas();
     cout << "Pavarde: ";
-    cin >> studentas.pavarde;
-
+    cin >> studentas.getPavarde();
+   
+    // Clear existing pazymiai
+    studentas.setPazymiai(std::list<int>());
+   
     cout << "Iveskite pazymius (iveskite -1, kad baigtumete):\n";
     while (true) {
         int pazymys = gautiPazymi("Pazymys (arba -1, kad baigtumete): ");
         if (pazymys == -1) break;
-        studentas.pazymiai.push_back(pazymys);
+        studentas.pridetiPazymi(pazymys);
     }
-
-    studentas.egzaminoPazymys = gautiPazymi("Egzamino pazymys: ");
-    if (studentas.egzaminoPazymys == -1){
-        studentas.egzaminoPazymys = 0;
-    }
-
-    // Skaičiuoja vidurkį ir medianą, jei yra pažymių
-    if (!studentas.pazymiai.empty()) {
-        studentas.vidurkis = List_skaiciuotiVidurki(studentas.pazymiai);
-        studentas.mediana = List_skaiciuotiMediana(studentas.pazymiai);
-    }
-
-    const double egzaminoBalas = 0.6 * studentas.egzaminoPazymys;
-    const double vidurkioBalas = 0.4 * studentas.vidurkis;
-    const double medianosBalas = 0.4 * studentas.mediana;
-
-    studentas.galutinisVidurkis = vidurkioBalas + egzaminoBalas;
-    studentas.galutineMediana = medianosBalas + egzaminoBalas;
+   
+    int egzaminoPazymys = gautiPazymi("Egzamino pazymys: ");
+    studentas.setEgzaminoPazymys(egzaminoPazymys == -1 ? 0 : egzaminoPazymys);
+   
+    // Calculate results
+    studentas.skaiciuotiRezultatus();
 }
 
-float List_skaiciuotiVidurki(list<int>& pazymiai) {
+float List_skaiciuotiVidurki(std::list<int>& pazymiai) {
     if (pazymiai.empty()) {
         return 0.0f;
     }
-    return accumulate(pazymiai.begin(), pazymiai.end(), 0.0f) / pazymiai.size();
+    return std::accumulate(pazymiai.begin(), pazymiai.end(), 0.0f) / pazymiai.size();
 }
 
-float List_skaiciuotiMediana(list<int>& pazymiai) {
+float List_skaiciuotiMediana(std::list<int>& pazymiai) {
     if (pazymiai.empty()) return 0.0f;
-
-    // Rušiuoja sąrašą
-    pazymiai.sort();
-
-    size_t n = pazymiai.size();
-    auto it = pazymiai.begin();
     
-    // Eina į vidurį
+    // Create a copy to sort
+    std::list<int> sortedPazymiai = pazymiai;
+    sortedPazymiai.sort();
+    
+    size_t n = sortedPazymiai.size();
+    auto it = sortedPazymiai.begin();
+   
+    // Go to middle
     std::advance(it, n / 2);
-
-    // Jeigu dydis lyginis, tai reikia dviejų vidurinių elementų
+    
+    // If even size, take average of two middle elements
     if (n % 2 == 0) {
         auto it_prev = it;
         --it_prev;
@@ -66,7 +55,6 @@ float List_skaiciuotiMediana(list<int>& pazymiai) {
         return *it;
     }
 }
-
 
 // Rūšiuoja studentus pagal pavardę, o jei pavardės vienodos - pagal vardą
 void rusiuotiStudentusPagalPavarde(list<List_Studentas>& studentai) {
@@ -200,7 +188,7 @@ void List_vykdytiVisusZingsnius() {
 
 // Pagrindinė sąrašo (list) programos funkcija
 void List_programa() {
-    list<List_Studentas> studentai;
+    
     int pasirinkimas;
     int failoPasirinkimas;
     int studentuKiekis;
@@ -231,6 +219,7 @@ void List_programa() {
         }
     }
 
+    list<List_Studentas> studentai;
     try {
         long long trukmeSkaitymo, trukmeVidurkio, trukmeIrasymo;
         switch (pasirinkimas) {
