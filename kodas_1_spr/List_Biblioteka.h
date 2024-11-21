@@ -1,0 +1,54 @@
+#ifndef LIST_BIBLIOTEKA_H_INCLUDED
+#define LIST_BIBLIOTEKA_H_INCLUDED
+
+#include <iostream>
+#include <iomanip>
+#include <vector>
+#include <cstdlib>
+#include <ctime>
+#include <string>
+#include <fstream>
+#include <sstream>
+#include <stdexcept>
+#include <limits>
+#include <algorithm>
+#include <chrono>
+#include <numeric>
+#include <random>
+#include <cstring>
+#include <cctype>
+#include <locale>
+#include <list>
+
+using std::endl;
+using std::cout;
+using std::cin;
+using std::string;
+using std::vector;
+using std::left;
+using std::setw;
+using std::fixed;
+using std::setprecision;
+using std::ifstream;
+using std::istringstream;
+using std::runtime_error;
+using std::invalid_argument;
+using std::numeric_limits;
+using std::streamsize;
+using std::max;
+using std::out_of_range;
+using std::exception;
+using std::sort;
+using std::to_string;
+using std::ofstream;
+using std::getline;
+using std::isdigit;
+using std::move;
+using std::stof;
+using std::isspace;
+using std::ostringstream;
+using std::right;
+using std::ios;
+using std::list;
+
+#endif
