@@ -33,7 +33,11 @@ public:
     void setVardas(const std::string& vardas);
     void setPavarde(const std::string& pavarde);
     void setPazymiai(const std::vector<int>& pazymiai);
+    void setVidurkis(float vidurkis);
+    void setMediana(float mediana);
     void setEgzaminoPazymys(int egzaminoPazymys);
+    void setGalutinisVidurkis(int galutinisVidurkis);
+    void setGalutineMediana(int galutineMediana);
 
     // Methods
     void skaiciuotiRezultatus();
@@ -44,8 +48,8 @@ public:
 void Vec_programa();
 Studentas generuotiAtsitiktiniStudenta();
 int gautiPazymi(const std::string& klausimas);
-float skaiciuotiMediana(std::vector<int>& pazymiai);
-float skaiciuotiVidurki(std::vector<int>& pazymiai);
+float skaiciuotiVidurki(const vector<int>& vidurkis);
+float skaiciuotiMediana(const vector<int>& mediana);
 void rusiuotiStudentus(std::vector<Studentas>& studentai);
 int generuotiSkaiciu(int min, int max);
 std::string generuotiVardaPavarde();

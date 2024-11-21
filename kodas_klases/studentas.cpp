@@ -27,4 +27,8 @@ float Studentas::getGalutineMediana() const { return galutineMediana; }
 void Studentas::setVardas(const std::string& vardas) { this->vardas = vardas; }
 void Studentas::setPavarde(const std::string& pavarde) { this->pavarde = pavarde; }
 void Studentas::setPazymiai(const std::vector<int>& pazymiai) { this->pazymiai = pazymiai; }
+void Studentas::setVidurkis(float vidurkis) { this->vidurkis = vidurkis; }
+void Studentas::setMediana(float mediana) { this->mediana = mediana; }
 void Studentas::setEgzaminoPazymys(int egzaminoPazymys) { this->egzaminoPazymys = egzaminoPazymys; }
+void Studentas::setGalutinisVidurkis(int egzaminoPazymys) { this->egzaminoPazymys = egzaminoPazymys; }
+void Studentas::setGalutineMediana(int egzaminoPazymys) { this->egzaminoPazymys = egzaminoPazymys; }
