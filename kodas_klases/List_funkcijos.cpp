@@ -64,7 +64,7 @@ float List_skaiciuotiMediana(std::list<int>& pazymiai) {
 }
 
 // Rūšiuoja studentus pagal pavardę, o jei pavardės vienodos - pagal vardą
-void rusiuotiStudentus(std::list<List_Studentas>& studentai) {
+void List_rusiuotiStudentus(std::list<List_Studentas>& studentai) {
     studentai.sort([](const List_Studentas& a, const List_Studentas& b) {
         if (a.getPavarde() == b.getPavarde()) {
             return a.getVardas() < b.getVardas();
@@ -74,7 +74,7 @@ void rusiuotiStudentus(std::list<List_Studentas>& studentai) {
 }
 
 // Rūšiuoja studentus pagal vardą, o jei vardai vienodi - pagal pavardę
-void rusiuotiStudentusPagalVarda(std::list<List_Studentas>& studentai) {
+void List_rusiuotiStudentusPagalVarda(std::list<List_Studentas>& studentai) {
     studentai.sort([](const List_Studentas& a, const List_Studentas& b) {
         if (a.getVardas() == b.getVardas()) {
             return a.getPavarde() < b.getPavarde();
@@ -84,7 +84,7 @@ void rusiuotiStudentusPagalVarda(std::list<List_Studentas>& studentai) {
 }
 
 // Rūšiuoja studentus pagal pavardę, o jei pavardęs vienodos - pagal vardą
-void rusiuotiStudentusPagalPavarde(std::list<List_Studentas>& studentai) {
+void List_rusiuotiStudentusPagalPavarde(std::list<List_Studentas>& studentai) {
     studentai.sort([](const List_Studentas& a, const List_Studentas& b) {
         if (a.getPavarde() == b.getPavarde()) {
             return a.getVardas() < b.getVardas();
@@ -121,26 +121,8 @@ List_Studentas List_generuotiAtsitiktiniStudenta() {
     return studentas;
 }
 
-void List_Studentas::List_skaiciuotiRezultatus() {
-    // Apskaičiuojami vidurkis ir mediana
-    // Assuming you have implementation for these methods
-    float vidurkis = List_skaiciuotiVidurki(pazymiai);
-    float mediana = List_skaiciuotiMediana(pazymiai);
-    
-    setVidurkis(vidurkis);
-    setMediana(mediana);
-
-    // Apskaičiuojami galutiniai įvertinimai, naudojami constant multipliers
-    const float egzaminoBalas = 0.6 * egzaminoPazymys;
-    const float vidurkioBalas = 0.4 * vidurkis;
-    const float medianosBalas = 0.4 * mediana;
-
-    setGalutinisVidurkis(vidurkioBalas + egzaminoBalas);
-    setGalutineMediana(medianosBalas + egzaminoBalas);
-}
-
 void List_vykdytiVisusZingsnius() {
-    vector<int> studentuKiekiai = {1000, 10000, 100000, 1000000, 1000000};
+    vector<int> studentuKiekiai = {1000000, 10000000};
     
     // Atidaryti CSV failą rašymui
     ofstream csvFile("performance_data.csv", std::ios::app);
@@ -434,14 +416,14 @@ void List_programa() {
 
         // Rūšiuoja studentus
         if (pasirinkimas == 1){
-            rusiuotiStudentusPagalVarda(studentai);
+            List_rusiuotiStudentusPagalVarda(studentai);
         }
         else if (pasirinkimas == 2) {
-            rusiuotiStudentusPagalPavarde(studentai);
+            List_rusiuotiStudentusPagalPavarde(studentai);
         }
         else {
             cout << "Blogas pasirinkimas, rusiuojama pagal varda.\n";
-            rusiuotiStudentusPagalVarda(studentai);
+            List_rusiuotiStudentusPagalVarda(studentai);
         }
 
         // Spausdina rezultatus
@@ -458,18 +440,6 @@ void List_programa() {
                     << std::setw(16) << studentas.getVardas() 
                     << std::setw(25) << studentas.getGalutinisVidurkis() 
                     << "   " << studentas.getGalutineMediana() << '\n';
-
-            // Print grades
-            std::cout << std::left << std::setw(16) << "" 
-                    << std::setw(16) << "" 
-                    << std::setw(25) << "Pažymiai: ";
-
-            // Print the list of grades
-            std::list<int> pazymiai = studentas.getPazymiai();
-            for (const int& pazymys : pazymiai) {
-                std::cout << pazymys << " ";
-            }
-            std::cout << '\n'; // New line after grades
         }
         
     } catch (const exception& e) {

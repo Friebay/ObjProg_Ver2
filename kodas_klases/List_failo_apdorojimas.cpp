@@ -6,18 +6,16 @@ void List_skaiciuotiIsFailo(List_Studentas& studentas, bool tinkamiPazymiai, std
     if (tinkamiPazymiai && !studentas.getPazymiai().empty()) {
         std::list<int> pazymiai = studentas.getPazymiai();
         
-        // Set egzamino pažymys as the last grade
+        // Paskutinis pažymys - egzaminas
         studentas.setEgzaminoPazymys(pazymiai.back());
         pazymiai.pop_back();
         
-        // Calculate average and median
         float vidurkis = List_skaiciuotiVidurki(pazymiai);
         float mediana = List_skaiciuotiMediana(pazymiai);
         
         studentas.setVidurkis(vidurkis);
         studentas.setMediana(mediana);
 
-        // Calculate final grades
         const float egzaminoBalas = 0.6 * studentas.getEgzaminoPazymys();
         const float vidurkioBalas = 0.4 * vidurkis;
         const float medianosBalas = 0.4 * mediana;
@@ -25,7 +23,6 @@ void List_skaiciuotiIsFailo(List_Studentas& studentas, bool tinkamiPazymiai, std
         studentas.setGalutinisVidurkis(vidurkioBalas + egzaminoBalas);
         studentas.setGalutineMediana(medianosBalas + egzaminoBalas);
 
-        // Add student to the list
         studentai.push_back(studentas);
     } else {
         std::cout << "Klaida: truksta pazymiu studentui " 
@@ -33,6 +30,7 @@ void List_skaiciuotiIsFailo(List_Studentas& studentas, bool tinkamiPazymiai, std
                   << studentas.getPavarde() << "\n";
     }
 }
+
 void List_skaitytiDuomenisIsFailo(const std::string& failoPavadinimas, 
                                    std::list<List_Studentas>& studentai, 
                                    long long& trukmeSkaitymo, 
@@ -73,8 +71,11 @@ void List_skaitytiDuomenisIsFailo(const std::string& failoPavadinimas,
             }).base(), str.end());
         };
 
+        std::string vardas = studentas.getVardas();
+        trim(vardas);
         std::string pavarde = studentas.getPavarde();
         trim(pavarde);
+        studentas.setVardas(vardas);
         studentas.setPavarde(pavarde);
 
         // Pažymiai prasideda nuo 52 simbolio
@@ -121,15 +122,7 @@ void List_skaitytiDuomenisIsFailo(const std::string& failoPavadinimas,
         // Nustatome pažymius
         studentas.List_setPazymiai(pazymiai);
 
-        // Paskaičiuoja rezultatus
-        if (tinkamiPazymiai && !pazymiai.empty()) {
-            studentas.List_skaiciuotiRezultatus();
-            studentai.push_back(studentas);
-        } else {
-            std::cout << "Klaida: truksta pazymiu studentui " 
-                      << studentas.getVardas() << " " 
-                      << studentas.getPavarde() << "\n";
-        }
+        List_skaiciuotiIsFailo(studentas, tinkamiPazymiai, studentai);
     }
 
     auto pabaigaSkaitymo = std::chrono::high_resolution_clock::now();

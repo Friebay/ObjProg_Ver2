@@ -259,3 +259,16 @@ Projektui sukompiliuoti naudojami šie .cmd failai:
 
 ##### 3 sprendimas
 ![3sprendimas.png](https://github.com/Friebay/ObjProg_Ver1/blob/v1.0/greicio_duomenys/3sprendimas.png?raw=true)
+
+# v1.1 versija
+## CMake, O1 optimizavimas
+
+if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+    # MSVC (Visual Studio) specific flags for O1 optimization
+    set(CMAKE_CXX_FLAGS_RELEASE "/O1 /DNDEBUG")
+else()
+    # GCC/Clang specific flags for O1 optimization
+    set(CMAKE_CXX_FLAGS_RELEASE "-O1 -march=native -mtune=native -DNDEBUG")
+endif()
+
+Failo dydis diske: 417 792 bytes

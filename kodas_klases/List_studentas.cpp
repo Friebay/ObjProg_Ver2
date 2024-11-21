@@ -35,18 +35,23 @@ void List_Studentas::setEgzaminoPazymys(int egzaminoPazymys) { this->egzaminoPaz
 void List_Studentas::setGalutinisVidurkis(float galutinisVidurkis) { this->galutinisVidurkis = galutinisVidurkis; }
 void List_Studentas::setGalutineMediana(float galutineMediana) { this->galutineMediana = galutineMediana; }
 
-void List_Studentas::List_skaiciuotiRezultatus() {
-    if (!pazymiai.empty()) {
-        // Use List_ functions for calculations
-        vidurkis = List_skaiciuotiVidurki(pazymiai);
-        mediana = List_skaiciuotiMediana(pazymiai);
-       
-        // Calculate final grades
-        galutinisVidurkis = 0.4 * vidurkis + 0.6 * egzaminoPazymys;
-        galutineMediana = 0.4 * mediana + 0.6 * egzaminoPazymys;
-    }
-}
-
 void List_Studentas::pridetiPazymi(int pazymys) {
     pazymiai.push_back(pazymys);
+}
+
+void List_Studentas::List_skaiciuotiRezultatus() {
+    // Apskaičiuojami vidurkį ir mediana
+    float vidurkis = List_skaiciuotiVidurki(pazymiai);
+    float mediana = List_skaiciuotiMediana(pazymiai);
+    
+    setVidurkis(vidurkis);
+    setMediana(mediana);
+
+    // Apskaičiuojami galutiniai įvertinimai
+    const float egzaminoBalas = 0.6 * egzaminoPazymys;
+    const float vidurkioBalas = 0.4 * vidurkis;
+    const float medianosBalas = 0.4 * mediana;
+
+    setGalutinisVidurkis(vidurkioBalas + egzaminoBalas);
+    setGalutineMediana(medianosBalas + egzaminoBalas);
 }

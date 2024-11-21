@@ -46,10 +46,11 @@ public:
 
 // Function declarations
 void List_programa();
-void rusiuotiStudentus(std::list<List_Studentas>& studentai);
 float List_skaiciuotiVidurki(std::list<int>& pazymiai);
 float List_skaiciuotiMediana(std::list<int>& pazymiai);
 void List_ivestiStudentoDuomenis(List_Studentas& studentas);
 List_Studentas List_generuotiAtsitiktiniStudenta();
-void rusiuotiStudentus(std::list<List_Studentas>& studentai);
+void List_rusiuotiStudentus(std::list<List_Studentas>& studentai);
+
+
 #endif // LIST_FUNKCIJOS_H
