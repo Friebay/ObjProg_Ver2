@@ -119,11 +119,11 @@ void List_skaitytiDuomenisIsFailo(const std::string& failoPavadinimas,
         }
 
         // Nustatome pažymius
-        studentas.setPazymiai(pazymiai);
+        studentas.List_setPazymiai(pazymiai);
 
         // Paskaičiuoja rezultatus
         if (tinkamiPazymiai && !pazymiai.empty()) {
-            studentas.skaiciuotiRezultatus();
+            studentas.List_skaiciuotiRezultatus();
             studentai.push_back(studentas);
         } else {
             std::cout << "Klaida: truksta pazymiu studentui " 

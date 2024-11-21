@@ -10,7 +10,7 @@ List_Studentas::List_Studentas(const std::string& vardas, const std::string& pav
                                 const std::list<int>& pazymiai, int egzaminoPazymys)
     : vardas(vardas), pavarde(pavarde), pazymiai(pazymiai), 
       egzaminoPazymys(egzaminoPazymys) {
-    skaiciuotiRezultatus();
+    List_skaiciuotiRezultatus();
 }
 
 List_Studentas::~List_Studentas() {}
@@ -28,14 +28,14 @@ float List_Studentas::getGalutineMediana() const { return galutineMediana; }
 // Setters
 void List_Studentas::setVardas(const std::string& vardas) { this->vardas = vardas; }
 void List_Studentas::setPavarde(const std::string& pavarde) { this->pavarde = pavarde; }
-void List_Studentas::setPazymiai(const std::list<int>& pazymiai) { this->pazymiai = pazymiai; }
+void List_Studentas::List_setPazymiai(const std::list<int>& pazymiai) { this->pazymiai = pazymiai; }
 void List_Studentas::setVidurkis(float vidurkis) { this->vidurkis = vidurkis; }
 void List_Studentas::setMediana(float mediana) { this->mediana = mediana; }
 void List_Studentas::setEgzaminoPazymys(int egzaminoPazymys) { this->egzaminoPazymys = egzaminoPazymys; }
 void List_Studentas::setGalutinisVidurkis(float galutinisVidurkis) { this->galutinisVidurkis = galutinisVidurkis; }
 void List_Studentas::setGalutineMediana(float galutineMediana) { this->galutineMediana = galutineMediana; }
 
-void List_Studentas::skaiciuotiRezultatus() {
+void List_Studentas::List_skaiciuotiRezultatus() {
     if (!pazymiai.empty()) {
         // Use List_ functions for calculations
         vidurkis = List_skaiciuotiVidurki(pazymiai);

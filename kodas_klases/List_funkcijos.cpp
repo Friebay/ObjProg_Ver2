@@ -4,27 +4,34 @@
 #include "Vec_funkcijos_papildomos.h"
 
 void List_ivestiStudentoDuomenis(List_Studentas& studentas) {
-    cout << "Vardas: ";
-    cin >> studentas.getVardas();
-    cout << "Pavarde: ";
-    cin >> studentas.getPavarde();
-   
-    // Clear existing pazymiai
-    studentas.setPazymiai(std::list<int>());
-   
-    cout << "Iveskite pazymius (iveskite -1, kad baigtumete):\n";
+    std::string vardas, pavarde;
+    std::list<int> pazymiai;
+    int egzaminoPazymys;
+
+    std::cout << "Vardas: ";
+    std::cin >> vardas;
+
+    std::cout << "Pavarde: ";
+    std::cin >> pavarde;
+
+    std::cout << "Iveskite pazymius (iveskite -1, kad baigtumete):\n";
     while (true) {
         int pazymys = gautiPazymi("Pazymys (arba -1, kad baigtumete): ");
         if (pazymys == -1) break;
-        studentas.pridetiPazymi(pazymys);
+        pazymiai.push_back(pazymys);
     }
-   
-    int egzaminoPazymys = gautiPazymi("Egzamino pazymys: ");
-    studentas.setEgzaminoPazymys(egzaminoPazymys == -1 ? 0 : egzaminoPazymys);
-   
-    // Calculate results
-    studentas.skaiciuotiRezultatus();
+
+    egzaminoPazymys = gautiPazymi("Egzamino pazymys: ");
+    if (egzaminoPazymys == -1) egzaminoPazymys = 0;
+
+    studentas.setVardas(vardas);
+    studentas.setPavarde(pavarde);
+    studentas.List_setPazymiai(pazymiai);
+    studentas.setEgzaminoPazymys(egzaminoPazymys);
+
+    studentas.List_skaiciuotiRezultatus();
 }
+
 
 float List_skaiciuotiVidurki(std::list<int>& pazymiai) {
     if (pazymiai.empty()) {
@@ -102,19 +109,19 @@ List_Studentas List_generuotiAtsitiktiniStudenta() {
     for (int i = 0; i < pazymiuKiekis; i++) {
         pazymiai.push_back(generuotiSkaiciu(0, 10));
     }
-    studentas.setPazymiai(pazymiai);
+    studentas.List_setPazymiai(pazymiai);
 
     // Generuojamas egzamino pažymys
     int egzaminoPazymys = generuotiSkaiciu(0, 10);
     studentas.setEgzaminoPazymys(egzaminoPazymys);
 
     // Use the class method to calculate results
-    studentas.skaiciuotiRezultatus();
+    studentas.List_skaiciuotiRezultatus();
 
     return studentas;
 }
 
-void List_Studentas::skaiciuotiRezultatus() {
+void List_Studentas::List_skaiciuotiRezultatus() {
     // Apskaičiuojami vidurkis ir mediana
     // Assuming you have implementation for these methods
     float vidurkis = List_skaiciuotiVidurki(pazymiai);

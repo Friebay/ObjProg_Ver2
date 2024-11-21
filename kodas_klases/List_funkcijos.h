@@ -32,7 +32,7 @@ public:
     // Setters
     void setVardas(const std::string& vardas);
     void setPavarde(const std::string& pavarde);
-    void setPazymiai(const std::list<int>& pazymiai);
+    void List_setPazymiai(const std::list<int>& pazymiai);
     void setEgzaminoPazymys(int egzaminoPazymys);
     void setVidurkis(float vidurkis);
     void setMediana(float mediana);
@@ -41,12 +41,12 @@ public:
 
     // Additional methods
     void pridetiPazymi(int pazymys);
-    void skaiciuotiRezultatus();
+    void List_skaiciuotiRezultatus();
 };
 
 // Function declarations
 void List_programa();
-void rusiuotiStudentus(std::list<Studentas>& studentai);
+void rusiuotiStudentus(std::list<List_Studentas>& studentai);
 float List_skaiciuotiVidurki(std::list<int>& pazymiai);
 float List_skaiciuotiMediana(std::list<int>& pazymiai);
 void List_ivestiStudentoDuomenis(List_Studentas& studentas);
