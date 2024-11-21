@@ -36,8 +36,8 @@ public:
     void setVidurkis(float vidurkis);
     void setMediana(float mediana);
     void setEgzaminoPazymys(int egzaminoPazymys);
-    void setGalutinisVidurkis(int galutinisVidurkis);
-    void setGalutineMediana(int galutineMediana);
+    void setGalutinisVidurkis(float galutinisVidurkis);
+    void setGalutineMediana(float galutineMediana);
 
     // Methods
     void skaiciuotiRezultatus();

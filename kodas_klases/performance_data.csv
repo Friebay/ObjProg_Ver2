@@ -1,1 +1,6 @@
 Testavimo Laikas;Studentu Kiekis;Studentu generavimo laikas;Sugeneruotu duomenu skaitymo laikas;Rezultatu irasymo laikas;Rezultatu skaitymo laikas;Rezultatu skaidymo laikas;Skaidymo irasymas;Bendras Laikas;;;Darbas su vektoriu;;;;;;;2024-11-21 14:04:53;1000;3;13;5;12;0;3;362024-11-21 14:09:54;1000;4;15;3;13;0;6;41
+2024-11-21 18:41:25;1000;3;14;3;20;0;3;43
+2024-11-21 18:41:25;10000;22;42;26;121;3;28;242
+2024-11-21 18:41:26;100000;207;267;199;819;36;205;1733
+2024-11-21 18:41:27;1000000;1619;2581;1980;8119;448;2023;16770
+2024-11-21 18:41:44;1000000;1564;2555;2000;8193;451;2050;16813

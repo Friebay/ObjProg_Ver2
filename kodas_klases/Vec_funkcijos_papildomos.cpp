@@ -90,28 +90,29 @@ void ivestiStudentoDuomenis(Studentas& studentas) {
 }
 
 // Skaičiuoja pažymių medianą
-float skaiciuotiMediana(vector<int>& pazymiai) {
+float skaiciuotiMediana(const std::vector<int>& pazymiai) {
     if (pazymiai.empty()) return 0;
-    
-    size_t n = pazymiai.size();
+   
+    std::vector<int> tempPazymiai = pazymiai;  // Create a copy to avoid modifying original
+    size_t n = tempPazymiai.size();
     size_t middle = n / 2;
-    
+   
     if (n % 2 == 0) {
-        nth_element(pazymiai.begin(), pazymiai.begin() + middle - 1, pazymiai.end());
-        nth_element(pazymiai.begin() + middle - 1, pazymiai.begin() + middle, pazymiai.end());
-        return (pazymiai[middle-1] + pazymiai[middle]) / 2.0f;
+        std::nth_element(tempPazymiai.begin(), tempPazymiai.begin() + middle - 1, tempPazymiai.end());
+        std::nth_element(tempPazymiai.begin() + middle - 1, tempPazymiai.begin() + middle, tempPazymiai.end());
+        return (tempPazymiai[middle-1] + tempPazymiai[middle]) / 2.0f;
     } else {
-        nth_element(pazymiai.begin(), pazymiai.begin() + middle, pazymiai.end());
-        return pazymiai[middle];
+        std::nth_element(tempPazymiai.begin(), tempPazymiai.begin() + middle, tempPazymiai.end());
+        return tempPazymiai[middle];
     }
 }
 
 // Skaičiuoja pažymių vidurkį
-float skaiciuotiVidurki(vector<int>& pazymiai) {
+float skaiciuotiVidurki(const std::vector<int>& pazymiai) {
     if (pazymiai.empty()) {
         return 0.0f;
     }
-    return accumulate(pazymiai.begin(), pazymiai.end(), 0.0f) / pazymiai.size();
+    return std::accumulate(pazymiai.begin(), pazymiai.end(), 0.0f) / pazymiai.size();
 }
 
 
