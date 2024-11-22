@@ -25,96 +25,94 @@ int gautiPazymi(const string& klausimas) {
 }
 
 // Rūšiuoja studentus pagal pavardę, o jei pavardės vienodos - pagal vardą
-void rusiuotiStudentusPagalPavarde(vector<Studentas>& studentai) {
-    sort(studentai.begin(), studentai.end(), [](const Studentas& a, const Studentas& b) {
-        if (a.pavarde == b.pavarde) {
-            return a.vardas < b.vardas; // Rušiuoja pagal vardą, jeigu pavardės vienodos
+void rusiuotiStudentusPagalPavarde(std::vector<Studentas>& studentai) {
+    std::sort(studentai.begin(), studentai.end(), [](const Studentas& a, const Studentas& b) {
+        if (a.getPavarde() == b.getPavarde()) {
+            return a.getVardas() < b.getVardas(); // Sort by `vardas` if `pavarde` is the same
         }
-        return a.pavarde < b.pavarde; // Rušiuoja pagal pavardę
+        return a.getPavarde() < b.getPavarde(); // Sort by `pavarde`
     });
 }
 
+
 // Rūšiuoja studentus pagal vardą, o jei vardai vienodos - pagal pavardę
-void rusiuotiStudentusPagalVarda(vector<Studentas>& studentai) {
-    sort(studentai.begin(), studentai.end(), [](const Studentas& a, const Studentas& b) {
-        if (a.vardas == b.vardas) {
-            return a.pavarde < b.pavarde; // Rušiuoja pagal pavardę, jeigu vardai vienodi
+void rusiuotiStudentusPagalVarda(std::vector<Studentas>& studentai) {
+    std::sort(studentai.begin(), studentai.end(), [](const Studentas& a, const Studentas& b) {
+        if (a.getVardas() == b.getVardas()) {
+            return a.getPavarde() < b.getPavarde(); // Sort by `pavarde` if `vardas` is the same
         }
-        return a.vardas < b.vardas; // Rušiuoja pagal vardą
+        return a.getVardas() < b.getVardas(); // Sort by `vardas`
     });
 }
 
 // Rūšiuoja studentus pagal galutinį vidurkį nuo mažiausio iki didžiausio
-void rusiuotiPagalVidurkiDidejanciai(vector<Studentas>& studentai) {
-    sort(studentai.begin(), studentai.end(), [](const Studentas& a, const Studentas& b) {
-        return a.galutinisVidurkis < b.galutinisVidurkis;
+void rusiuotiPagalVidurkiDidejanciai(std::vector<Studentas>& studentai) {
+    std::sort(studentai.begin(), studentai.end(), [](const Studentas& a, const Studentas& b) {
+        return a.getGalutinisVidurkis() < b.getGalutinisVidurkis();
     });
 }
+
 
 // Rūšiuoja studentus pagal galutinį vidurkį nuo didžiausio iki mažiausio
-void rusiuotiPagalVidurkiMazejanciai(vector<Studentas>& studentai) {
-    sort(studentai.begin(), studentai.end(), [](const Studentas& a, const Studentas& b) {
-        return a.galutinisVidurkis > b.galutinisVidurkis;
+void rusiuotiPagalVidurkiMazejanciai(std::vector<Studentas>& studentai) {
+    std::sort(studentai.begin(), studentai.end(), [](const Studentas& a, const Studentas& b) {
+        return a.getGalutinisVidurkis() > b.getGalutinisVidurkis();
     });
 }
 
-// Įveda studento duomenis
 void ivestiStudentoDuomenis(Studentas& studentas) {
-    cout << "Vardas: ";
-    cin >> studentas.vardas;
+    std::string vardas, pavarde;
+    std::vector<int> pazymiai;
+    int egzaminoPazymys;
 
-    cout << "Pavarde: ";
-    cin >> studentas.pavarde;
+    std::cout << "Vardas: ";
+    std::cin >> vardas;
 
-    cout << "Iveskite pazymius (iveskite -1, kad baigtumete):\n";
+    std::cout << "Pavarde: ";
+    std::cin >> pavarde;
+
+    std::cout << "Iveskite pazymius (iveskite -1, kad baigtumete):\n";
     while (true) {
         int pazymys = gautiPazymi("Pazymys (arba -1, kad baigtumete): ");
         if (pazymys == -1) break;
-        studentas.pazymiai.push_back(pazymys);
+        pazymiai.push_back(pazymys);
     }
 
-    studentas.egzaminoPazymys = gautiPazymi("Egzamino pazymys: ");
-    if (studentas.egzaminoPazymys == -1){
-        studentas.egzaminoPazymys = 0;
-    }
+    egzaminoPazymys = gautiPazymi("Egzamino pazymys: ");
+    if (egzaminoPazymys == -1) egzaminoPazymys = 0;
 
-    // Skaičiuoja vidurkį ir medianą, jei yra pažymių
-    if (!studentas.pazymiai.empty()) {
-        studentas.vidurkis = skaiciuotiVidurki(studentas.pazymiai);
-        studentas.mediana = skaiciuotiMediana(studentas.pazymiai);
-    }
+    studentas.setVardas(vardas);
+    studentas.setPavarde(pavarde);
+    studentas.setPazymiai(pazymiai);
+    studentas.setEgzaminoPazymys(egzaminoPazymys);
 
-    const double egzaminoBalas = 0.6 * studentas.egzaminoPazymys;
-    const double vidurkioBalas = 0.4 * studentas.vidurkis;
-    const double medianosBalas = 0.4 * studentas.mediana;
-
-    studentas.galutinisVidurkis = vidurkioBalas + egzaminoBalas;
-    studentas.galutineMediana = medianosBalas + egzaminoBalas;
+    studentas.skaiciuotiRezultatus();
 }
 
 // Skaičiuoja pažymių medianą
-float skaiciuotiMediana(vector<int>& pazymiai) {
+float skaiciuotiMediana(const std::vector<int>& pazymiai) {
     if (pazymiai.empty()) return 0;
-    
-    size_t n = pazymiai.size();
+   
+    std::vector<int> tempPazymiai = pazymiai;  // Create a copy to avoid modifying original
+    size_t n = tempPazymiai.size();
     size_t middle = n / 2;
-    
+   
     if (n % 2 == 0) {
-        nth_element(pazymiai.begin(), pazymiai.begin() + middle - 1, pazymiai.end());
-        nth_element(pazymiai.begin() + middle - 1, pazymiai.begin() + middle, pazymiai.end());
-        return (pazymiai[middle-1] + pazymiai[middle]) / 2.0f;
+        std::nth_element(tempPazymiai.begin(), tempPazymiai.begin() + middle - 1, tempPazymiai.end());
+        std::nth_element(tempPazymiai.begin() + middle - 1, tempPazymiai.begin() + middle, tempPazymiai.end());
+        return (tempPazymiai[middle-1] + tempPazymiai[middle]) / 2.0f;
     } else {
-        nth_element(pazymiai.begin(), pazymiai.begin() + middle, pazymiai.end());
-        return pazymiai[middle];
+        std::nth_element(tempPazymiai.begin(), tempPazymiai.begin() + middle, tempPazymiai.end());
+        return tempPazymiai[middle];
     }
 }
 
 // Skaičiuoja pažymių vidurkį
-float skaiciuotiVidurki(vector<int>& pazymiai) {
+float skaiciuotiVidurki(const std::vector<int>& pazymiai) {
     if (pazymiai.empty()) {
         return 0.0f;
     }
-    return accumulate(pazymiai.begin(), pazymiai.end(), 0.0f) / pazymiai.size();
+    return std::accumulate(pazymiai.begin(), pazymiai.end(), 0.0f) / pazymiai.size();
 }
 
 
@@ -142,33 +140,39 @@ string generuotiVardaPavarde() {
 
 Studentas generuotiAtsitiktiniStudenta() {
     Studentas studentas;
-    
-    // Generuojami atsitiktiniai vardas ir pavarde
-    studentas.vardas = generuotiVardaPavarde();
-    studentas.pavarde = generuotiVardaPavarde();
 
-    // Pre-allocate space for pazymiai to avoid reallocations
+    // Set atsitiktinis vardas ir pavarde
+    studentas.setVardas(generuotiVardaPavarde());
+    studentas.setPavarde(generuotiVardaPavarde());
+
+    // Pre-allocate space for pazymiai
     int pazymiuKiekis = generuotiSkaiciu(1, 20);
+    std::vector<int> pazymiai;
+    pazymiai.reserve(pazymiuKiekis);
 
     // Generuojami atsitiktiniai pažymiai
     for (int i = 0; i < pazymiuKiekis; i++) {
-        studentas.pazymiai.push_back(generuotiSkaiciu(0, 10));
+        pazymiai.push_back(generuotiSkaiciu(0, 10));
     }
+    studentas.setPazymiai(pazymiai); // Set pazymiai
 
     // Generuojamas egzamino pažymys
-    studentas.egzaminoPazymys = generuotiSkaiciu(0, 10);
+    int egzaminoPazymys = generuotiSkaiciu(0, 10);
+    studentas.setEgzaminoPazymys(egzaminoPazymys);
 
     // Apskaičiuojami vidurkis ir mediana
-    studentas.vidurkis = skaiciuotiVidurki(studentas.pazymiai);
-    studentas.mediana = skaiciuotiMediana(studentas.pazymiai);
+    float vidurkis = skaiciuotiVidurki(studentas.getPazymiai());
+    float mediana = skaiciuotiMediana(studentas.getPazymiai());
+    studentas.setVidurkis(vidurkis); // Set vidurkis
+    studentas.setMediana(mediana);  // Set mediana
 
-    // Apskaičiuojami galutiniai įvertinimai, naudojami constant multipliers
-    const double egzaminoBalas = 0.6 * studentas.egzaminoPazymys;
-    const double vidurkioBalas = 0.4 * studentas.vidurkis;
-    const double medianosBalas = 0.4 * studentas.mediana;
+    // Apskaičiuojami galutiniai įvertinimai
+    const double egzaminoBalas = 0.6 * egzaminoPazymys;
+    const double vidurkioBalas = 0.4 * vidurkis;
+    const double medianosBalas = 0.4 * mediana;
 
-    studentas.galutinisVidurkis = vidurkioBalas + egzaminoBalas;
-    studentas.galutineMediana = medianosBalas + egzaminoBalas;
+    studentas.setGalutinisVidurkis(vidurkioBalas + egzaminoBalas); // Set galutinis vidurkis
+    studentas.setGalutineMediana(medianosBalas + egzaminoBalas);   // Set galutine mediana
 
     return studentas;
 }
@@ -184,7 +188,7 @@ void generuotiAtsitiktiniusFailus() {
 
 
 void vykdytiVisusZingsnius() {
-    vector<int> studentuKiekiai = {1000, 10000, 100000, 1000000, 1000000};
+    vector<int> studentuKiekiai = {1000000, 10000000};
     
     // Atidaryti CSV failą rašymui
     ofstream csvFile("performance_data.csv", std::ios::app);

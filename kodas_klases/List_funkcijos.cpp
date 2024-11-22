@@ -3,61 +3,57 @@
 #include "List_generuoti_failus.h"
 #include "Vec_funkcijos_papildomos.h"
 
-
-// Įveda studento duomenis
 void List_ivestiStudentoDuomenis(List_Studentas& studentas) {
-    cout << "Vardas: ";
-    cin >> studentas.vardas;
+    std::string vardas, pavarde;
+    std::list<int> pazymiai;
+    int egzaminoPazymys;
 
-    cout << "Pavarde: ";
-    cin >> studentas.pavarde;
+    std::cout << "Vardas: ";
+    std::cin >> vardas;
 
-    cout << "Iveskite pazymius (iveskite -1, kad baigtumete):\n";
+    std::cout << "Pavarde: ";
+    std::cin >> pavarde;
+
+    std::cout << "Iveskite pazymius (iveskite -1, kad baigtumete):\n";
     while (true) {
         int pazymys = gautiPazymi("Pazymys (arba -1, kad baigtumete): ");
         if (pazymys == -1) break;
-        studentas.pazymiai.push_back(pazymys);
+        pazymiai.push_back(pazymys);
     }
 
-    studentas.egzaminoPazymys = gautiPazymi("Egzamino pazymys: ");
-    if (studentas.egzaminoPazymys == -1){
-        studentas.egzaminoPazymys = 0;
-    }
+    egzaminoPazymys = gautiPazymi("Egzamino pazymys: ");
+    if (egzaminoPazymys == -1) egzaminoPazymys = 0;
 
-    // Skaičiuoja vidurkį ir medianą, jei yra pažymių
-    if (!studentas.pazymiai.empty()) {
-        studentas.vidurkis = List_skaiciuotiVidurki(studentas.pazymiai);
-        studentas.mediana = List_skaiciuotiMediana(studentas.pazymiai);
-    }
+    studentas.setVardas(vardas);
+    studentas.setPavarde(pavarde);
+    studentas.List_setPazymiai(pazymiai);
+    studentas.setEgzaminoPazymys(egzaminoPazymys);
 
-    const double egzaminoBalas = 0.6 * studentas.egzaminoPazymys;
-    const double vidurkioBalas = 0.4 * studentas.vidurkis;
-    const double medianosBalas = 0.4 * studentas.mediana;
-
-    studentas.galutinisVidurkis = vidurkioBalas + egzaminoBalas;
-    studentas.galutineMediana = medianosBalas + egzaminoBalas;
+    studentas.List_skaiciuotiRezultatus();
 }
 
-float List_skaiciuotiVidurki(list<int>& pazymiai) {
+
+float List_skaiciuotiVidurki(std::list<int>& pazymiai) {
     if (pazymiai.empty()) {
         return 0.0f;
     }
-    return accumulate(pazymiai.begin(), pazymiai.end(), 0.0f) / pazymiai.size();
+    return std::accumulate(pazymiai.begin(), pazymiai.end(), 0.0f) / pazymiai.size();
 }
 
-float List_skaiciuotiMediana(list<int>& pazymiai) {
+float List_skaiciuotiMediana(std::list<int>& pazymiai) {
     if (pazymiai.empty()) return 0.0f;
-
-    // Rušiuoja sąrašą
-    pazymiai.sort();
-
-    size_t n = pazymiai.size();
-    auto it = pazymiai.begin();
-    
-    // Eina į vidurį
+   
+    // Create a copy to sort
+    std::list<int> sortedPazymiai = pazymiai;
+    sortedPazymiai.sort();
+   
+    size_t n = sortedPazymiai.size();
+    auto it = sortedPazymiai.begin();
+   
+    // Go to middle
     std::advance(it, n / 2);
-
-    // Jeigu dydis lyginis, tai reikia dviejų vidurinių elementų
+   
+    // If even size, take average of two middle elements
     if (n % 2 == 0) {
         auto it_prev = it;
         --it_prev;
@@ -67,64 +63,66 @@ float List_skaiciuotiMediana(list<int>& pazymiai) {
     }
 }
 
-
 // Rūšiuoja studentus pagal pavardę, o jei pavardės vienodos - pagal vardą
-void rusiuotiStudentusPagalPavarde(list<List_Studentas>& studentai) {
+void List_rusiuotiStudentus(std::list<List_Studentas>& studentai) {
     studentai.sort([](const List_Studentas& a, const List_Studentas& b) {
-    if (a.pavarde == b.pavarde) {
-        return a.vardas < b.vardas;
-    }
-    return a.pavarde < b.pavarde;
-});
-
+        if (a.getPavarde() == b.getPavarde()) {
+            return a.getVardas() < b.getVardas();
+        }
+        return a.getPavarde() < b.getPavarde();
+    });
 }
 
-// Rūšiuoja studentus pagal vardą, o jei vardai vienodos - pagal pavardę
-void rusiuotiStudentusPagalVarda(list<List_Studentas>& studentai) {
+// Rūšiuoja studentus pagal vardą, o jei vardai vienodi - pagal pavardę
+void List_rusiuotiStudentusPagalVarda(std::list<List_Studentas>& studentai) {
     studentai.sort([](const List_Studentas& a, const List_Studentas& b) {
-    if (a.vardas == b.vardas) {
-        return a.pavarde < b.pavarde;
-    }
-    return a.vardas < b.vardas;
-});
+        if (a.getVardas() == b.getVardas()) {
+            return a.getPavarde() < b.getPavarde();
+        }
+        return a.getVardas() < b.getVardas();
+    });
+}
+
+// Rūšiuoja studentus pagal pavardę, o jei pavardęs vienodos - pagal vardą
+void List_rusiuotiStudentusPagalPavarde(std::list<List_Studentas>& studentai) {
+    studentai.sort([](const List_Studentas& a, const List_Studentas& b) {
+        if (a.getPavarde() == b.getPavarde()) {
+            return a.getVardas() < b.getVardas();
+        }
+        return a.getPavarde() < b.getPavarde();
+    });
 }
 
 List_Studentas List_generuotiAtsitiktiniStudenta() {
+    // Create an empty student object using default constructor
     List_Studentas studentas;
     
     // Generuojami atsitiktiniai vardas ir pavarde
-    studentas.vardas = generuotiVardaPavarde();
-    studentas.pavarde = generuotiVardaPavarde();
+    studentas.setVardas(generuotiVardaPavarde());
+    studentas.setPavarde(generuotiVardaPavarde());
 
     // Pre-allocate space for pazymiai to avoid reallocations
     int pazymiuKiekis = generuotiSkaiciu(1, 20);
 
     // Generuojami atsitiktiniai pažymiai
+    std::list<int> pazymiai;
     for (int i = 0; i < pazymiuKiekis; i++) {
-        studentas.pazymiai.push_back(generuotiSkaiciu(0, 10));
+        pazymiai.push_back(generuotiSkaiciu(0, 10));
     }
+    studentas.List_setPazymiai(pazymiai);
 
     // Generuojamas egzamino pažymys
-    studentas.egzaminoPazymys = generuotiSkaiciu(0, 10);
+    int egzaminoPazymys = generuotiSkaiciu(0, 10);
+    studentas.setEgzaminoPazymys(egzaminoPazymys);
 
-    // Apskaičiuojami vidurkis ir mediana
-    studentas.vidurkis = List_skaiciuotiVidurki(studentas.pazymiai);
-    studentas.mediana = List_skaiciuotiMediana(studentas.pazymiai);
-
-    // Apskaičiuojami galutiniai įvertinimai, naudojami constant multipliers
-    const double egzaminoBalas = 0.6 * studentas.egzaminoPazymys;
-    const double vidurkioBalas = 0.4 * studentas.vidurkis;
-    const double medianosBalas = 0.4 * studentas.mediana;
-
-    studentas.galutinisVidurkis = vidurkioBalas + egzaminoBalas;
-    studentas.galutineMediana = medianosBalas + egzaminoBalas;
+    // Use the class method to calculate results
+    studentas.List_skaiciuotiRezultatus();
 
     return studentas;
 }
 
-
 void List_vykdytiVisusZingsnius() {
-    vector<int> studentuKiekiai = {1000, 10000, 100000, 1000000, 1000000};
+    vector<int> studentuKiekiai = {1000000, 10000000};
     
     // Atidaryti CSV failą rašymui
     ofstream csvFile("performance_data.csv", std::ios::app);
@@ -200,7 +198,7 @@ void List_vykdytiVisusZingsnius() {
 
 // Pagrindinė sąrašo (list) programos funkcija
 void List_programa() {
-    list<List_Studentas> studentai;
+    
     int pasirinkimas;
     int failoPasirinkimas;
     int studentuKiekis;
@@ -231,6 +229,7 @@ void List_programa() {
         }
     }
 
+    list<List_Studentas> studentai;
     try {
         long long trukmeSkaitymo, trukmeVidurkio, trukmeIrasymo;
         switch (pasirinkimas) {
@@ -417,27 +416,32 @@ void List_programa() {
 
         // Rūšiuoja studentus
         if (pasirinkimas == 1){
-            rusiuotiStudentusPagalVarda(studentai);
+            List_rusiuotiStudentusPagalVarda(studentai);
         }
         else if (pasirinkimas == 2) {
-            rusiuotiStudentusPagalPavarde(studentai);
+            List_rusiuotiStudentusPagalPavarde(studentai);
         }
         else {
             cout << "Blogas pasirinkimas, rusiuojama pagal varda.\n";
-            rusiuotiStudentusPagalVarda(studentai);
+            List_rusiuotiStudentusPagalVarda(studentai);
         }
 
         // Spausdina rezultatus
-        cout << left << setw(16) << "Pavarde" << setw(16) << "Vardas" << setw(25) << "Galutinis Vidurkis" << " / " << "Galutine Mediana\n";
-        cout << "-------------------------------------------------------------------------\n";
-        cout << fixed << setprecision(2);
+        std::cout << std::left << std::setw(16) << "Pavarde" 
+              << std::setw(16) << "Vardas" 
+              << std::setw(25) << "Galutinis Vidurkis" 
+              << " / " << "Galutine Mediana" << '\n';
+        std::cout << "-------------------------------------------------------------------------\n";
+        std::cout << std::fixed << std::setprecision(2);
 
+        // Iterate through the list of students and print their details
         for (const List_Studentas& studentas : studentai) {
-            cout << left << setw(16) << studentas.pavarde 
-                << setw(16) << studentas.vardas 
-                << setw(25) << studentas.galutinisVidurkis 
-                << "   " << studentas.galutineMediana << '\n';
+            std::cout << std::left << std::setw(16) << studentas.getPavarde() 
+                    << std::setw(16) << studentas.getVardas() 
+                    << std::setw(25) << studentas.getGalutinisVidurkis() 
+                    << "   " << studentas.getGalutineMediana() << '\n';
         }
+        
     } catch (const exception& e) {
         cout << "Ivyko klaida: " << e.what() << '\n';
     }
