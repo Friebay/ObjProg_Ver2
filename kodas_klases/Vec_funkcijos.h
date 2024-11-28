@@ -14,12 +14,14 @@ private:
     float galutineMediana = 0;
 
 public:
-    // Constructors and Destructor
+    // Constructors, Destructor, and Rule of Three
     Studentas();
     Studentas(const std::string& vardas, const std::string& pavarde, const std::vector<int>& pazymiai, int egzaminoPazymys);
     ~Studentas();
+    Studentas(const Studentas& other);             // Copy constructor
+    Studentas& operator=(const Studentas& other);  // Copy assignment operator
 
-    // Getters
+    // Getters and Setters (unchanged)
     std::string getVardas() const;
     std::string getPavarde() const;
     std::vector<int> getPazymiai() const;
@@ -29,7 +31,6 @@ public:
     float getGalutinisVidurkis() const;
     float getGalutineMediana() const;
 
-    // Setters
     void setVardas(const std::string& vardas);
     void setPavarde(const std::string& pavarde);
     void setPazymiai(const std::vector<int>& pazymiai);
