@@ -63,7 +63,6 @@ void generuotiFaila();
 void generuotiAtsitiktiniusFailus();
 void generuotiStudentuFaila(int studentuKiekis, const std::string& failoPavadinimas);
 void vykdytiVisusZingsnius();
-void ivestiStudentoDuomenis(Studentas& studentas);
 int gautiPazymi(const std::string& klausimas);
 
 

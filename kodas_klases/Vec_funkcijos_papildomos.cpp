@@ -60,35 +60,6 @@ void rusiuotiPagalVidurkiMazejanciai(std::vector<Studentas>& studentai) {
     });
 }
 
-void ivestiStudentoDuomenis(Studentas& studentas) {
-    std::string vardas, pavarde;
-    std::vector<int> pazymiai;
-    int egzaminoPazymys;
-
-    std::cout << "Vardas: ";
-    std::cin >> vardas;
-
-    std::cout << "Pavarde: ";
-    std::cin >> pavarde;
-
-    std::cout << "Iveskite pazymius (iveskite -1, kad baigtumete):\n";
-    while (true) {
-        int pazymys = gautiPazymi("Pazymys (arba -1, kad baigtumete): ");
-        if (pazymys == -1) break;
-        pazymiai.push_back(pazymys);
-    }
-
-    egzaminoPazymys = gautiPazymi("Egzamino pazymys: ");
-    if (egzaminoPazymys == -1) egzaminoPazymys = 0;
-
-    studentas.setVardas(vardas);
-    studentas.setPavarde(pavarde);
-    studentas.setPazymiai(pazymiai);
-    studentas.setEgzaminoPazymys(egzaminoPazymys);
-
-    studentas.skaiciuotiRezultatus();
-}
-
 // Skaičiuoja pažymių medianą
 float skaiciuotiMediana(const std::vector<int>& pazymiai) {
     if (pazymiai.empty()) return 0;

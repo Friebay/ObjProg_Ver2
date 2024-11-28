@@ -8,7 +8,6 @@ void rusiuotiStudentusPagalPavarde(std::vector<Studentas>& studentai);
 void rusiuotiStudentusPagalVarda(std::vector<Studentas>& studentai);
 void rusiuotiPagalVidurkiDidejanciai(std::vector<Studentas>& studentai);
 void rusiuotiPagalVidurkiMazejanciai(std::vector<Studentas>& studentai);
-void ivestiStudentoDuomenis(Studentas& studentas);
 float skaiciuotiMediana(vector<int>& pazymiai);
 float skaiciuotiVidurki(vector<int>& pazymiai);
 int generuotiSkaiciu(int min, int max);

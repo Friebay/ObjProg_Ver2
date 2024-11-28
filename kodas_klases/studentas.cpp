@@ -138,36 +138,62 @@ int gautiPazymi(std::istream& is, const std::string& klausimas) {
 
 std::istream& operator>>(std::istream& is, Studentas& studentas) {
     if (is.rdbuf() == std::cin.rdbuf()) {
-        // Handle manual input
-        std::string vardas, pavarde;
-        std::vector<int> pazymiai;
-        int egzaminoPazymys;
+    // Handle manual input
+    std::string vardas, pavarde;
+    std::vector<int> pazymiai;
+    int egzaminoPazymys;
 
-        std::cout << "Vardas: ";
-        is >> vardas;
-        std::cout << "Pavarde: ";
-        is >> pavarde;
+    std::cout << "Vardas: ";
+    is >> vardas;
+    std::cout << "Pavarde: ";
+    is >> pavarde;
 
-        std::cout << "Iveskite pazymius (iveskite -1, kad baigtumete):\n";
-        while (true) {
-            int pazymys;
-            is >> pazymys;
-            if (pazymys == -1) break;
-            if (pazymys < 0 || pazymys > 10) {
-                std::cout << "Klaida: pazymys turi buti tarp 0 ir 10.\n";
-            } else {
-                pazymiai.push_back(pazymys);
-            }
+    std::cout << "Iveskite pazymius (iveskite -1, kad baigtumete):\n";
+    while (true) {
+        int pazymys;
+        is >> pazymys;
+
+        // Check if the input was successful
+        if (is.fail()) {
+            // Clear the error state
+            is.clear();
+            // Ignore the invalid input
+            is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Klaida: prasome ivesti skaiciu.\n";
+            continue; // Retry the input
         }
 
-        std::cout << "Egzamino pazymys: ";
+        if (pazymys == -1) break;
+        if (pazymys < 0 || pazymys > 10) {
+            std::cout << "Klaida: pazymys turi buti tarp 0 ir 10.\n";
+        } else {
+            pazymiai.push_back(pazymys);
+        }
+    }
+
+    std::cout << "Egzamino pazymys: ";
+    while (true) {
         is >> egzaminoPazymys;
 
-        studentas.setVardas(vardas);
-        studentas.setPavarde(pavarde);
-        studentas.setPazymiai(pazymiai);
-        studentas.setEgzaminoPazymys(egzaminoPazymys);
-        studentas.skaiciuotiRezultatus();
+        // Check if the input was successful
+        if (is.fail()) {
+            // Clear the error state
+            is.clear();
+            // Ignore the invalid input
+            is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            std::cout << "Klaida: prasome ivesti teisinga skaiciu egzamino pazymys.\n";
+        } else {
+            // Break the loop if input is valid
+            break;
+        }
+    }
+
+    // After getting a valid egzaminoPazymys, set values in the Studentas object
+    studentas.setVardas(vardas);
+    studentas.setPavarde(pavarde);
+    studentas.setPazymiai(pazymiai);
+    studentas.setEgzaminoPazymys(egzaminoPazymys);
+    studentas.skaiciuotiRezultatus();
     } else {
         // Handle fixed-width file parsing (same as file input logic)
         std::string line;
