@@ -258,8 +258,8 @@ void ivestiDuomenisRanka(vector<Studentas>& studentai) {
         std::cin >> studentas;
 
         // Output the entered data
-        std::cout << "Ivestas studentas:\n" << studentas << '\n';
-        cout << "Studento vektoriaus objektas atmintyje saugomas adresu: " << &studentas << endl;
+        // std::cout << "Ivestas studentas:\n" << studentas << '\n';
+        // cout << "Studento vektoriaus objektas atmintyje saugomas adresu: " << &studentas << endl;
     }
 }
 

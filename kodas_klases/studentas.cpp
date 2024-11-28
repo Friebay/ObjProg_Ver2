@@ -92,24 +92,12 @@ void Studentas::pridetiPazymi(int pazymys) {
 }
 
 std::ostream& operator<<(std::ostream& os, const Studentas& studentas) {
-    // Check if the stream is associated with a file
-    bool isFileStream = os.rdbuf() != std::cout.rdbuf();
 
-    if (isFileStream) {
-        // File output with fixed-width formatting
-        os << std::left << std::setw(15) << studentas.getPavarde()
-           << std::setw(15) << studentas.getVardas()
+    os << std::left << std::setw(16) << studentas.getPavarde()
+           << std::setw(16) << studentas.getVardas()
            << std::setw(24) << std::fixed << std::setprecision(2)
            << studentas.getGalutinisVidurkis()
-           << studentas.getGalutineMediana() << "\n";
-    } else {
-        // Console output with more readable formatting
-        os << std::left << std::setw(16) << studentas.getPavarde()
-           << std::setw(16) << studentas.getVardas()
-           << std::setw(25) << std::fixed << std::setprecision(2) 
-           << studentas.getGalutinisVidurkis()
-           << "   " << studentas.getGalutineMediana();
-    }
+           << studentas.getGalutineMediana();
     return os;
 }
 
