@@ -1,8 +1,6 @@
 #include "Vec_funkcijos.h"
-#include <iostream>
-#include <algorithm>
-#include <numeric>
-#include <stdexcept>
+#include "Vec_failo_apdorojimas.h"
+
 
 // Default Constructor
 Studentas::Studentas() {}
@@ -252,4 +250,89 @@ std::istream& operator>>(std::istream& is, Studentas& studentas) {
     }
 
     return is;
+}
+
+// Global function to overload stream input operator for file reading
+std::ifstream& operator>>(std::ifstream& failas, std::vector<Studentas>& studentai) {
+    if (!failas) {
+        throw std::runtime_error("Failas negali būti atidarytas.");
+    }
+
+    std::string buffer;
+    buffer.reserve(1048576); // Buferio dydis baitais
+
+    // Praleidžia antraštę
+    std::getline(failas, buffer);
+
+    while (std::getline(failas, buffer)) {
+        if (buffer.length() < 52) {
+            throw std::runtime_error("Netinkamas eilutes ilgis");
+        }
+
+        Studentas studentas;
+
+        // Trim funkcija
+        auto trim = [](std::string &str) {
+            str.erase(str.begin(), std::find_if(str.begin(), str.end(), [](unsigned char ch) {
+                return !std::isspace(ch);
+            }));
+            str.erase(std::find_if(str.rbegin(), str.rend(), [](unsigned char ch) {
+                return !std::isspace(ch);
+            }).base(), str.end());
+        };
+
+        // Vardas ir pavardė
+        std::string vardas = buffer.substr(0, 16);
+        std::string pavarde = buffer.substr(16, 32);
+        trim(vardas);
+        trim(pavarde);
+        
+        studentas.setVardas(vardas);
+        studentas.setPavarde(pavarde);
+
+        // Pažymių skaitymas
+        size_t pozicija = 52;
+        bool tinkamiPazymiai = true;
+        std::vector<int> pazymiai;
+       
+        while (pozicija < buffer.length()) {
+            // Praleidžia whitespace
+            while (pozicija < buffer.length() && std::isspace(buffer[pozicija])) pozicija++;
+            if (pozicija >= buffer.length()) break;
+
+            int grade = 0;
+            bool tinkamas = true;
+
+            if (std::isdigit(buffer[pozicija])) {
+                while (pozicija < buffer.length() && std::isdigit(buffer[pozicija])) {
+                    grade = grade * 10 + (buffer[pozicija] - '0');
+                    pozicija++;
+                }
+
+                if (grade < 0 || grade > 10) {
+                    tinkamas = false;
+                }
+            } else {
+                tinkamas = false;
+                pozicija++;
+            }
+
+            if (tinkamas) {
+                pazymiai.push_back(grade);
+            } else {
+                tinkamiPazymiai = false;
+                break;
+            }
+
+            // Praleidžia whitespace
+            while (pozicija < buffer.length() && std::isspace(buffer[pozicija])) pozicija++;
+        }
+
+        studentas.setPazymiai(pazymiai);
+        
+        // Paskaičiuoja rezultatus
+        skaiciuotiIsFailo(studentas, tinkamiPazymiai, studentai);
+    }
+
+    return failas;
 }

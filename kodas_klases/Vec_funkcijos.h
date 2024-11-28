@@ -65,6 +65,15 @@ void generuotiStudentuFaila(int studentuKiekis, const std::string& failoPavadini
 void vykdytiVisusZingsnius();
 int gautiPazymi(const std::string& klausimas);
 
+// Declare the operator>>
+std::ifstream& operator>>(std::ifstream& failas, std::vector<Studentas>& studentai);
 
+// Declare the file reading function
+void skaitytiDuomenisIsFailo(
+    const std::string& failoPavadinimas,
+    std::vector<Studentas>& studentai,
+    long long& trukmeSkaitymo,
+    long long& trukmeVidurkio
+);
 
 #endif
