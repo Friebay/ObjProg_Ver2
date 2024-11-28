@@ -260,19 +260,11 @@ void padalintiRezultatuFaila(const std::string& ivestiesFailoPavadinimas,
     auto pradetiRasyma = std::chrono::high_resolution_clock::now();
 
     for (const auto& studentas : studentai) {
-        islaikiusiuFailas << std::left << std::setw(15) << studentas.getPavarde()
-                          << std::setw(15) << studentas.getVardas()
-                          << std::setw(24) << std::fixed << std::setprecision(2)
-                          << studentas.getGalutinisVidurkis()
-                          << studentas.getGalutineMediana() << "\n";
+    islaikiusiuFailas << studentas << std::endl;
     }
 
     for (const auto& studentas : vargsiukai) {
-        neislaikiusiuFailas << std::left << std::setw(15) << studentas.getPavarde()
-                            << std::setw(15) << studentas.getVardas()
-                            << std::setw(24) << std::fixed << std::setprecision(2)
-                            << studentas.getGalutinisVidurkis()
-                            << studentas.getGalutineMediana() << "\n";
+        neislaikiusiuFailas << studentas << std::endl;
     }
 
     auto pabaigaRasymo = std::chrono::high_resolution_clock::now();

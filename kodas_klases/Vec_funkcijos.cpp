@@ -259,54 +259,57 @@ void Vec_programa() {
                 return;
             }  
         }
+        if (pasirinkimas != 5 && pasirinkimas != 6) {
+            if (studentai.empty()) {
+                throw runtime_error("Nera studentu duomenu.");
+            } else{
+                cout << "Studentai: " << studentai.size() << endl;
+            }
 
-        if (studentai.empty()) {
-            throw runtime_error("Nera studentu duomenu.");
-        }
+            int pasirinkimasRik;
+            bool validInput = false;
 
-        int pasirinkimas;
-        bool validInput = false;
+            while (!validInput) {
+                cout << "Jeigu norite rusiuoti pagal varda - 1, jeigu pagal pavarde - 2, pagal vidurki didejanciai - 3, pagal vidurki mazejanciai - 4: ";
+                cin >> pasirinkimasRik;
 
-        while (!validInput) {
-            cout << "Jeigu norite rusiuoti pagal varda - 1, jeigu pagal pavarde - 2, pagal vidurki didejanciai - 3, pagal vidurki mazejanciai - 4: ";
-            cin >> pasirinkimas;
+                if (cin.fail() || (pasirinkimasRik < 1 || pasirinkimasRik > 4)) {
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cout << "Blogas pasirinkimas. Prasome ivesti 1, 2, 3 arba 4.\n";
+                } else {
+                    validInput = true;
+                }
+            }
 
-            if (cin.fail() || (pasirinkimas < 1 || pasirinkimas > 4)) {
-                cin.clear();
-                cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                cout << "Blogas pasirinkimas. Prasome ivesti 1, 2, 3 arba 4.\n";
+            // Rūšiuoja studentus
+            if (pasirinkimasRik == 1) {
+                rusiuotiStudentusPagalVarda(studentai);
+            } else if (pasirinkimasRik == 2) {
+                rusiuotiStudentusPagalPavarde(studentai);
+            } else if (pasirinkimasRik == 3) {
+                rusiuotiPagalVidurkiDidejanciai(studentai);
+            } else if (pasirinkimasRik == 4) {
+                rusiuotiPagalVidurkiMazejanciai(studentai);
             } else {
-                validInput = true;
+                cout << "Blogas pasirinkimas. Prasome ivesti 1, 2, 3 arba 4.\n";
+            }
+
+
+            // Spausdina rezultatus
+            std::cout << std::left << std::setw(16) << "Pavarde" 
+                    << std::setw(16) << "Vardas" 
+                    << std::setw(25) << "Galutinis Vidurkis" 
+                    << " / " << "Galutine Mediana\n";
+            std::cout << "-------------------------------------------------------------------------\n";
+            std::cout << std::fixed << std::setprecision(2);
+
+            for (const Studentas& studentas : studentai) {
+                std::cout << studentas << '\n';
             }
         }
 
-        // Rūšiuoja studentus
-        if (pasirinkimas == 1) {
-            rusiuotiStudentusPagalVarda(studentai);
-        } else if (pasirinkimas == 2) {
-            rusiuotiStudentusPagalPavarde(studentai);
-        } else if (pasirinkimas == 3) {
-            rusiuotiPagalVidurkiDidejanciai(studentai);
-        } else if (pasirinkimas == 4) {
-            rusiuotiPagalVidurkiMazejanciai(studentai);
-        } else {
-            cout << "Blogas pasirinkimas. Prasome ivesti 1, 2, 3 arba 4.\n";
-        }
-
-
-        // Spausdina rezultatus
-        std::cout << std::left << std::setw(16) << "Pavarde" 
-                << std::setw(16) << "Vardas" 
-                << std::setw(25) << "Galutinis Vidurkis" 
-                << " / " << "Galutine Mediana\n";
-        std::cout << "-------------------------------------------------------------------------\n";
-        std::cout << std::fixed << std::setprecision(2);
-
-        for (const Studentas& studentas : studentai) {
-            std::cout << studentas << '\n';
-        }
-
     } catch (const exception& e) {
-        cout << "Ivyko klaida: " << e.what() << '\n';
+        cout << "Vec_funkcijos.cpp faile ivyko klaida: " << e.what() << '\n';
     }
 }
