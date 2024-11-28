@@ -263,13 +263,13 @@ Projektui sukompiliuoti naudojami šie .cmd failai:
 # v1.1 versija
  - Šioje versijoje buvo pridėta Studento klasė
 ## Klasė
-## Vektorius, CMake, O1
+### Vektorius, CMake, O1
 
 - Failo dydis diske: 417 792 bytes
 - Greitis:
 ![classO1.png](https://github.com/Friebay/ObjProg_Ver2/blob/v1.1/greicio_duomenys/classO1.png?raw=true)
 
-## Vektorius, CMake, O2
+### Vektorius, CMake, O2
 
 - Failo dydis diske: 471 040 bytes
 - Greitis:
@@ -299,3 +299,43 @@ Projektui sukompiliuoti naudojami šie .cmd failai:
 - Failo dydis diske: 524 288 bytes
 - Greitis:
 ![structO3.png](https://github.com/Friebay/ObjProg_Ver2/blob/v1.1/greicio_duomenys/structO3.png?raw=true)
+
+# v1.1 versija
+## Naujos funkcijos
+Šioje versijoje buvo pridėta:
+ - „Rule of Three“: užtikrina taisyklingą objektų kopijavimo ir naikinimo logiką.
+ - Įvesties/išvesties funkcijų perdengimas: pagerinta vartotojo įvesties tikrinimo ir išvesties formatavimo sistema.
+
+## „Rule of Three“
+„Rule of Three“ taikoma tvarkant „Studentas“ klasę. Ši taisyklė reikalauja:
+- Destruktoriaus – atminties išvalymui.
+- Kopijavimo konstruktoriaus – saugiam objektų kopijavimui.
+- Priskyrimo operatoriaus – tvarkant priskyrimus.
+
+„Studentas“ klasėje šios funkcijos užtikrina:
+- Visi objektai tvarkingai sunaikinami, o jų atmintis išvaloma.
+- Taisyklingas objektų kopijavimas, išvengiant atminties nutekėjimų ar neteisingo duomenų kopijavimo.
+```C++
+Studentas student1; 
+Studentas student2(student1); // Naudojamas kopijavimo konstruktorius
+student2 = student1;          // Naudojamas priskyrimo operatorius
+```
+## Įvesties/išvesties perdengimas
+ 1. Įvestis:
+
+   - Apibrėžta funkcija **operator>>** ir pagalbinė funkcija **gautiPazymi** užtikrina, kad vartotojas įves teisingus duomenis. Sistema tikrina:
+       - Ar pažymiai yra tarp 0 ir 10.
+       - Ar egzaminų pažymiai yra sveiki skaičiai.
+
+   - Pavyzdys:
+   ```C++
+  Studentas student;
+  std::cin >> student; // Įvedamas vardas, pavardė, pažymiai ir egzaminų rezultatai
+   ```
+2. Įvestis:
+   - Funkcija operator<< užtikrina aiškiai suformatuotą išvestį, naudojant fiksuotą plotį bei tiksliai pateikiant rezultatus.
+   - Pavyzdys:
+   ```C++
+  std::cout << student; // Atvaizduojami suformatuoti rezultatai
+   ```
+
