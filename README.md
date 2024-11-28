@@ -300,7 +300,7 @@ Projektui sukompiliuoti naudojami šie .cmd failai:
 - Greitis:
 ![structO3.png](https://github.com/Friebay/ObjProg_Ver2/blob/v1.1/greicio_duomenys/structO3.png?raw=true)
 
-# v1.1 versija
+# v1.2 versija
 ## Naujos funkcijos
 Šioje versijoje buvo pridėta:
  - „Rule of Three“: užtikrina taisyklingą objektų kopijavimo ir naikinimo logiką.
@@ -328,14 +328,23 @@ student2 = student1;          // Naudojamas priskyrimo operatorius
        - Ar egzaminų pažymiai yra sveiki skaičiai.
 
    - Pavyzdys:
-   ```C++
-  Studentas student;
-  std::cin >> student; // Įvedamas vardas, pavardė, pažymiai ir egzaminų rezultatai
-   ```
+      ```C++
+      Studentas student;
+      std::cin >> student; // Įvedamas vardas, pavardė, pažymiai ir egzaminų rezultatai
+      ```
 2. Įvestis:
    - Funkcija operator<< užtikrina aiškiai suformatuotą išvestį, naudojant fiksuotą plotį bei tiksliai pateikiant rezultatus.
    - Pavyzdys:
-   ```C++
-  std::cout << student; // Atvaizduojami suformatuoti rezultatai
-   ```
+      ```C++
+      std::cout << student; // Atvaizduojami suformatuoti rezultatai
+      ```
 
+## Kompiliavimo failai
+Projektui sukompiliuoti naudojami šie .cmd failai:
+ - compile_gpp.cmd – naudoja g++ kompiliatorių.
+ - compile_cmake.cmd – naudoja cmake kompiliatorių.
+## Įdiegimo instrukcija
+1. Atsisiųskite jau sukompiliuotas programos versijas iš Releases puslapio:
+   - GCC versija sukompiliuota naudojant g++
+   - CMake versija sukompiliuota naudojant cmake
+2. Jei norite susikompiliuokite patys,
