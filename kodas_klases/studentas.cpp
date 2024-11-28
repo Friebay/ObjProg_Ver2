@@ -26,8 +26,8 @@ Studentas::~Studentas() {
     galutinisVidurkis = 0.0f;
     galutineMediana = 0.0f;
 
-    // Optional debug message to indicate destruction
-    std::cout << "Destructor called: Studentas object cleaned up.\n";
+    // Debug message to indicate destruction
+    // std::cout << "Destructor called: Studentas object cleaned up.\n";
 }
 
 // Copy Constructor
@@ -37,7 +37,7 @@ Studentas::Studentas(const Studentas& other)
       mediana(other.mediana), galutinisVidurkis(other.galutinisVidurkis),
       galutineMediana(other.galutineMediana) {
     // Explicit copy of all members
-    std::cout << "Copy constructor called.\n";
+    // std::cout << "Copy constructor called.\n";
 }
 
 // Copy Assignment Operator
@@ -52,7 +52,7 @@ Studentas& Studentas::operator=(const Studentas& other) {
         galutinisVidurkis = other.galutinisVidurkis;
         galutineMediana = other.galutineMediana;
     }
-    std::cout << "Copy assignment operator called.\n";
+    // std::cout << "Copy assignment operator called.\n";
     return *this;
 }
 
@@ -123,33 +123,93 @@ int gautiPazymi(std::istream& is, const std::string& klausimas) {
 }
 
 std::istream& operator>>(std::istream& is, Studentas& studentas) {
-    std::string vardas, pavarde;
-    std::vector<int> pazymiai;
-    int egzaminoPazymys;
+    if (is.rdbuf() == std::cin.rdbuf()) {
+        // Handle manual input
+        std::string vardas, pavarde;
+        std::vector<int> pazymiai;
+        int egzaminoPazymys;
 
-    // Input fields
-    std::cout << "Vardas: ";
-    is >> vardas;
+        std::cout << "Vardas: ";
+        is >> vardas;
+        std::cout << "Pavarde: ";
+        is >> pavarde;
 
-    std::cout << "Pavarde: ";
-    is >> pavarde;
+        std::cout << "Iveskite pazymius (iveskite -1, kad baigtumete):\n";
+        while (true) {
+            int pazymys;
+            is >> pazymys;
+            if (pazymys == -1) break;
+            if (pazymys < 0 || pazymys > 10) {
+                std::cout << "Klaida: pazymys turi buti tarp 0 ir 10.\n";
+            } else {
+                pazymiai.push_back(pazymys);
+            }
+        }
 
-    std::cout << "Iveskite pazymius (iveskite -1, kad baigtumete):\n";
-    while (true) {
-        int pazymys = gautiPazymi(is, "Pazymys (arba -1, kad baigtumete): ");
-        if (pazymys == -1) break;
-        pazymiai.push_back(pazymys);
+        std::cout << "Egzamino pazymys: ";
+        is >> egzaminoPazymys;
+
+        studentas.setVardas(vardas);
+        studentas.setPavarde(pavarde);
+        studentas.setPazymiai(pazymiai);
+        studentas.setEgzaminoPazymys(egzaminoPazymys);
+        studentas.skaiciuotiRezultatus();
+    } else {
+        // Handle fixed-width file parsing (same as file input logic)
+        std::string line;
+    if (!std::getline(is, line)) {
+        return is; // Return early if no more lines
     }
 
-    egzaminoPazymys = gautiPazymi(is, "Egzamino pazymys: ");
-    if (egzaminoPazymys == -1) egzaminoPazymys = 0;
+    if (line.length() < 52) {
+        throw std::runtime_error("Netinkamas eilutes ilgis");
+    }
+
+    // Extract fixed-width fields
+    std::string vardas = line.substr(0, 16);
+    std::string pavarde = line.substr(16, 32);
+    auto trim = [](std::string &str) {
+        str.erase(str.begin(), std::find_if(str.begin(), str.end(), [](unsigned char ch) {
+            return !std::isspace(ch);
+        }));
+        str.erase(std::find_if(str.rbegin(), str.rend(), [](unsigned char ch) {
+            return !std::isspace(ch);
+        }).base(), str.end());
+    };
+    trim(vardas);
+    trim(pavarde);
+
+    // Parse grades
+    std::vector<int> pazymiai;
+    size_t pozicija = 52;
+    while (pozicija < line.length()) {
+        // Skip whitespace
+        while (pozicija < line.length() && std::isspace(line[pozicija])) pozicija++;
+        if (pozicija >= line.length()) break;
+
+        // Parse grade
+        int grade = 0;
+        bool tinkamas = true;
+        while (pozicija < line.length() && std::isdigit(line[pozicija])) {
+            grade = grade * 10 + (line[pozicija] - '0');
+            pozicija++;
+        }
+
+        if (grade < 0 || grade > 10) {
+            tinkamas = false;
+            throw std::runtime_error("Netinkamas pazymys");
+        }
+        pazymiai.push_back(grade);
+    }
 
     // Set values in the Studentas object
     studentas.setVardas(vardas);
     studentas.setPavarde(pavarde);
     studentas.setPazymiai(pazymiai);
-    studentas.setEgzaminoPazymys(egzaminoPazymys);
     studentas.skaiciuotiRezultatus();
+
+    return is;
+    }
 
     return is;
 }
