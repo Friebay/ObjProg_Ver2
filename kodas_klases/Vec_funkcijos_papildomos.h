@@ -15,7 +15,12 @@ string generuotiVardaPavarde();
 Studentas generuotiAtsitiktiniStudenta();
 void generuotiAtsitiktiniusFailus();
 void vykdytiVisusZingsnius();
-
+void vykdytiKeliskart(int& kartai);
+void rusiuotiRezultatus(long long& trukmeRezultatuSkaitymo, long long& trukmeRezultatuSkaidymas, long long& trukmeSkaidymoIrasymas);
+void ivestiDuomenisRanka(vector<Studentas>& studentai);
+void automatiskaiGeneruotiDuomenis(vector<Studentas>& studentai);
+void nuskaitytiDuomenisIsFailo(vector<Studentas>& studentai, long long& trukmeSkaitymo, long long& trukmeVidurkio);
+void skaiciuotiRezultatus(long long& trukmeSkaitymo, long long& trukmeVidurkio, long long& trukmeIrasymo);
 
 
 #endif
