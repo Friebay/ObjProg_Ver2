@@ -6,10 +6,11 @@
 // Constructors and Destructor
 List_Studentas::List_Studentas() {}
 
-List_Studentas::List_Studentas(const std::string& vardas, const std::string& pavarde, 
-                                const std::list<int>& pazymiai, int egzaminoPazymys)
-    : vardas(vardas), pavarde(pavarde), pazymiai(pazymiai), 
-      egzaminoPazymys(egzaminoPazymys) {
+List_Studentas::List_Studentas(const std::string &vardas, const std::string &pavarde,
+                               const std::list<int> &pazymiai, int egzaminoPazymys)
+    : vardas(vardas), pavarde(pavarde), pazymiai(pazymiai),
+      egzaminoPazymys(egzaminoPazymys)
+{
     List_skaiciuotiRezultatus();
 }
 
@@ -26,24 +27,26 @@ float List_Studentas::getGalutinisVidurkis() const { return galutinisVidurkis; }
 float List_Studentas::getGalutineMediana() const { return galutineMediana; }
 
 // Setters
-void List_Studentas::setVardas(const std::string& vardas) { this->vardas = vardas; }
-void List_Studentas::setPavarde(const std::string& pavarde) { this->pavarde = pavarde; }
-void List_Studentas::List_setPazymiai(const std::list<int>& pazymiai) { this->pazymiai = pazymiai; }
+void List_Studentas::setVardas(const std::string &vardas) { this->vardas = vardas; }
+void List_Studentas::setPavarde(const std::string &pavarde) { this->pavarde = pavarde; }
+void List_Studentas::List_setPazymiai(const std::list<int> &pazymiai) { this->pazymiai = pazymiai; }
 void List_Studentas::setVidurkis(float vidurkis) { this->vidurkis = vidurkis; }
 void List_Studentas::setMediana(float mediana) { this->mediana = mediana; }
 void List_Studentas::setEgzaminoPazymys(int egzaminoPazymys) { this->egzaminoPazymys = egzaminoPazymys; }
 void List_Studentas::setGalutinisVidurkis(float galutinisVidurkis) { this->galutinisVidurkis = galutinisVidurkis; }
 void List_Studentas::setGalutineMediana(float galutineMediana) { this->galutineMediana = galutineMediana; }
 
-void List_Studentas::pridetiPazymi(int pazymys) {
+void List_Studentas::pridetiPazymi(int pazymys)
+{
     pazymiai.push_back(pazymys);
 }
 
-void List_Studentas::List_skaiciuotiRezultatus() {
+void List_Studentas::List_skaiciuotiRezultatus()
+{
     // Apskaičiuojami vidurkį ir mediana
     float vidurkis = List_skaiciuotiVidurki(pazymiai);
     float mediana = List_skaiciuotiMediana(pazymiai);
-    
+
     setVidurkis(vidurkis);
     setMediana(mediana);
 

@@ -3,7 +3,7 @@
 
 #include "List_Biblioteka.h"
 
-void List_generuotiStudentuFaila(int studentuKiekis, const string& failoPavadinimas);
+void List_generuotiStudentuFaila(int studentuKiekis, const string &failoPavadinimas);
 void List_generuotiFaila();
 
 #endif

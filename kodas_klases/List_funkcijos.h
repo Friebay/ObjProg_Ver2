@@ -2,10 +2,11 @@
 #define LIST_FUNKCIJOS_H
 #include "List_Biblioteka.h"
 
-class List_Studentas {
+class List_Studentas
+{
 private:
     std::string vardas, pavarde;
-    std::list<int> pazymiai;    
+    std::list<int> pazymiai;
     int egzaminoPazymys = 0;
     float vidurkis = 0;
     float mediana = 0;
@@ -15,8 +16,8 @@ private:
 public:
     // Constructors and Destructor
     List_Studentas();
-    List_Studentas(const std::string& vardas, const std::string& pavarde, 
-              const std::list<int>& pazymiai, int egzaminoPazymys);
+    List_Studentas(const std::string &vardas, const std::string &pavarde,
+                   const std::list<int> &pazymiai, int egzaminoPazymys);
     ~List_Studentas();
 
     // Getters
@@ -30,9 +31,9 @@ public:
     float getGalutineMediana() const;
 
     // Setters
-    void setVardas(const std::string& vardas);
-    void setPavarde(const std::string& pavarde);
-    void List_setPazymiai(const std::list<int>& pazymiai);
+    void setVardas(const std::string &vardas);
+    void setPavarde(const std::string &pavarde);
+    void List_setPazymiai(const std::list<int> &pazymiai);
     void setEgzaminoPazymys(int egzaminoPazymys);
     void setVidurkis(float vidurkis);
     void setMediana(float mediana);
@@ -46,11 +47,10 @@ public:
 
 // Function declarations
 void List_programa();
-float List_skaiciuotiVidurki(std::list<int>& pazymiai);
-float List_skaiciuotiMediana(std::list<int>& pazymiai);
-void List_ivestiStudentoDuomenis(List_Studentas& studentas);
+float List_skaiciuotiVidurki(std::list<int> &pazymiai);
+float List_skaiciuotiMediana(std::list<int> &pazymiai);
+void List_ivestiStudentoDuomenis(List_Studentas &studentas);
 List_Studentas List_generuotiAtsitiktiniStudenta();
-void List_rusiuotiStudentus(std::list<List_Studentas>& studentai);
-
+void List_rusiuotiStudentus(std::list<List_Studentas> &studentai);
 
 #endif // LIST_FUNKCIJOS_H
