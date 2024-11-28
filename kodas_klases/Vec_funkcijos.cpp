@@ -25,7 +25,11 @@ void ivestiDuomenisRanka(vector<Studentas>& studentai) {
 
     // Studentų duomenų įvedimas ir atminties adreso spausdinimas
     for (Studentas& studentas : studentai) {
-        ivestiStudentoDuomenis(studentas);
+        // Input student data
+        std::cin >> studentas;
+
+        // Output the entered data
+        std::cout << "Ivestas studentas:\n" << studentas << '\n';
         cout << "Studento vektoriaus objektas atmintyje saugomas adresu: " << &studentas << endl;
     }
 }
@@ -299,14 +303,9 @@ void Vec_programa() {
         std::cout << std::fixed << std::setprecision(2);
 
         for (const Studentas& studentas : studentai) {
-            std::cout << std::left 
-                    << std::setw(16) << studentas.getPavarde() 
-                    << std::setw(16) << studentas.getVardas() 
-                    << std::setw(25) << studentas.getGalutinisVidurkis() 
-                    << "   " << studentas.getGalutineMediana() << '\n';
+            std::cout << studentas << '\n';
         }
 
-                
     } catch (const exception& e) {
         cout << "Ivyko klaida: " << e.what() << '\n';
     }

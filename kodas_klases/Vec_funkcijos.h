@@ -43,6 +43,11 @@ public:
     // Methods
     void skaiciuotiRezultatus();
     void pridetiPazymi(int pazymys);
+
+    friend std::ostream& operator<<(std::ostream& os, const Studentas& studentas);
+    friend std::istream& operator>>(std::istream& is, Studentas& studentas);
+
+    
 };
 
 // Other functions
@@ -58,5 +63,9 @@ void generuotiFaila();
 void generuotiAtsitiktiniusFailus();
 void generuotiStudentuFaila(int studentuKiekis, const std::string& failoPavadinimas);
 void vykdytiVisusZingsnius();
+void ivestiStudentoDuomenis(Studentas& studentas);
+int gautiPazymi(const std::string& klausimas);
+
+
 
 #endif

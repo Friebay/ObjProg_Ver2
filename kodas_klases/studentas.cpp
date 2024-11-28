@@ -2,6 +2,7 @@
 #include <iostream>
 #include <algorithm>
 #include <numeric>
+#include <stdexcept>
 
 // Default Constructor
 Studentas::Studentas() {}
@@ -90,4 +91,65 @@ void Studentas::skaiciuotiRezultatus() {
 
 void Studentas::pridetiPazymi(int pazymys) {
     pazymiai.push_back(pazymys);
+}
+
+std::ostream& operator<<(std::ostream& os, const Studentas& studentas) {
+    os << std::left << std::setw(16) << studentas.getPavarde()
+       << std::setw(16) << studentas.getVardas()
+       << std::setw(25) << std::fixed << std::setprecision(2) << studentas.getGalutinisVidurkis()
+       << "   " << studentas.getGalutineMediana();
+    return os;
+}
+
+int gautiPazymi(std::istream& is, const std::string& klausimas) {
+    while (true) {
+        std::string skaicius;
+        std::cout << klausimas;
+        is >> skaicius;
+
+        if (skaicius == "-1") return -1; // End input
+
+        try {
+            int pazymys = std::stoi(skaicius);
+            if (pazymys >= 0 && pazymys <= 10) {
+                return pazymys;
+            } else {
+                std::cout << "Klaida: pazymys turi buti tarp 0 ir 10.\n";
+            }
+        } catch (const std::invalid_argument&) {
+            std::cout << "Klaida: iveskite teisinga skaiciu.\n";
+        }
+    }
+}
+
+std::istream& operator>>(std::istream& is, Studentas& studentas) {
+    std::string vardas, pavarde;
+    std::vector<int> pazymiai;
+    int egzaminoPazymys;
+
+    // Input fields
+    std::cout << "Vardas: ";
+    is >> vardas;
+
+    std::cout << "Pavarde: ";
+    is >> pavarde;
+
+    std::cout << "Iveskite pazymius (iveskite -1, kad baigtumete):\n";
+    while (true) {
+        int pazymys = gautiPazymi(is, "Pazymys (arba -1, kad baigtumete): ");
+        if (pazymys == -1) break;
+        pazymiai.push_back(pazymys);
+    }
+
+    egzaminoPazymys = gautiPazymi(is, "Egzamino pazymys: ");
+    if (egzaminoPazymys == -1) egzaminoPazymys = 0;
+
+    // Set values in the Studentas object
+    studentas.setVardas(vardas);
+    studentas.setPavarde(pavarde);
+    studentas.setPazymiai(pazymiai);
+    studentas.setEgzaminoPazymys(egzaminoPazymys);
+    studentas.skaiciuotiRezultatus();
+
+    return is;
 }
