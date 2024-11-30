@@ -1,19 +1,52 @@
 #include "List_funkcijos.h"
 
 // Constructors and Destructor
-List_Studentas::List_Studentas() {}
+List_Studentas::List_Studentas() {
+    // std::cout << "Default constructor called\n";
+}
 
 List_Studentas::List_Studentas(const std::string &vardas, const std::string &pavarde,
                                const std::list<int> &pazymiai, int egzaminoPazymys)
     : vardas(vardas), pavarde(pavarde), pazymiai(pazymiai),
-      egzaminoPazymys(egzaminoPazymys)
-{
+      egzaminoPazymys(egzaminoPazymys) {
+    // std::cout << "Parameterized constructor called\n";
     List_skaiciuotiRezultatus();
 }
 
+// Copy Constructor
+List_Studentas::List_Studentas(const List_Studentas &other)
+    : vardas(other.vardas), pavarde(other.pavarde), pazymiai(other.pazymiai),
+      egzaminoPazymys(other.egzaminoPazymys), vidurkis(other.vidurkis),
+      mediana(other.mediana), galutinisVidurkis(other.galutinisVidurkis),
+      galutineMediana(other.galutineMediana) {
+    // std::cout << "Copy constructor called\n";
+}
 
+// Copy Assignment Operator
+List_Studentas &List_Studentas::operator=(const List_Studentas &other) {
+    if (this == &other) {
+        return *this; // Handle self-assignment
+    }
 
-List_Studentas::~List_Studentas() {}
+    // std::cout << "Copy assignment operator called\n";
+
+    // Copy fields
+    vardas = other.vardas;
+    pavarde = other.pavarde;
+    pazymiai = other.pazymiai;
+    egzaminoPazymys = other.egzaminoPazymys;
+    vidurkis = other.vidurkis;
+    mediana = other.mediana;
+    galutinisVidurkis = other.galutinisVidurkis;
+    galutineMediana = other.galutineMediana;
+
+    return *this;
+}
+
+// Destructor
+List_Studentas::~List_Studentas() {
+    // std::cout << "Destructor called\n";
+}
 
 // Getters
 std::string List_Studentas::getVardas() const { return vardas; }
@@ -35,13 +68,11 @@ void List_Studentas::setEgzaminoPazymys(int egzaminoPazymys) { this->egzaminoPaz
 void List_Studentas::setGalutinisVidurkis(float galutinisVidurkis) { this->galutinisVidurkis = galutinisVidurkis; }
 void List_Studentas::setGalutineMediana(float galutineMediana) { this->galutineMediana = galutineMediana; }
 
-void List_Studentas::pridetiPazymi(int pazymys)
-{
+void List_Studentas::pridetiPazymi(int pazymys) {
     pazymiai.push_back(pazymys);
 }
 
-void List_Studentas::List_skaiciuotiRezultatus()
-{
+void List_Studentas::List_skaiciuotiRezultatus() {
     // Apskaičiuojami vidurkį ir mediana
     float vidurkis = List_skaiciuotiVidurki(pazymiai);
     float mediana = List_skaiciuotiMediana(pazymiai);
