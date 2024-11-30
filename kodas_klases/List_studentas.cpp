@@ -1,19 +1,52 @@
 #include "List_funkcijos.h"
-#include <iostream>
-#include <algorithm>
-#include <numeric>
 
 // Constructors and Destructor
-List_Studentas::List_Studentas() {}
+List_Studentas::List_Studentas() {
+    // std::cout << "Default constructor called\n";
+}
 
-List_Studentas::List_Studentas(const std::string& vardas, const std::string& pavarde, 
-                                const std::list<int>& pazymiai, int egzaminoPazymys)
-    : vardas(vardas), pavarde(pavarde), pazymiai(pazymiai), 
+List_Studentas::List_Studentas(const std::string &vardas, const std::string &pavarde,
+                               const std::list<int> &pazymiai, int egzaminoPazymys)
+    : vardas(vardas), pavarde(pavarde), pazymiai(pazymiai),
       egzaminoPazymys(egzaminoPazymys) {
+    // std::cout << "Parameterized constructor called\n";
     List_skaiciuotiRezultatus();
 }
 
-List_Studentas::~List_Studentas() {}
+// Copy Constructor
+List_Studentas::List_Studentas(const List_Studentas &other)
+    : vardas(other.vardas), pavarde(other.pavarde), pazymiai(other.pazymiai),
+      egzaminoPazymys(other.egzaminoPazymys), vidurkis(other.vidurkis),
+      mediana(other.mediana), galutinisVidurkis(other.galutinisVidurkis),
+      galutineMediana(other.galutineMediana) {
+    // std::cout << "Copy constructor called\n";
+}
+
+// Copy Assignment Operator
+List_Studentas &List_Studentas::operator=(const List_Studentas &other) {
+    if (this == &other) {
+        return *this; // Handle self-assignment
+    }
+
+    // std::cout << "Copy assignment operator called\n";
+
+    // Copy fields
+    vardas = other.vardas;
+    pavarde = other.pavarde;
+    pazymiai = other.pazymiai;
+    egzaminoPazymys = other.egzaminoPazymys;
+    vidurkis = other.vidurkis;
+    mediana = other.mediana;
+    galutinisVidurkis = other.galutinisVidurkis;
+    galutineMediana = other.galutineMediana;
+
+    return *this;
+}
+
+// Destructor
+List_Studentas::~List_Studentas() {
+    // std::cout << "Destructor called\n";
+}
 
 // Getters
 std::string List_Studentas::getVardas() const { return vardas; }
@@ -26,9 +59,9 @@ float List_Studentas::getGalutinisVidurkis() const { return galutinisVidurkis; }
 float List_Studentas::getGalutineMediana() const { return galutineMediana; }
 
 // Setters
-void List_Studentas::setVardas(const std::string& vardas) { this->vardas = vardas; }
-void List_Studentas::setPavarde(const std::string& pavarde) { this->pavarde = pavarde; }
-void List_Studentas::List_setPazymiai(const std::list<int>& pazymiai) { this->pazymiai = pazymiai; }
+void List_Studentas::setVardas(const std::string &vardas) { this->vardas = vardas; }
+void List_Studentas::setPavarde(const std::string &pavarde) { this->pavarde = pavarde; }
+void List_Studentas::List_setPazymiai(const std::list<int> &pazymiai) { this->pazymiai = pazymiai; }
 void List_Studentas::setVidurkis(float vidurkis) { this->vidurkis = vidurkis; }
 void List_Studentas::setMediana(float mediana) { this->mediana = mediana; }
 void List_Studentas::setEgzaminoPazymys(int egzaminoPazymys) { this->egzaminoPazymys = egzaminoPazymys; }
@@ -43,7 +76,7 @@ void List_Studentas::List_skaiciuotiRezultatus() {
     // Apskaičiuojami vidurkį ir mediana
     float vidurkis = List_skaiciuotiVidurki(pazymiai);
     float mediana = List_skaiciuotiMediana(pazymiai);
-    
+
     setVidurkis(vidurkis);
     setMediana(mediana);
 

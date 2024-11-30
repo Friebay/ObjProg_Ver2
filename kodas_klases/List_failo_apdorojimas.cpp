@@ -2,17 +2,19 @@
 #include "List_funkcijos.h"
 #include "Vec_funkcijos_papildomos.h"
 
-void List_skaiciuotiIsFailo(List_Studentas& studentas, bool tinkamiPazymiai, std::list<List_Studentas>& studentai) {
-    if (tinkamiPazymiai && !studentas.getPazymiai().empty()) {
+void List_skaiciuotiIsFailo(List_Studentas &studentas, bool tinkamiPazymiai, std::list<List_Studentas> &studentai)
+{
+    if (tinkamiPazymiai && !studentas.getPazymiai().empty())
+    {
         std::list<int> pazymiai = studentas.getPazymiai();
-        
+
         // Paskutinis pažymys - egzaminas
         studentas.setEgzaminoPazymys(pazymiai.back());
         pazymiai.pop_back();
-        
+
         float vidurkis = List_skaiciuotiVidurki(pazymiai);
         float mediana = List_skaiciuotiMediana(pazymiai);
-        
+
         studentas.setVidurkis(vidurkis);
         studentas.setMediana(mediana);
 
@@ -24,21 +26,25 @@ void List_skaiciuotiIsFailo(List_Studentas& studentas, bool tinkamiPazymiai, std
         studentas.setGalutineMediana(medianosBalas + egzaminoBalas);
 
         studentai.push_back(studentas);
-    } else {
-        std::cout << "Klaida: truksta pazymiu studentui " 
-                  << studentas.getVardas() << " " 
+    }
+    else
+    {
+        std::cout << "Klaida: truksta pazymiu studentui "
+                  << studentas.getVardas() << " "
                   << studentas.getPavarde() << "\n";
     }
 }
 
-void List_skaitytiDuomenisIsFailo(const std::string& failoPavadinimas, 
-                                   std::list<List_Studentas>& studentai, 
-                                   long long& trukmeSkaitymo, 
-                                   long long& trukmeVidurkio) {
+void List_skaitytiDuomenisIsFailo(const std::string &failoPavadinimas,
+                                  std::list<List_Studentas> &studentai,
+                                  long long &trukmeSkaitymo,
+                                  long long &trukmeVidurkio)
+{
     auto pradziaSkaitymo = std::chrono::high_resolution_clock::now();
 
     std::ifstream failas(failoPavadinimas, std::ios::in | std::ios::binary);
-    if (!failas) {
+    if (!failas)
+    {
         throw std::runtime_error("Failo " + failoPavadinimas + " nera.");
     }
 
@@ -48,27 +54,30 @@ void List_skaitytiDuomenisIsFailo(const std::string& failoPavadinimas,
     // Praleidžia antraštę
     getline(failas, buffer);
 
-    while (getline(failas, buffer)) {
-        if (buffer.length() < 52) { // Minimalaus ilgio patikrinimas
+    while (getline(failas, buffer))
+    {
+        if (buffer.length() < 52)
+        { // Minimalaus ilgio patikrinimas
             throw std::runtime_error("Netinkamas eilutes ilgis");
         }
 
         List_Studentas studentas;
-        
+
         // Skaito vardą ir pavardę
         studentas.setVardas(buffer.substr(0, 16));
         studentas.setPavarde(buffer.substr(16, 32));
 
         // Funkcija ištrinti whitespace iš string
-        auto trim = [](std::string &str) {
+        auto trim = [](std::string &str)
+        {
             // Ištrinti pradžioję esantį whitespace
-            str.erase(str.begin(), std::find_if(str.begin(), str.end(), [](unsigned char ch) {
-                return !std::isspace(ch);
-            }));
+            str.erase(str.begin(), std::find_if(str.begin(), str.end(), [](unsigned char ch)
+                                                { return !std::isspace(ch); }));
             // Ištrinti pabaigoje esantį whitespace
-            str.erase(std::find_if(str.rbegin(), str.rend(), [](unsigned char ch) {
-                return !std::isspace(ch);
-            }).base(), str.end());
+            str.erase(std::find_if(str.rbegin(), str.rend(), [](unsigned char ch)
+                                   { return !std::isspace(ch); })
+                          .base(),
+                      str.end());
         };
 
         std::string vardas = studentas.getVardas();
@@ -82,41 +91,53 @@ void List_skaitytiDuomenisIsFailo(const std::string& failoPavadinimas,
         size_t pozicija = 52;
         bool tinkamiPazymiai = true;
         std::list<int> pazymiai;
-        
-        while (pozicija < buffer.length()) {
+
+        while (pozicija < buffer.length())
+        {
             // Praleidžia whitespace
-            while (pozicija < buffer.length() && isspace(buffer[pozicija])) pozicija++;
-            if (pozicija >= buffer.length()) break;
+            while (pozicija < buffer.length() && isspace(buffer[pozicija]))
+                pozicija++;
+            if (pozicija >= buffer.length())
+                break;
 
             int grade = 0;
             bool tinkamas = true;
-            
+
             // Patikrina ar skaičius
-            if (isdigit(buffer[pozicija])) {
-                while (pozicija < buffer.length() && isdigit(buffer[pozicija])) {
+            if (isdigit(buffer[pozicija]))
+            {
+                while (pozicija < buffer.length() && isdigit(buffer[pozicija]))
+                {
                     grade = grade * 10 + (buffer[pozicija] - '0');
                     pozicija++;
                 }
 
                 // Patikrina ar tarp 0 ir 10
-                if (grade < 0 || grade > 10) {
+                if (grade < 0 || grade > 10)
+                {
                     tinkamas = false;
                 }
-            } else {
+            }
+            else
+            {
                 // Jeigu ne skaičius:
                 tinkamas = false; // Netinkamas
-                pozicija++; // Eina į kitą poziciją
+                pozicija++;       // Eina į kitą poziciją
             }
 
-            if (tinkamas) {
+            if (tinkamas)
+            {
                 pazymiai.push_back(grade);
-            } else {
+            }
+            else
+            {
                 tinkamiPazymiai = false;
                 break;
             }
-            
+
             // Praleidžia whitespace
-            while (pozicija < buffer.length() && isspace(buffer[pozicija])) pozicija++;
+            while (pozicija < buffer.length() && isspace(buffer[pozicija]))
+                pozicija++;
         }
 
         // Nustatome pažymius
@@ -130,33 +151,33 @@ void List_skaitytiDuomenisIsFailo(const std::string& failoPavadinimas,
     trukmeVidurkio = 0;
 }
 
-
-void List_skaitytiIrIsvestiDuomenis(const std::string& ivestiesFailoPavadinimas, 
-                                    const std::string& irasymoFailoPavadinimas, 
-                                    long long& trukmeSkaitymo, 
-                                    long long& trukmeVidurkio, 
-                                    long long& trukmeIrasymo) {
+void List_skaitytiIrIsvestiDuomenis(const std::string &ivestiesFailoPavadinimas,
+                                    const std::string &irasymoFailoPavadinimas,
+                                    long long &trukmeSkaitymo,
+                                    long long &trukmeVidurkio,
+                                    long long &trukmeIrasymo)
+{
     std::list<List_Studentas> studentai;
     List_skaitytiDuomenisIsFailo(ivestiesFailoPavadinimas, studentai, trukmeSkaitymo, trukmeVidurkio);
 
     auto pradziaIrasimo = std::chrono::high_resolution_clock::now();
-    
+
     // Naudoja stringstream buferiui
     std::ostringstream buffer;
 
     // Įrašo antraštę į buferį
-    buffer << std::left << std::setw(16) << "Pavarde" 
-           << std::setw(16) << "Vardas" 
-           << std::setw(25) << "Galutinis Vidurkis" 
+    buffer << std::left << std::setw(16) << "Pavarde"
+           << std::setw(16) << "Vardas"
+           << std::setw(25) << "Galutinis Vidurkis"
            << "Galutine Mediana\n";
     buffer << std::string(70, '-') << "\n";
 
     // Sort students by surname
-    studentai.sort([](const List_Studentas& a, const List_Studentas& b) {
-        return a.getPavarde() < b.getPavarde();
-    });
+    studentai.sort([](const List_Studentas &a, const List_Studentas &b)
+                   { return a.getPavarde() < b.getPavarde(); });
 
-    for (const auto& studentas : studentai) {
+    for (const auto &studentas : studentai)
+    {
         buffer << std::left << std::setw(16) << studentas.getPavarde()
                << std::setw(16) << studentas.getVardas()
                << std::setw(25) << std::fixed << std::setprecision(2) << studentas.getGalutinisVidurkis()
@@ -166,7 +187,8 @@ void List_skaitytiIrIsvestiDuomenis(const std::string& ivestiesFailoPavadinimas,
 
     // Atidaro failą įrašymui
     std::ofstream irasymoFailas(irasymoFailoPavadinimas, std::ios::out | std::ios::binary);
-    if (!irasymoFailas) {
+    if (!irasymoFailas)
+    {
         throw std::runtime_error("Nepavyko atidaryti isvesties failo " + irasymoFailoPavadinimas);
     }
 
@@ -177,17 +199,19 @@ void List_skaitytiIrIsvestiDuomenis(const std::string& ivestiesFailoPavadinimas,
     auto pabaigaIrasimo = std::chrono::high_resolution_clock::now();
     trukmeIrasymo = std::chrono::duration_cast<std::chrono::milliseconds>(pabaigaIrasimo - pradziaIrasimo).count();
 }
-void List_padalintiRezultatuFaila(const std::string& ivestiesFailoPavadinimas, 
-                                   const std::string& islaikiusiuFailoPavadinimas, 
-                                   const std::string& neislaikiusiuFailoPavadinimas, 
-                                   long long& laikasSkaitymo, 
-                                   long long& rusiavimoLaikas, 
-                                   long long& laikasRasymo) {
+void List_padalintiRezultatuFaila(const std::string &ivestiesFailoPavadinimas,
+                                  const std::string &islaikiusiuFailoPavadinimas,
+                                  const std::string &neislaikiusiuFailoPavadinimas,
+                                  long long &laikasSkaitymo,
+                                  long long &rusiavimoLaikas,
+                                  long long &laikasRasymo)
+{
     auto pradziaSkaitymo = std::chrono::high_resolution_clock::now();
-    
+
     // Atidaro duomenis binariniu režimu
     std::ifstream ivestiesFailas(ivestiesFailoPavadinimas, std::ios::in | std::ios::binary);
-    if (!ivestiesFailas) {
+    if (!ivestiesFailas)
+    {
         throw std::runtime_error("Nepavyko atidaryti ivesties failo " + ivestiesFailoPavadinimas);
     }
 
@@ -201,7 +225,8 @@ void List_padalintiRezultatuFaila(const std::string& ivestiesFailoPavadinimas,
 
     std::ofstream islaikiusiuFailas(islaikiusiuFailoPavadinimas, std::ios::out | std::ios::binary);
     std::ofstream neislaikiusiuFailas(neislaikiusiuFailoPavadinimas, std::ios::out | std::ios::binary);
-    if (!islaikiusiuFailas || !neislaikiusiuFailas) {
+    if (!islaikiusiuFailas || !neislaikiusiuFailas)
+    {
         throw std::runtime_error("Nepavyko atidaryti išvesties failų");
     }
 
@@ -220,7 +245,8 @@ void List_padalintiRezultatuFaila(const std::string& ivestiesFailoPavadinimas,
     std::list<List_Studentas> studentai;
     std::list<List_Studentas> vargsiukai;
 
-    while (pos < failoTurinys.size()) {
+    while (pos < failoTurinys.size())
+    {
         newline_pos = failoTurinys.find('\n', pos);
         std::string_view line(failoTurinys.data() + pos, newline_pos - pos);
         pos = newline_pos + 1;
@@ -229,28 +255,34 @@ void List_padalintiRezultatuFaila(const std::string& ivestiesFailoPavadinimas,
         size_t word_start = line.find_first_not_of(" \t");
         size_t word_end = line.find(' ', word_start);
 
-        if (word_end != std::string_view::npos) {
+        if (word_end != std::string_view::npos)
+        {
             student.setPavarde(std::string(line.substr(word_start, word_end - word_start)));
             word_start = line.find_first_not_of(" \t", word_end);
             word_end = line.find(' ', word_start);
 
-            if (word_end != std::string_view::npos) {
+            if (word_end != std::string_view::npos)
+            {
                 student.setVardas(std::string(line.substr(word_start, word_end - word_start)));
                 word_start = line.find_first_not_of(" \t", word_end);
                 word_end = line.find(' ', word_start);
 
-                if (word_end != std::string_view::npos) {
-                    float galutinisVidurkis = std::stof(std::string(line.substr(word_start, 
-                                                        word_end - word_start)));
+                if (word_end != std::string_view::npos)
+                {
+                    float galutinisVidurkis = std::stof(std::string(line.substr(word_start,
+                                                                                word_end - word_start)));
                     word_start = line.find_first_not_of(" \t", word_end);
                     float galutineMediana = std::stof(std::string(line.substr(word_start)));
-                    
+
                     student.setGalutinisVidurkis(galutinisVidurkis);
                     student.setGalutineMediana(galutineMediana);
-                    
-                    if (galutinisVidurkis >= 5.0f) {
+
+                    if (galutinisVidurkis >= 5.0f)
+                    {
                         studentai.push_back(student);
-                    } else {
+                    }
+                    else
+                    {
                         vargsiukai.push_back(student);
                     }
                 }
@@ -265,13 +297,11 @@ void List_padalintiRezultatuFaila(const std::string& ivestiesFailoPavadinimas,
     auto pradetiRusiavima = std::chrono::high_resolution_clock::now();
 
     // Rūšiuojame abu sąrašus
-    studentai.sort([](const List_Studentas& a, const List_Studentas& b) {
-        return a.getGalutinisVidurkis() > b.getGalutinisVidurkis();
-    });
-    
-    vargsiukai.sort([](const List_Studentas& a, const List_Studentas& b) {
-        return a.getGalutinisVidurkis() > b.getGalutinisVidurkis();
-    });
+    studentai.sort([](const List_Studentas &a, const List_Studentas &b)
+                   { return a.getGalutinisVidurkis() > b.getGalutinisVidurkis(); });
+
+    vargsiukai.sort([](const List_Studentas &a, const List_Studentas &b)
+                    { return a.getGalutinisVidurkis() > b.getGalutinisVidurkis(); });
 
     auto pabaigaRusiavimo = std::chrono::high_resolution_clock::now();
     rusiavimoLaikas = std::chrono::duration_cast<std::chrono::milliseconds>(pabaigaRusiavimo - pradetiRusiavima).count();
@@ -280,24 +310,26 @@ void List_padalintiRezultatuFaila(const std::string& ivestiesFailoPavadinimas,
     auto pradetiRasyma = std::chrono::high_resolution_clock::now();
 
     // Rašome kietiakus (likusius studentai konteineryje)
-    for (const auto& studentas : studentai) {
-        islaikiusiuFailas << std::left << std::setw(15) << studentas.getPavarde() << " " 
-                          << std::setw(15) << studentas.getVardas() << " " 
-                          << std::setw(24) << studentas.getGalutinisVidurkis() << " " 
+    for (const auto &studentas : studentai)
+    {
+        islaikiusiuFailas << std::left << std::setw(15) << studentas.getPavarde() << " "
+                          << std::setw(15) << studentas.getVardas() << " "
+                          << std::setw(24) << studentas.getGalutinisVidurkis() << " "
                           << studentas.getGalutineMediana() << "\n";
     }
 
     // Rašome vargšiukus
-    for (const auto& studentas : vargsiukai) {
-        neislaikiusiuFailas << std::left << std::setw(15) << studentas.getPavarde() << " " 
-                            << std::setw(15) << studentas.getVardas() << " " 
-                            << std::setw(24) << studentas.getGalutinisVidurkis() << " " 
+    for (const auto &studentas : vargsiukai)
+    {
+        neislaikiusiuFailas << std::left << std::setw(15) << studentas.getPavarde() << " "
+                            << std::setw(15) << studentas.getVardas() << " "
+                            << std::setw(24) << studentas.getGalutinisVidurkis() << " "
                             << studentas.getGalutineMediana() << "\n";
     }
 
     auto pabaigaRasymo = std::chrono::high_resolution_clock::now();
     laikasRasymo = std::chrono::duration_cast<std::chrono::milliseconds>(pabaigaRasymo - pradetiRasyma).count();
-    
+
     // Uždaryti failus
     islaikiusiuFailas.close();
     neislaikiusiuFailas.close();
