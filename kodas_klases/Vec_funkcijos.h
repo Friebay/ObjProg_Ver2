@@ -55,14 +55,12 @@ Studentas generuotiAtsitiktiniStudenta();
 int gautiPazymi(const std::string &klausimas);
 float skaiciuotiVidurki(const vector<int> &vidurkis);
 float skaiciuotiMediana(const vector<int> &mediana);
-void rusiuotiStudentus(std::vector<Studentas> &studentai);
 int generuotiSkaiciu(int min, int max);
 std::string generuotiVardaPavarde();
 void generuotiFaila();
 void generuotiAtsitiktiniusFailus();
 void generuotiStudentuFaila(int studentuKiekis, const std::string &failoPavadinimas);
 void vykdytiVisusZingsnius();
-int gautiPazymi(const std::string &klausimas);
 
 // Declare the operator>>
 std::ifstream &operator>>(std::ifstream &failas, std::vector<Studentas> &studentai);

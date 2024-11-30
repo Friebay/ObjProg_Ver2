@@ -1,6 +1,5 @@
 #include "List_funkcijos.h"
 #include "List_failo_apdorojimas.h"
-#include "List_generuoti_failus.h"
 #include "Vec_funkcijos_papildomos.h"
 
 void List_ivestiStudentoDuomenis(List_Studentas &studentas)
@@ -168,7 +167,7 @@ void List_vykdytiVisusZingsnius()
         // Generuoti studentų failą
         string studentuFailas = "txt_failai/studentai_" + to_string(kiekis) + ".txt";
         auto pradziaGeneravimo = std::chrono::high_resolution_clock::now();
-        List_generuotiStudentuFaila(kiekis, studentuFailas);
+        generuotiStudentuFaila(kiekis, studentuFailas);
         auto pabaigaGeneravimo = std::chrono::high_resolution_clock::now();
         auto trukmeGeneravimo = std::chrono::duration_cast<std::chrono::milliseconds>(pabaigaGeneravimo - pradziaGeneravimo);
         cout << "Failo su " << kiekis << "studentais generavimas uztruko " << trukmeGeneravimo.count() << " ms.\n";
@@ -401,7 +400,7 @@ void List_programa()
             string duomenuFailas = "txt_failai/studentai" + (studentuSkaicius[failoPasirinkimas - 1]) + ".txt";
             string isvestiesFailoPavadinimas = "txt_failai/rezultatai" + (studentuSkaicius[failoPasirinkimas - 1]) + ".txt";
 
-            skaitytiIrIsvestiDuomenis(duomenuFailas, isvestiesFailoPavadinimas, trukmeSkaitymo, trukmeVidurkio, trukmeIrasymo);
+            List_skaitytiIrIsvestiDuomenis(duomenuFailas, isvestiesFailoPavadinimas, trukmeSkaitymo, trukmeVidurkio, trukmeIrasymo);
             cout << "Duomenys nuskaityti is " << duomenuFailas << " per " << trukmeSkaitymo << "ms ir isvesti i " << isvestiesFailoPavadinimas << " per " << trukmeIrasymo << " ms.\n";
             return;
         }

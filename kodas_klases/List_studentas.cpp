@@ -1,7 +1,4 @@
 #include "List_funkcijos.h"
-#include <iostream>
-#include <algorithm>
-#include <numeric>
 
 // Constructors and Destructor
 List_Studentas::List_Studentas() {}
@@ -13,6 +10,8 @@ List_Studentas::List_Studentas(const std::string &vardas, const std::string &pav
 {
     List_skaiciuotiRezultatus();
 }
+
+
 
 List_Studentas::~List_Studentas() {}
 
