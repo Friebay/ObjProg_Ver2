@@ -3,10 +3,33 @@
 
 #include "Vec_Biblioteka.h"
 
-class Studentas
-{
+// Abstract base class: Human
+class Human {
+protected:
+    std::string vardas;
+    std::string pavarde;
+
+public:
+    // Constructors and Destructor
+    Human();
+    Human(const std::string &vardas, const std::string &pavarde);
+    virtual ~Human();
+    Human(const Human &other);             // Copy constructor
+    Human &operator=(const Human &other);  // Copy assignment operator
+
+    // Pure virtual function (makes Human abstract)
+    virtual void printInfo() const = 0;
+
+    // Getters and Setters
+    std::string getVardas() const;
+    std::string getPavarde() const;
+    void setVardas(const std::string &vardas);
+    void setPavarde(const std::string &pavarde);
+};
+
+// Derived class: Studentas
+class Studentas : public Human {
 private:
-    std::string vardas, pavarde;
     std::vector<int> pazymiai;
     int egzaminoPazymys = 0;
     float vidurkis = 0;
@@ -22,9 +45,7 @@ public:
     Studentas(const Studentas &other);            // Copy constructor
     Studentas &operator=(const Studentas &other); // Copy assignment operator
 
-    // Getters and Setters (unchanged)
-    std::string getVardas() const;
-    std::string getPavarde() const;
+    // Getters and Setters
     std::vector<int> getPazymiai() const;
     int getEgzaminoPazymys() const;
     float getVidurkis() const;
@@ -32,18 +53,17 @@ public:
     float getGalutinisVidurkis() const;
     float getGalutineMediana() const;
 
-    void setVardas(const std::string &vardas);
-    void setPavarde(const std::string &pavarde);
     void setPazymiai(const std::vector<int> &pazymiai);
+    void setEgzaminoPazymys(int egzaminoPazymys);
     void setVidurkis(float vidurkis);
     void setMediana(float mediana);
-    void setEgzaminoPazymys(int egzaminoPazymys);
-    void setGalutinisVidurkis(float galutinisVidurkis);
     void setGalutineMediana(float galutineMediana);
+    void setGalutinisVidurkis(float galutinisVidurkis);
 
     // Methods
     void skaiciuotiRezultatus();
     void pridetiPazymi(int pazymys);
+    void printInfo() const override;
 
     friend std::ostream &operator<<(std::ostream &os, const Studentas &studentas);
     friend std::istream &operator>>(std::istream &is, Studentas &studentas);
