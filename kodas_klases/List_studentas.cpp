@@ -2,19 +2,22 @@
 #include "Vec_funkcijos.h"
 
 // Constructors and Destructor
-List_Studentas::List_Studentas() : Human() {
+List_Studentas::List_Studentas() : Human()
+{
     // std::cout << "Default constructor called\n";
 }
 
 List_Studentas::List_Studentas(const std::string &vardas, const std::string &pavarde,
                                const std::list<int> &pazymiai, int egzaminoPazymys)
-    : Human(vardas, pavarde), pazymiai(pazymiai), egzaminoPazymys(egzaminoPazymys) {
+    : Human(vardas, pavarde), pazymiai(pazymiai), egzaminoPazymys(egzaminoPazymys)
+{
     // std::cout << "Parameterized constructor called\n";
     List_skaiciuotiRezultatus();
 }
 
 // Destructor
-List_Studentas::~List_Studentas() {
+List_Studentas::~List_Studentas()
+{
     // std::cout << "Destructor called\n";
 }
 
@@ -22,13 +25,16 @@ List_Studentas::~List_Studentas() {
 List_Studentas::List_Studentas(const List_Studentas &other)
     : Human(other), pazymiai(other.pazymiai), egzaminoPazymys(other.egzaminoPazymys),
       vidurkis(other.vidurkis), mediana(other.mediana),
-      galutinisVidurkis(other.galutinisVidurkis), galutineMediana(other.galutineMediana) {
+      galutinisVidurkis(other.galutinisVidurkis), galutineMediana(other.galutineMediana)
+{
     // std::cout << "Copy constructor called\n";
 }
 
 // Copy Assignment Operator
-List_Studentas &List_Studentas::operator=(const List_Studentas &other) {
-    if (this == &other) {
+List_Studentas &List_Studentas::operator=(const List_Studentas &other)
+{
+    if (this == &other)
+    {
         return *this; // Handle self-assignment
     }
 
@@ -48,7 +54,6 @@ List_Studentas &List_Studentas::operator=(const List_Studentas &other) {
     return *this;
 }
 
-
 // Getters
 std::list<int> List_Studentas::getPazymiai() const { return pazymiai; }
 int List_Studentas::getEgzaminoPazymys() const { return egzaminoPazymys; }
@@ -66,12 +71,14 @@ void List_Studentas::setGalutinisVidurkis(float galutinisVidurkis) { this->galut
 void List_Studentas::setGalutineMediana(float galutineMediana) { this->galutineMediana = galutineMediana; }
 
 // Method to add a grade
-void List_Studentas::pridetiPazymi(int pazymys) {
+void List_Studentas::pridetiPazymi(int pazymys)
+{
     pazymiai.push_back(pazymys);
 }
 
 // Method to calculate results
-void List_Studentas::List_skaiciuotiRezultatus() {
+void List_Studentas::List_skaiciuotiRezultatus()
+{
     // Calculate average and median
     float vidurkis = List_skaiciuotiVidurki(pazymiai);
     float mediana = List_skaiciuotiMediana(pazymiai);
@@ -89,7 +96,8 @@ void List_Studentas::List_skaiciuotiRezultatus() {
 }
 
 // Override Human's pure virtual function
-void List_Studentas::printInfo() const {
+void List_Studentas::printInfo() const
+{
     std::cout << "Studentas: " << getVardas() << " " << getPavarde() << "\n"
               << "Egzamino pazymys: " << egzaminoPazymys << "\n"
               << "Vidurkis: " << vidurkis << "\n"

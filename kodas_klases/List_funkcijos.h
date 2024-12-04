@@ -2,9 +2,10 @@
 #define LIST_FUNKCIJOS_H
 
 #include "List_Biblioteka.h"
+#include "Vec_funkcijos.h"
 
-
-class List_Studentas : public Human {
+class List_Studentas : public Human
+{
 private:
     std::list<int> pazymiai;
     int egzaminoPazymys = 0;
@@ -49,7 +50,6 @@ public:
     friend std::istream &operator>>(std::istream &is, List_Studentas &studentas);
 };
 
-
 // Function declarations
 void List_programa();
 float List_skaiciuotiVidurki(std::list<int> &pazymiai);
@@ -68,7 +68,6 @@ void List_vykdytiVisusZingsnius();
 
 // Declare the operator>>
 std::ifstream &operator>>(std::ifstream &failas, std::list<List_Studentas> &studentai);
-
 
 void List_skaitytiDuomenisIsFailo(
     const std::string &failoPavadinimas,
