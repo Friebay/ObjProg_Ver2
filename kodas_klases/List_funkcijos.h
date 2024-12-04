@@ -3,10 +3,9 @@
 
 #include "List_Biblioteka.h"
 
-class List_Studentas
-{
+
+class List_Studentas : public Human {
 private:
-    std::string vardas, pavarde;
     std::list<int> pazymiai;
     int egzaminoPazymys = 0;
     float vidurkis = 0;
@@ -24,8 +23,6 @@ public:
     List_Studentas &operator=(const List_Studentas &other); // Copy assignment operator
 
     // Getters
-    std::string getVardas() const;
-    std::string getPavarde() const;
     std::list<int> getPazymiai() const;
     int getEgzaminoPazymys() const;
     float getVidurkis() const;
@@ -34,14 +31,15 @@ public:
     float getGalutineMediana() const;
 
     // Setters
-    void setVardas(const std::string &vardas);
-    void setPavarde(const std::string &pavarde);
     void List_setPazymiai(const std::list<int> &pazymiai);
     void setEgzaminoPazymys(int egzaminoPazymys);
     void setVidurkis(float vidurkis);
     void setMediana(float mediana);
     void setGalutinisVidurkis(float galutinisVidurkis);
     void setGalutineMediana(float galutineMediana);
+
+    // Required override for Human's pure virtual function
+    void printInfo() const override;
 
     // Additional methods
     void pridetiPazymi(int pazymys);
@@ -50,6 +48,7 @@ public:
     friend std::ostream &operator<<(std::ostream &os, const List_Studentas &studentas);
     friend std::istream &operator>>(std::istream &is, List_Studentas &studentas);
 };
+
 
 // Function declarations
 void List_programa();
