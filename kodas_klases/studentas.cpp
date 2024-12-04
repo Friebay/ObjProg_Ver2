@@ -7,6 +7,7 @@ Studentas::Studentas() : Human() {}
 // Parameterized Constructor
 Studentas::Studentas(const std::string &vardas, const std::string &pavarde, const std::vector<int> &pazymiai, int egzaminoPazymys)
     : Human(vardas, pavarde), pazymiai(pazymiai), egzaminoPazymys(egzaminoPazymys) {
+    // std::cout << "Parameterized constructor called\n";
     skaiciuotiRezultatus();
 }
 

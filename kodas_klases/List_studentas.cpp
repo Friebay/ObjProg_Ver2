@@ -1,5 +1,5 @@
 #include "List_funkcijos.h"
-#include <iostream>
+#include "Vec_funkcijos.h"
 
 // Constructors and Destructor
 List_Studentas::List_Studentas() : Human() {
@@ -11,6 +11,11 @@ List_Studentas::List_Studentas(const std::string &vardas, const std::string &pav
     : Human(vardas, pavarde), pazymiai(pazymiai), egzaminoPazymys(egzaminoPazymys) {
     // std::cout << "Parameterized constructor called\n";
     List_skaiciuotiRezultatus();
+}
+
+// Destructor
+List_Studentas::~List_Studentas() {
+    // std::cout << "Destructor called\n";
 }
 
 // Copy Constructor
@@ -43,14 +48,8 @@ List_Studentas &List_Studentas::operator=(const List_Studentas &other) {
     return *this;
 }
 
-// Destructor
-List_Studentas::~List_Studentas() {
-    // std::cout << "Destructor called\n";
-}
 
 // Getters
-std::string List_Studentas::getVardas() const { return Human::getVardas(); }
-std::string List_Studentas::getPavarde() const { return Human::getPavarde(); }
 std::list<int> List_Studentas::getPazymiai() const { return pazymiai; }
 int List_Studentas::getEgzaminoPazymys() const { return egzaminoPazymys; }
 float List_Studentas::getVidurkis() const { return vidurkis; }
@@ -59,8 +58,6 @@ float List_Studentas::getGalutinisVidurkis() const { return galutinisVidurkis; }
 float List_Studentas::getGalutineMediana() const { return galutineMediana; }
 
 // Setters
-void List_Studentas::setVardas(const std::string &vardas) { Human::setVardas(vardas); }
-void List_Studentas::setPavarde(const std::string &pavarde) { Human::setPavarde(pavarde); }
 void List_Studentas::List_setPazymiai(const std::list<int> &pazymiai) { this->pazymiai = pazymiai; }
 void List_Studentas::setVidurkis(float vidurkis) { this->vidurkis = vidurkis; }
 void List_Studentas::setMediana(float mediana) { this->mediana = mediana; }
