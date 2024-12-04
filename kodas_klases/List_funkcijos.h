@@ -40,7 +40,6 @@ public:
     void setEgzaminoPazymys(int egzaminoPazymys);
     void setVidurkis(float vidurkis);
     void setMediana(float mediana);
-    void setEgzaminoPazymys(int egzaminoPazymys);
     void setGalutinisVidurkis(float galutinisVidurkis);
     void setGalutineMediana(float galutineMediana);
 
