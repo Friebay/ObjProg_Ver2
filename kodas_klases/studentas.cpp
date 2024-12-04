@@ -370,3 +370,15 @@ std::ifstream &operator>>(std::ifstream &failas, std::vector<Studentas> &student
 
     return failas;
 }
+
+void Studentas::printInfo() const {
+    std::cout << "Vardas: " << vardas << ", Pavarde: " << pavarde << std::endl;
+    std::cout << "Egzamino Pazymys: " << egzaminoPazymys << std::endl;
+    std::cout << "Vidurkis: " << vidurkis << ", Mediana: " << mediana << std::endl;
+    std::cout << "Galutinis Vidurkis: " << galutinisVidurkis << ", Galutine Mediana: " << galutineMediana << std::endl;
+    std::cout << "Pazymiai: ";
+    for (const auto &pazymys : pazymiai) {
+        std::cout << pazymys << " ";
+    }
+    std::cout << std::endl;
+}
