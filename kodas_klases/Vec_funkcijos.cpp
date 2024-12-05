@@ -110,7 +110,7 @@ void Vec_programa()
         case 9:
         {
             // Abstralčioji klasė Zmogus
-            std::cout << "Parodysime, kad bandant sukurti abstrakčios klases Zmogus objekta ivyksta klaida:\n";
+            std::cout << "Parodysime, kad bandant sukurti abstrakcios klases Zmogus objekta ivyksta klaida:\n";
 
             try
             {
