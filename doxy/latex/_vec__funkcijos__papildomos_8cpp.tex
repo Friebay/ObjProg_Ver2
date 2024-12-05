@@ -17,19 +17,19 @@ void \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_a6981acc0ff11c6c012050ebb
 void \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_a3706b7854074e9e9bc33c94d74443ed2}{rusiuoti\+Pagal\+Vidurki\+Mazejanciai}} (std\+::vector$<$ \mbox{\hyperlink{class_studentas}{Studentas}} $>$ \&studentai)
 \item 
 float \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_aacfbe199e745c9efdccf92364ce03c35}{skaiciuoti\+Mediana}} (const std\+::vector$<$ int $>$ \&pazymiai)
-\item 
+\begin{DoxyCompactList}\small\item\em Apskaičiuoja pažymių medianą. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_a0b90c1b489cba5e5fc2d2d3a1d8476bc}{skaiciuoti\+Vidurki}} (const std\+::vector$<$ int $>$ \&pazymiai)
-\item 
+\begin{DoxyCompactList}\small\item\em Apskaičiuoja pažymių vidurkį. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_ad835eaf63cec1fc6c92420a1824f84df}{generuoti\+Skaiciu}} (int min, int max)
-\item 
+\begin{DoxyCompactList}\small\item\em Generuoja atsitiktinį skaičių intervalo ribose. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_a90528a604d030771359c5365ede15079}{generuoti\+Varda\+Pavarde}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Generuoja atsitiktinį vardą ir pavardę. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_studentas}{Studentas}} \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_a029451e322666877eb1d5497e9c6d5d1}{generuoti\+Atsitiktini\+Studenta}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Generuoja atsitiktinį studentą. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_a0a363c0e40c99775ca18132fbe3bf80f}{generuoti\+Atsitiktinius\+Failus}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Generuoja kelis atsitiktinius studentų failus. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_a8af30212dfb23ff59e9f4a5201ea9892}{vykdyti\+Visus\+Zingsnius}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Vykdo visus programos žingsnius. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_a724daae1c62ab97bf96dafb522156786}{ivesti\+Duomenis\+Ranka}} (vector$<$ \mbox{\hyperlink{class_studentas}{Studentas}} $>$ \&studentai)
 \item 
 void \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_ab9a5ff0383f5705c8ada9bce44f8a9aa}{automatiskai\+Generuoti\+Duomenis}} (vector$<$ \mbox{\hyperlink{class_studentas}{Studentas}} $>$ \&studentai)
@@ -73,6 +73,13 @@ Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l000
 
 
 
+Generuoja atsitiktinį studentą. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{class_studentas}{Studentas} su atsitiktiniais duomenimis. 
+\end{DoxyReturn}
+
+
 Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l00132}{132}} of file \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source}{Vec\+\_\+funkcijos\+\_\+papildomos.\+cpp}}.
 
 \Hypertarget{_vec__funkcijos__papildomos_8cpp_a0a363c0e40c99775ca18132fbe3bf80f}\index{Vec\_funkcijos\_papildomos.cpp@{Vec\_funkcijos\_papildomos.cpp}!generuotiAtsitiktiniusFailus@{generuotiAtsitiktiniusFailus}}
@@ -80,6 +87,10 @@ Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l001
 \doxysubsubsection{\texorpdfstring{generuotiAtsitiktiniusFailus()}{generuotiAtsitiktiniusFailus()}}
 {\footnotesize\ttfamily \label{_vec__funkcijos__papildomos_8cpp_a0a363c0e40c99775ca18132fbe3bf80f} 
 void generuoti\+Atsitiktinius\+Failus (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Generuoja kelis atsitiktinius studentų failus. 
 
 
 
@@ -93,6 +104,20 @@ int generuoti\+Skaiciu (\begin{DoxyParamCaption}\item[{int}]{min}{, }\item[{int}
 
 
 
+Generuoja atsitiktinį skaičių intervalo ribose. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em min} & Mažiausia reikšmė. \\
+\hline
+{\em max} & Didžiausia reikšmė. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Generuotas atsitiktinis skaičius. 
+\end{DoxyReturn}
+
+
 Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l00109}{109}} of file \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source}{Vec\+\_\+funkcijos\+\_\+papildomos.\+cpp}}.
 
 \Hypertarget{_vec__funkcijos__papildomos_8cpp_a90528a604d030771359c5365ede15079}\index{Vec\_funkcijos\_papildomos.cpp@{Vec\_funkcijos\_papildomos.cpp}!generuotiVardaPavarde@{generuotiVardaPavarde}}
@@ -101,6 +126,13 @@ Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l001
 {\footnotesize\ttfamily \label{_vec__funkcijos__papildomos_8cpp_a90528a604d030771359c5365ede15079} 
 string generuoti\+Varda\+Pavarde (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Generuoja atsitiktinį vardą ir pavardę. 
+
+\begin{DoxyReturn}{Returns}
+Sugeneruotas vardas ir pavardė. 
+\end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l00118}{118}} of file \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source}{Vec\+\_\+funkcijos\+\_\+papildomos.\+cpp}}.
@@ -179,8 +211,20 @@ Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l000
 \index{skaiciuotiMediana@{skaiciuotiMediana}!Vec\_funkcijos\_papildomos.cpp@{Vec\_funkcijos\_papildomos.cpp}}
 \doxysubsubsection{\texorpdfstring{skaiciuotiMediana()}{skaiciuotiMediana()}}
 {\footnotesize\ttfamily \label{_vec__funkcijos__papildomos_8cpp_aacfbe199e745c9efdccf92364ce03c35} 
-float skaiciuoti\+Mediana (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{pazymiai}{}\end{DoxyParamCaption})}
+float skaiciuoti\+Mediana (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{mediana}{}\end{DoxyParamCaption})}
 
+
+
+Apskaičiuoja pažymių medianą. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mediana} & Pažymių sąrašas. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Apskaičiuota mediana. 
+\end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l00077}{77}} of file \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source}{Vec\+\_\+funkcijos\+\_\+papildomos.\+cpp}}.
@@ -199,8 +243,20 @@ Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l003
 \index{skaiciuotiVidurki@{skaiciuotiVidurki}!Vec\_funkcijos\_papildomos.cpp@{Vec\_funkcijos\_papildomos.cpp}}
 \doxysubsubsection{\texorpdfstring{skaiciuotiVidurki()}{skaiciuotiVidurki()}}
 {\footnotesize\ttfamily \label{_vec__funkcijos__papildomos_8cpp_a0b90c1b489cba5e5fc2d2d3a1d8476bc} 
-float skaiciuoti\+Vidurki (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{pazymiai}{}\end{DoxyParamCaption})}
+float skaiciuoti\+Vidurki (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{vidurkis}{}\end{DoxyParamCaption})}
 
+
+
+Apskaičiuoja pažymių vidurkį. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vidurkis} & Pažymių sąrašas. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Apskaičiuotas vidurkis. 
+\end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l00100}{100}} of file \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source}{Vec\+\_\+funkcijos\+\_\+papildomos.\+cpp}}.
@@ -220,6 +276,10 @@ Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l004
 \doxysubsubsection{\texorpdfstring{vykdytiVisusZingsnius()}{vykdytiVisusZingsnius()}}
 {\footnotesize\ttfamily \label{_vec__funkcijos__papildomos_8cpp_a8af30212dfb23ff59e9f4a5201ea9892} 
 void vykdyti\+Visus\+Zingsnius (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Vykdo visus programos žingsnius. 
 
 
 

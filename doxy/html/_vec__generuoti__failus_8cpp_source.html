@@ -120,19 +120,19 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    ostringstream outputStream;</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; studentuKiekis; ++i)</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordtype">string</span> vardas = <a class="code hl_function" href="_list__funkcijos_8h.html#a7071a26dc1ad5d532da28d442d5448d6">generuotiVardaPavarde</a>(); <span class="comment">// Generuojami vardai ir pavardės</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordtype">string</span> pavarde = <a class="code hl_function" href="_list__funkcijos_8h.html#a7071a26dc1ad5d532da28d442d5448d6">generuotiVardaPavarde</a>();</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordtype">string</span> vardas = <a class="code hl_function" href="_vec__funkcijos_8h.html#a7071a26dc1ad5d532da28d442d5448d6">generuotiVardaPavarde</a>(); <span class="comment">// Generuojami vardai ir pavardės</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordtype">string</span> pavarde = <a class="code hl_function" href="_vec__funkcijos_8h.html#a7071a26dc1ad5d532da28d442d5448d6">generuotiVardaPavarde</a>();</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        outputStream &lt;&lt; left &lt;&lt; setw(16) &lt;&lt; vardas &lt;&lt; setw(16) &lt;&lt; pavarde &lt;&lt; setw(13) &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="comment">// Generuojami 15 pažymių</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; 15; ++j)</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        {</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            outputStream &lt;&lt; right &lt;&lt; setw(10) &lt;&lt; <a class="code hl_function" href="_list__funkcijos_8h.html#ad835eaf63cec1fc6c92420a1824f84df">generuotiSkaiciu</a>(1, 10);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            outputStream &lt;&lt; right &lt;&lt; setw(10) &lt;&lt; <a class="code hl_function" href="_vec__funkcijos_8h.html#ad835eaf63cec1fc6c92420a1824f84df">generuotiSkaiciu</a>(1, 10);</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        }</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="comment">// Generuojamas egzamino pažymys</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        outputStream &lt;&lt; right &lt;&lt; setw(10) &lt;&lt; <a class="code hl_function" href="_list__funkcijos_8h.html#ad835eaf63cec1fc6c92420a1824f84df">generuotiSkaiciu</a>(1, 10) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        outputStream &lt;&lt; right &lt;&lt; setw(10) &lt;&lt; <a class="code hl_function" href="_vec__funkcijos_8h.html#ad835eaf63cec1fc6c92420a1824f84df">generuotiSkaiciu</a>(1, 10) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="comment">// Galutinis rašymas iš stream į failą</span></div>
@@ -144,7 +144,7 @@ $(function(){ initResizable(false); });
 </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="_list__funkcijos_8h.html#a533a0a21b762dcd162d0c0ee9af14c1d">   54</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_vec__generuoti__failus_8cpp.html#a533a0a21b762dcd162d0c0ee9af14c1d">generuotiFaila</a>()</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="_vec__funkcijos_8h.html#a533a0a21b762dcd162d0c0ee9af14c1d">   54</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="_vec__generuoti__failus_8cpp.html#a533a0a21b762dcd162d0c0ee9af14c1d">generuotiFaila</a>()</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>{</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    vector&lt;int&gt; studentuSkaicius = {1000, 10000, 100000, 1000000, 10000000};</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
@@ -188,10 +188,10 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    }</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>}</div>
 </div>
-<div class="ttc" id="a_list__funkcijos_8h_html_a7071a26dc1ad5d532da28d442d5448d6"><div class="ttname"><a href="_list__funkcijos_8h.html#a7071a26dc1ad5d532da28d442d5448d6">generuotiVardaPavarde</a></div><div class="ttdeci">std::string generuotiVardaPavarde()</div><div class="ttdef"><b>Definition</b> <a href="_vec__funkcijos__papildomos_8cpp_source.html#l00118">Vec_funkcijos_papildomos.cpp:118</a></div></div>
-<div class="ttc" id="a_list__funkcijos_8h_html_ad835eaf63cec1fc6c92420a1824f84df"><div class="ttname"><a href="_list__funkcijos_8h.html#ad835eaf63cec1fc6c92420a1824f84df">generuotiSkaiciu</a></div><div class="ttdeci">int generuotiSkaiciu(int min, int max)</div><div class="ttdef"><b>Definition</b> <a href="_vec__funkcijos__papildomos_8cpp_source.html#l00109">Vec_funkcijos_papildomos.cpp:109</a></div></div>
 <div class="ttc" id="a_vec__funkcijos_8h_html"><div class="ttname"><a href="_vec__funkcijos_8h.html">Vec_funkcijos.h</a></div></div>
-<div class="ttc" id="a_vec__generuoti__failus_8cpp_html_a533a0a21b762dcd162d0c0ee9af14c1d"><div class="ttname"><a href="_vec__generuoti__failus_8cpp.html#a533a0a21b762dcd162d0c0ee9af14c1d">generuotiFaila</a></div><div class="ttdeci">void generuotiFaila()</div><div class="ttdef"><b>Definition</b> <a href="#l00054">Vec_generuoti_failus.cpp:54</a></div></div>
+<div class="ttc" id="a_vec__funkcijos_8h_html_a7071a26dc1ad5d532da28d442d5448d6"><div class="ttname"><a href="_vec__funkcijos_8h.html#a7071a26dc1ad5d532da28d442d5448d6">generuotiVardaPavarde</a></div><div class="ttdeci">std::string generuotiVardaPavarde()</div><div class="ttdoc">Generuoja atsitiktinį vardą ir pavardę.</div><div class="ttdef"><b>Definition</b> <a href="_vec__funkcijos__papildomos_8cpp_source.html#l00118">Vec_funkcijos_papildomos.cpp:118</a></div></div>
+<div class="ttc" id="a_vec__funkcijos_8h_html_ad835eaf63cec1fc6c92420a1824f84df"><div class="ttname"><a href="_vec__funkcijos_8h.html#ad835eaf63cec1fc6c92420a1824f84df">generuotiSkaiciu</a></div><div class="ttdeci">int generuotiSkaiciu(int min, int max)</div><div class="ttdoc">Generuoja atsitiktinį skaičių intervalo ribose.</div><div class="ttdef"><b>Definition</b> <a href="_vec__funkcijos__papildomos_8cpp_source.html#l00109">Vec_funkcijos_papildomos.cpp:109</a></div></div>
+<div class="ttc" id="a_vec__generuoti__failus_8cpp_html_a533a0a21b762dcd162d0c0ee9af14c1d"><div class="ttname"><a href="_vec__generuoti__failus_8cpp.html#a533a0a21b762dcd162d0c0ee9af14c1d">generuotiFaila</a></div><div class="ttdeci">void generuotiFaila()</div><div class="ttdoc">Generuoja studentų failą su atsitiktiniais duomenimis.</div><div class="ttdef"><b>Definition</b> <a href="#l00054">Vec_generuoti_failus.cpp:54</a></div></div>
 <div class="ttc" id="a_vec__generuoti__failus_8cpp_html_a57f7e4a0e99b0251e6824e99a9fde32e"><div class="ttname"><a href="_vec__generuoti__failus_8cpp.html#a57f7e4a0e99b0251e6824e99a9fde32e">generuotiStudentuFaila</a></div><div class="ttdeci">void generuotiStudentuFaila(int studentuKiekis, const string &amp;failoPavadinimas)</div><div class="ttdef"><b>Definition</b> <a href="#l00003">Vec_generuoti_failus.cpp:3</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

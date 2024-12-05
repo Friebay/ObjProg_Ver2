@@ -18,15 +18,15 @@ float \mbox{\hyperlink{_vec__funkcijos__papildomos_8h_a9d77c8ff586130a55843dba2e
 float \mbox{\hyperlink{_vec__funkcijos__papildomos_8h_a9b2ac8ee6b393ad497e82d8ca8e285fb}{skaiciuoti\+Vidurki}} (vector$<$ int $>$ \&pazymiai)
 \item 
 int \mbox{\hyperlink{_vec__funkcijos__papildomos_8h_ad835eaf63cec1fc6c92420a1824f84df}{generuoti\+Skaiciu}} (int min, int max)
-\item 
+\begin{DoxyCompactList}\small\item\em Generuoja atsitiktinį skaičių intervalo ribose. \end{DoxyCompactList}\item 
 string \mbox{\hyperlink{_vec__funkcijos__papildomos_8h_a90528a604d030771359c5365ede15079}{generuoti\+Varda\+Pavarde}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Generuoja atsitiktinį vardą ir pavardę. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_studentas}{Studentas}} \mbox{\hyperlink{_vec__funkcijos__papildomos_8h_a029451e322666877eb1d5497e9c6d5d1}{generuoti\+Atsitiktini\+Studenta}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Generuoja atsitiktinį studentą. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_vec__funkcijos__papildomos_8h_a0a363c0e40c99775ca18132fbe3bf80f}{generuoti\+Atsitiktinius\+Failus}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Generuoja kelis atsitiktinius studentų failus. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_vec__funkcijos__papildomos_8h_a8af30212dfb23ff59e9f4a5201ea9892}{vykdyti\+Visus\+Zingsnius}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Vykdo visus programos žingsnius. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_vec__funkcijos__papildomos_8h_a9100357d60fca36250dabe781261671e}{vykdyti\+Keliskart}} (int \&kartai)
 \item 
 void \mbox{\hyperlink{_vec__funkcijos__papildomos_8h_a41e0f499fbc2fd83c998aa737fe84ae4}{rusiuoti\+Rezultatus}} (long long \&trukme\+Rezultatu\+Skaitymo, long long \&trukme\+Rezultatu\+Skaidymas, long long \&trukme\+Skaidymo\+Irasymas)
@@ -60,6 +60,13 @@ Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l002
 
 
 
+Generuoja atsitiktinį studentą. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{class_studentas}{Studentas} su atsitiktiniais duomenimis. 
+\end{DoxyReturn}
+
+
 Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l00132}{132}} of file \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source}{Vec\+\_\+funkcijos\+\_\+papildomos.\+cpp}}.
 
 \Hypertarget{_vec__funkcijos__papildomos_8h_a0a363c0e40c99775ca18132fbe3bf80f}\index{Vec\_funkcijos\_papildomos.h@{Vec\_funkcijos\_papildomos.h}!generuotiAtsitiktiniusFailus@{generuotiAtsitiktiniusFailus}}
@@ -67,6 +74,10 @@ Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l001
 \doxysubsubsection{\texorpdfstring{generuotiAtsitiktiniusFailus()}{generuotiAtsitiktiniusFailus()}}
 {\footnotesize\ttfamily \label{_vec__funkcijos__papildomos_8h_a0a363c0e40c99775ca18132fbe3bf80f} 
 void generuoti\+Atsitiktinius\+Failus (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Generuoja kelis atsitiktinius studentų failus. 
 
 
 
@@ -80,6 +91,20 @@ int generuoti\+Skaiciu (\begin{DoxyParamCaption}\item[{int}]{min}{, }\item[{int}
 
 
 
+Generuoja atsitiktinį skaičių intervalo ribose. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em min} & Mažiausia reikšmė. \\
+\hline
+{\em max} & Didžiausia reikšmė. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Generuotas atsitiktinis skaičius. 
+\end{DoxyReturn}
+
+
 Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l00109}{109}} of file \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source}{Vec\+\_\+funkcijos\+\_\+papildomos.\+cpp}}.
 
 \Hypertarget{_vec__funkcijos__papildomos_8h_a90528a604d030771359c5365ede15079}\index{Vec\_funkcijos\_papildomos.h@{Vec\_funkcijos\_papildomos.h}!generuotiVardaPavarde@{generuotiVardaPavarde}}
@@ -88,6 +113,13 @@ Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l001
 {\footnotesize\ttfamily \label{_vec__funkcijos__papildomos_8h_a90528a604d030771359c5365ede15079} 
 string generuoti\+Varda\+Pavarde (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Generuoja atsitiktinį vardą ir pavardę. 
+
+\begin{DoxyReturn}{Returns}
+Sugeneruotas vardas ir pavardė. 
+\end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l00118}{118}} of file \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source}{Vec\+\_\+funkcijos\+\_\+papildomos.\+cpp}}.
@@ -199,6 +231,10 @@ Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l004
 \doxysubsubsection{\texorpdfstring{vykdytiVisusZingsnius()}{vykdytiVisusZingsnius()}}
 {\footnotesize\ttfamily \label{_vec__funkcijos__papildomos_8h_a8af30212dfb23ff59e9f4a5201ea9892} 
 void vykdyti\+Visus\+Zingsnius (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Vykdo visus programos žingsnius. 
 
 
 

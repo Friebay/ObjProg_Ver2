@@ -5,38 +5,36 @@
 \begin{DoxyCompactItemize}
 \item 
 class \mbox{\hyperlink{class_zmogus}{Zmogus}}
-\item 
+\begin{DoxyCompactList}\small\item\em Abstrakti bazinė klasė, reprezentuojanti asmenį su vardu ir pavarde. \end{DoxyCompactList}\item 
 class \mbox{\hyperlink{class_studentas}{Studentas}}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Išvestinė klasė, reprezentuojanti studentą su pažymiais ir rezultatais. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \mbox{\hyperlink{_vec__funkcijos_8h_a337431cc3e8ce37fd4f90562e6096d37}{Vec\+\_\+programa}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Vykdo Vec programos funkcionalumą. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_studentas}{Studentas}} \mbox{\hyperlink{_vec__funkcijos_8h_a029451e322666877eb1d5497e9c6d5d1}{generuoti\+Atsitiktini\+Studenta}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Generuoja atsitiktinį studentą. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{_vec__funkcijos_8h_a90f6d214a681f0272ee677d9f376ee96}{gauti\+Pazymi}} (const std\+::string \&klausimas)
-\item 
-float \mbox{\hyperlink{_vec__funkcijos_8h_a5f95c07d9f6af51718d6c3e0bc2d40b8}{skaiciuoti\+Vidurki}} (const vector$<$ int $>$ \&vidurkis)
-\item 
-float \mbox{\hyperlink{_vec__funkcijos_8h_a453f18d8af17dbeb094c1a18ff0e5393}{skaiciuoti\+Mediana}} (const vector$<$ int $>$ \&mediana)
-\item 
+\begin{DoxyCompactList}\small\item\em Grąžina pažymį, pagrįstą vartotojo įvestimi. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_vec__funkcijos_8h_a2a35f4a748118bc71d64c6c4eecba8e2}{skaiciuoti\+Vidurki}} (const std\+::vector$<$ int $>$ \&vidurkis)
+\begin{DoxyCompactList}\small\item\em Apskaičiuoja pažymių vidurkį. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{_vec__funkcijos_8h_a441252c6b6682130d1b593cc978a67f3}{skaiciuoti\+Mediana}} (const std\+::vector$<$ int $>$ \&mediana)
+\begin{DoxyCompactList}\small\item\em Apskaičiuoja pažymių medianą. \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{_vec__funkcijos_8h_ad835eaf63cec1fc6c92420a1824f84df}{generuoti\+Skaiciu}} (int min, int max)
-\item 
+\begin{DoxyCompactList}\small\item\em Generuoja atsitiktinį skaičių intervalo ribose. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{_vec__funkcijos_8h_a7071a26dc1ad5d532da28d442d5448d6}{generuoti\+Varda\+Pavarde}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Generuoja atsitiktinį vardą ir pavardę. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_vec__funkcijos_8h_a533a0a21b762dcd162d0c0ee9af14c1d}{generuoti\+Faila}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Generuoja studentų failą su atsitiktiniais duomenimis. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_vec__funkcijos_8h_a0a363c0e40c99775ca18132fbe3bf80f}{generuoti\+Atsitiktinius\+Failus}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Generuoja kelis atsitiktinius studentų failus. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_vec__funkcijos_8h_ab604b3758c8c5e185faa9d2ad0e78d2f}{generuoti\+Studentu\+Faila}} (int studentu\+Kiekis, const std\+::string \&failo\+Pavadinimas)
-\item 
+\begin{DoxyCompactList}\small\item\em Generuoja failą su tam tikru studentų skaičiumi. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_vec__funkcijos_8h_a8af30212dfb23ff59e9f4a5201ea9892}{vykdyti\+Visus\+Zingsnius}} ()
-\item 
-std\+::ifstream \& \mbox{\hyperlink{_vec__funkcijos_8h_a8d22044a20fe19a88e4e890591aff354}{operator$>$$>$}} (std\+::ifstream \&failas, std\+::vector$<$ \mbox{\hyperlink{class_studentas}{Studentas}} $>$ \&studentai)
-\item 
+\begin{DoxyCompactList}\small\item\em Vykdo visus programos žingsnius. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{_vec__funkcijos_8h_aa6c094e0ca22b9b789f91f0ff9df1baa}{skaityti\+Duomenis\+Is\+Failo}} (const std\+::string \&failo\+Pavadinimas, std\+::vector$<$ \mbox{\hyperlink{class_studentas}{Studentas}} $>$ \&studentai, long long \&trukme\+Skaitymo, long long \&trukme\+Vidurkio)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Nuskaito studentų duomenis iš failo. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Function Documentation}
@@ -46,12 +44,31 @@ void \mbox{\hyperlink{_vec__funkcijos_8h_aa6c094e0ca22b9b789f91f0ff9df1baa}{skai
 {\footnotesize\ttfamily \label{_vec__funkcijos_8h_a90f6d214a681f0272ee677d9f376ee96} 
 int gauti\+Pazymi (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{klausimas}{}\end{DoxyParamCaption})}
 
+
+
+Grąžina pažymį, pagrįstą vartotojo įvestimi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em klausimas} & Klausimas, užduodamas vartotojui. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Įvestas pažymys. 
+\end{DoxyReturn}
 \Hypertarget{_vec__funkcijos_8h_a029451e322666877eb1d5497e9c6d5d1}\index{Vec\_funkcijos.h@{Vec\_funkcijos.h}!generuotiAtsitiktiniStudenta@{generuotiAtsitiktiniStudenta}}
 \index{generuotiAtsitiktiniStudenta@{generuotiAtsitiktiniStudenta}!Vec\_funkcijos.h@{Vec\_funkcijos.h}}
 \doxysubsubsection{\texorpdfstring{generuotiAtsitiktiniStudenta()}{generuotiAtsitiktiniStudenta()}}
 {\footnotesize\ttfamily \label{_vec__funkcijos_8h_a029451e322666877eb1d5497e9c6d5d1} 
 \mbox{\hyperlink{class_studentas}{Studentas}} generuoti\+Atsitiktini\+Studenta (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
+
+
+Generuoja atsitiktinį studentą. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{class_studentas}{Studentas} su atsitiktiniais duomenimis. 
+\end{DoxyReturn}
 
 
 Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l00132}{132}} of file \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source}{Vec\+\_\+funkcijos\+\_\+papildomos.\+cpp}}.
@@ -61,6 +78,10 @@ Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l001
 \doxysubsubsection{\texorpdfstring{generuotiAtsitiktiniusFailus()}{generuotiAtsitiktiniusFailus()}}
 {\footnotesize\ttfamily \label{_vec__funkcijos_8h_a0a363c0e40c99775ca18132fbe3bf80f} 
 void generuoti\+Atsitiktinius\+Failus (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Generuoja kelis atsitiktinius studentų failus. 
 
 
 
@@ -74,6 +95,10 @@ void generuoti\+Faila (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
+Generuoja studentų failą su atsitiktiniais duomenimis. 
+
+
+
 Definition at line \mbox{\hyperlink{_vec__generuoti__failus_8cpp_source_l00054}{54}} of file \mbox{\hyperlink{_vec__generuoti__failus_8cpp_source}{Vec\+\_\+generuoti\+\_\+failus.\+cpp}}.
 
 \Hypertarget{_vec__funkcijos_8h_ad835eaf63cec1fc6c92420a1824f84df}\index{Vec\_funkcijos.h@{Vec\_funkcijos.h}!generuotiSkaiciu@{generuotiSkaiciu}}
@@ -84,6 +109,20 @@ int generuoti\+Skaiciu (\begin{DoxyParamCaption}\item[{int}]{min}{, }\item[{int}
 
 
 
+Generuoja atsitiktinį skaičių intervalo ribose. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em min} & Mažiausia reikšmė. \\
+\hline
+{\em max} & Didžiausia reikšmė. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Generuotas atsitiktinis skaičius. 
+\end{DoxyReturn}
+
+
 Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l00109}{109}} of file \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source}{Vec\+\_\+funkcijos\+\_\+papildomos.\+cpp}}.
 
 \Hypertarget{_vec__funkcijos_8h_ab604b3758c8c5e185faa9d2ad0e78d2f}\index{Vec\_funkcijos.h@{Vec\_funkcijos.h}!generuotiStudentuFaila@{generuotiStudentuFaila}}
@@ -92,6 +131,17 @@ Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l001
 {\footnotesize\ttfamily \label{_vec__funkcijos_8h_ab604b3758c8c5e185faa9d2ad0e78d2f} 
 void generuoti\+Studentu\+Faila (\begin{DoxyParamCaption}\item[{int}]{studentu\+Kiekis}{, }\item[{const std\+::string \&}]{failo\+Pavadinimas}{}\end{DoxyParamCaption})}
 
+
+
+Generuoja failą su tam tikru studentų skaičiumi. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em studentu\+Kiekis} & Kiekis studentų, kurie bus sugeneruoti. \\
+\hline
+{\em failo\+Pavadinimas} & Išvesties failo pavadinimas. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{_vec__funkcijos_8h_a7071a26dc1ad5d532da28d442d5448d6}\index{Vec\_funkcijos.h@{Vec\_funkcijos.h}!generuotiVardaPavarde@{generuotiVardaPavarde}}
 \index{generuotiVardaPavarde@{generuotiVardaPavarde}!Vec\_funkcijos.h@{Vec\_funkcijos.h}}
 \doxysubsubsection{\texorpdfstring{generuotiVardaPavarde()}{generuotiVardaPavarde()}}
@@ -100,29 +150,58 @@ std\+::string generuoti\+Varda\+Pavarde (\begin{DoxyParamCaption}{}{}\end{DoxyPa
 
 
 
+Generuoja atsitiktinį vardą ir pavardę. 
+
+\begin{DoxyReturn}{Returns}
+Sugeneruotas vardas ir pavardė. 
+\end{DoxyReturn}
+
+
 Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l00118}{118}} of file \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source}{Vec\+\_\+funkcijos\+\_\+papildomos.\+cpp}}.
 
-\Hypertarget{_vec__funkcijos_8h_a8d22044a20fe19a88e4e890591aff354}\index{Vec\_funkcijos.h@{Vec\_funkcijos.h}!operator$>$$>$@{operator$>$$>$}}
-\index{operator$>$$>$@{operator$>$$>$}!Vec\_funkcijos.h@{Vec\_funkcijos.h}}
-\doxysubsubsection{\texorpdfstring{operator$>$$>$()}{operator>>()}}
-{\footnotesize\ttfamily \label{_vec__funkcijos_8h_a8d22044a20fe19a88e4e890591aff354} 
-std\+::ifstream \& operator$>$$>$ (\begin{DoxyParamCaption}\item[{std\+::ifstream \&}]{failas}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{studentai}{}\end{DoxyParamCaption})}
-
-
-
-Definition at line \mbox{\hyperlink{studentas_8cpp_source_l00274}{274}} of file \mbox{\hyperlink{studentas_8cpp_source}{studentas.\+cpp}}.
-
-\Hypertarget{_vec__funkcijos_8h_a453f18d8af17dbeb094c1a18ff0e5393}\index{Vec\_funkcijos.h@{Vec\_funkcijos.h}!skaiciuotiMediana@{skaiciuotiMediana}}
+\Hypertarget{_vec__funkcijos_8h_a441252c6b6682130d1b593cc978a67f3}\index{Vec\_funkcijos.h@{Vec\_funkcijos.h}!skaiciuotiMediana@{skaiciuotiMediana}}
 \index{skaiciuotiMediana@{skaiciuotiMediana}!Vec\_funkcijos.h@{Vec\_funkcijos.h}}
 \doxysubsubsection{\texorpdfstring{skaiciuotiMediana()}{skaiciuotiMediana()}}
-{\footnotesize\ttfamily \label{_vec__funkcijos_8h_a453f18d8af17dbeb094c1a18ff0e5393} 
-float skaiciuoti\+Mediana (\begin{DoxyParamCaption}\item[{const vector$<$ int $>$ \&}]{mediana}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{_vec__funkcijos_8h_a441252c6b6682130d1b593cc978a67f3} 
+float skaiciuoti\+Mediana (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{mediana}{}\end{DoxyParamCaption})}
 
-\Hypertarget{_vec__funkcijos_8h_a5f95c07d9f6af51718d6c3e0bc2d40b8}\index{Vec\_funkcijos.h@{Vec\_funkcijos.h}!skaiciuotiVidurki@{skaiciuotiVidurki}}
+
+
+Apskaičiuoja pažymių medianą. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mediana} & Pažymių sąrašas. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Apskaičiuota mediana. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l00077}{77}} of file \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source}{Vec\+\_\+funkcijos\+\_\+papildomos.\+cpp}}.
+
+\Hypertarget{_vec__funkcijos_8h_a2a35f4a748118bc71d64c6c4eecba8e2}\index{Vec\_funkcijos.h@{Vec\_funkcijos.h}!skaiciuotiVidurki@{skaiciuotiVidurki}}
 \index{skaiciuotiVidurki@{skaiciuotiVidurki}!Vec\_funkcijos.h@{Vec\_funkcijos.h}}
 \doxysubsubsection{\texorpdfstring{skaiciuotiVidurki()}{skaiciuotiVidurki()}}
-{\footnotesize\ttfamily \label{_vec__funkcijos_8h_a5f95c07d9f6af51718d6c3e0bc2d40b8} 
-float skaiciuoti\+Vidurki (\begin{DoxyParamCaption}\item[{const vector$<$ int $>$ \&}]{vidurkis}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{_vec__funkcijos_8h_a2a35f4a748118bc71d64c6c4eecba8e2} 
+float skaiciuoti\+Vidurki (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{vidurkis}{}\end{DoxyParamCaption})}
+
+
+
+Apskaičiuoja pažymių vidurkį. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vidurkis} & Pažymių sąrašas. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Apskaičiuotas vidurkis. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source_l00100}{100}} of file \mbox{\hyperlink{_vec__funkcijos__papildomos_8cpp_source}{Vec\+\_\+funkcijos\+\_\+papildomos.\+cpp}}.
 
 \Hypertarget{_vec__funkcijos_8h_aa6c094e0ca22b9b789f91f0ff9df1baa}\index{Vec\_funkcijos.h@{Vec\_funkcijos.h}!skaitytiDuomenisIsFailo@{skaitytiDuomenisIsFailo}}
 \index{skaitytiDuomenisIsFailo@{skaitytiDuomenisIsFailo}!Vec\_funkcijos.h@{Vec\_funkcijos.h}}
@@ -130,6 +209,21 @@ float skaiciuoti\+Vidurki (\begin{DoxyParamCaption}\item[{const vector$<$ int $>
 {\footnotesize\ttfamily \label{_vec__funkcijos_8h_aa6c094e0ca22b9b789f91f0ff9df1baa} 
 void skaityti\+Duomenis\+Is\+Failo (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{failo\+Pavadinimas}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{class_studentas}{Studentas}} $>$ \&}]{studentai}{, }\item[{long long \&}]{trukme\+Skaitymo}{, }\item[{long long \&}]{trukme\+Vidurkio}{}\end{DoxyParamCaption})}
 
+
+
+Nuskaito studentų duomenis iš failo. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em failo\+Pavadinimas} & Įvesties failo pavadinimas. \\
+\hline
+{\em studentai} & Vektorius, kuriame saugomi studentų duomenys. \\
+\hline
+{\em trukme\+Skaitymo} & Skaitymo trukmė milisekundėmis. \\
+\hline
+{\em trukme\+Vidurkio} & Vidurkių skaičiavimo trukmė milisekundėmis. \\
+\hline
+\end{DoxyParams}
 
 
 Definition at line \mbox{\hyperlink{_vec__failo__apdorojimas_8cpp_source_l00030}{30}} of file \mbox{\hyperlink{_vec__failo__apdorojimas_8cpp_source}{Vec\+\_\+failo\+\_\+apdorojimas.\+cpp}}.
@@ -142,6 +236,10 @@ void Vec\+\_\+programa (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
 
 
 
+Vykdo Vec programos funkcionalumą. 
+
+
+
 Definition at line \mbox{\hyperlink{_vec__funkcijos_8cpp_source_l00007}{7}} of file \mbox{\hyperlink{_vec__funkcijos_8cpp_source}{Vec\+\_\+funkcijos.\+cpp}}.
 
 \Hypertarget{_vec__funkcijos_8h_a8af30212dfb23ff59e9f4a5201ea9892}\index{Vec\_funkcijos.h@{Vec\_funkcijos.h}!vykdytiVisusZingsnius@{vykdytiVisusZingsnius}}
@@ -149,6 +247,10 @@ Definition at line \mbox{\hyperlink{_vec__funkcijos_8cpp_source_l00007}{7}} of f
 \doxysubsubsection{\texorpdfstring{vykdytiVisusZingsnius()}{vykdytiVisusZingsnius()}}
 {\footnotesize\ttfamily \label{_vec__funkcijos_8h_a8af30212dfb23ff59e9f4a5201ea9892} 
 void vykdyti\+Visus\+Zingsnius (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Vykdo visus programos žingsnius. 
 
 
 

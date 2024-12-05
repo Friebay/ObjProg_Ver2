@@ -32,19 +32,19 @@
 \DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00029}00029\ \ \ \ \ ostringstream\ outputStream;}
 \DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ studentuKiekis;\ ++i)}
 \DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00031}00031\ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ vardas\ =\ \mbox{\hyperlink{_list__funkcijos_8h_a7071a26dc1ad5d532da28d442d5448d6}{generuotiVardaPavarde}}();\ \textcolor{comment}{//\ Generuojami\ vardai\ ir\ pavardės}}
-\DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ pavarde\ =\ \mbox{\hyperlink{_list__funkcijos_8h_a7071a26dc1ad5d532da28d442d5448d6}{generuotiVardaPavarde}}();}
+\DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ vardas\ =\ \mbox{\hyperlink{_vec__funkcijos_8h_a7071a26dc1ad5d532da28d442d5448d6}{generuotiVardaPavarde}}();\ \textcolor{comment}{//\ Generuojami\ vardai\ ir\ pavardės}}
+\DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ pavarde\ =\ \mbox{\hyperlink{_vec__funkcijos_8h_a7071a26dc1ad5d532da28d442d5448d6}{generuotiVardaPavarde}}();}
 \DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00034}00034\ }
 \DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ outputStream\ <<\ left\ <<\ setw(16)\ <<\ vardas\ <<\ setw(16)\ <<\ pavarde\ <<\ setw(13)\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
 \DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00036}00036\ }
 \DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Generuojami\ 15\ pažymių}}
 \DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ 15;\ ++j)}
 \DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \{}
-\DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ outputStream\ <<\ right\ <<\ setw(10)\ <<\ \mbox{\hyperlink{_list__funkcijos_8h_ad835eaf63cec1fc6c92420a1824f84df}{generuotiSkaiciu}}(1,\ 10);}
+\DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ outputStream\ <<\ right\ <<\ setw(10)\ <<\ \mbox{\hyperlink{_vec__funkcijos_8h_ad835eaf63cec1fc6c92420a1824f84df}{generuotiSkaiciu}}(1,\ 10);}
 \DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00042}00042\ }
 \DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Generuojamas\ egzamino\ pažymys}}
-\DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ outputStream\ <<\ right\ <<\ setw(10)\ <<\ \mbox{\hyperlink{_list__funkcijos_8h_ad835eaf63cec1fc6c92420a1824f84df}{generuotiSkaiciu}}(1,\ 10)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ outputStream\ <<\ right\ <<\ setw(10)\ <<\ \mbox{\hyperlink{_vec__funkcijos_8h_ad835eaf63cec1fc6c92420a1824f84df}{generuotiSkaiciu}}(1,\ 10)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
 \DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00045}00045\ \ \ \ \ \}}
 \DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00046}00046\ }
 \DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{comment}{//\ Galutinis\ rašymas\ iš\ stream\ į\ failą}}
@@ -54,7 +54,7 @@
 \DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00051}00051\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Failas\ '"{}}\ <<\ failoPavadinimas\ <<\ \textcolor{stringliteral}{"{}'\ su\ "{}}\ <<\ studentuKiekis\ <<\ \textcolor{stringliteral}{"{}\ studentais\ buvo\ sugeneruotas.\(\backslash\)n"{}};}
 \DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00052}00052\ \}}
 \DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00053}00053\ }
-\DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00054}\mbox{\hyperlink{_list__funkcijos_8h_a533a0a21b762dcd162d0c0ee9af14c1d}{00054}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_vec__generuoti__failus_8cpp_a533a0a21b762dcd162d0c0ee9af14c1d}{generuotiFaila}}()}
+\DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00054}\mbox{\hyperlink{_vec__funkcijos_8h_a533a0a21b762dcd162d0c0ee9af14c1d}{00054}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_vec__generuoti__failus_8cpp_a533a0a21b762dcd162d0c0ee9af14c1d}{generuotiFaila}}()}
 \DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00055}00055\ \{}
 \DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00056}00056\ \ \ \ \ vector<int>\ studentuSkaicius\ =\ \{1000,\ 10000,\ 100000,\ 1000000,\ 10000000\};}
 \DoxyCodeLine{\Hypertarget{_vec__generuoti__failus_8cpp_source_l00057}00057\ }
