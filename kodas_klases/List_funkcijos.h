@@ -2,11 +2,11 @@
 #define LIST_FUNKCIJOS_H
 
 #include "List_Biblioteka.h"
+#include "Vec_funkcijos.h"
 
-class List_Studentas
+class List_Studentas : public Zmogus
 {
 private:
-    std::string vardas, pavarde;
     std::list<int> pazymiai;
     int egzaminoPazymys = 0;
     float vidurkis = 0;
@@ -24,8 +24,6 @@ public:
     List_Studentas &operator=(const List_Studentas &other); // Copy assignment operator
 
     // Getters
-    std::string getVardas() const;
-    std::string getPavarde() const;
     std::list<int> getPazymiai() const;
     int getEgzaminoPazymys() const;
     float getVidurkis() const;
@@ -34,14 +32,15 @@ public:
     float getGalutineMediana() const;
 
     // Setters
-    void setVardas(const std::string &vardas);
-    void setPavarde(const std::string &pavarde);
     void List_setPazymiai(const std::list<int> &pazymiai);
     void setEgzaminoPazymys(int egzaminoPazymys);
     void setVidurkis(float vidurkis);
     void setMediana(float mediana);
     void setGalutinisVidurkis(float galutinisVidurkis);
     void setGalutineMediana(float galutineMediana);
+
+    // Required override for Zmogus's pure virtual function
+    void printInfo() const override;
 
     // Additional methods
     void pridetiPazymi(int pazymys);
@@ -69,7 +68,6 @@ void List_vykdytiVisusZingsnius();
 
 // Declare the operator>>
 std::ifstream &operator>>(std::ifstream &failas, std::list<List_Studentas> &studentai);
-
 
 void List_skaitytiDuomenisIsFailo(
     const std::string &failoPavadinimas,

@@ -414,3 +414,24 @@ Projektui sukompiliuoti naudojami šie .cmd failai:
    - GCC versija sukompiliuota naudojant g++
    - CMake versija sukompiliuota naudojant cmake
 2. Jei norite susikompiliuokite patys,
+
+# v1.5 versija
+ - Šioje versijoje programa patobulinta pridedant abstrakčią bazinę klasę Zmogus, kuri turi tik vardą ir pavardę.
+ - Pridėtas kodas, kuris demonstruoja, kad bandant sukurti abstrakčios klases Zmogus objekta ivyksta klaida
+```C++
+try
+{
+    // Zmogus *h = new Zmogus("John", "Doe");
+}
+catch (const std::runtime_error &e)
+{
+    std::cout << "Caught an error: " << e.what() << "\n";
+}
+
+// Parodysime, kad 5manoma sukurti išvestinės klasės objektus
+Studentas studentas("Jonas", "Jonaitis", {10, 9, 8}, 9);
+std::cout << "Sekmingai sukurtas isvestines klases 'Studentas' objektas:\n";
+std::cout << "Vardas: " << studentas.getVardas() << ", Pavarde: " << studentas.getPavarde() << "\n";
+
+return;
+```

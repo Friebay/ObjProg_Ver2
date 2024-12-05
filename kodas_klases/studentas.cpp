@@ -2,12 +2,12 @@
 #include "Vec_failo_apdorojimas.h"
 
 // Default Constructor
-Studentas::Studentas() {}
+Studentas::Studentas() : Zmogus() {}
 
 // Parameterized Constructor
 Studentas::Studentas(const std::string &vardas, const std::string &pavarde, const std::vector<int> &pazymiai, int egzaminoPazymys)
-    : vardas(vardas), pavarde(pavarde), pazymiai(pazymiai), egzaminoPazymys(egzaminoPazymys)
-{
+    : Zmogus(vardas, pavarde), pazymiai(pazymiai), egzaminoPazymys(egzaminoPazymys) {
+    // std::cout << "Parameterized constructor called\n";
     skaiciuotiRezultatus();
 }
 
@@ -31,22 +31,18 @@ Studentas::~Studentas()
 
 // Copy Constructor
 Studentas::Studentas(const Studentas &other)
-    : vardas(other.vardas), pavarde(other.pavarde), pazymiai(other.pazymiai),
-      egzaminoPazymys(other.egzaminoPazymys), vidurkis(other.vidurkis),
-      mediana(other.mediana), galutinisVidurkis(other.galutinisVidurkis),
-      galutineMediana(other.galutineMediana)
+    : Zmogus(other), pazymiai(other.pazymiai), egzaminoPazymys(other.egzaminoPazymys),
+      vidurkis(other.vidurkis), mediana(other.mediana),
+      galutinisVidurkis(other.galutinisVidurkis), galutineMediana(other.galutineMediana)
 {
     // Explicit copy of all members
     // std::cout << "Copy constructor called.\n";
 }
 
 // Copy Assignment Operator
-Studentas &Studentas::operator=(const Studentas &other)
-{
-    if (this != &other)
-    { // Check for self-assignment
-        vardas = other.vardas;
-        pavarde = other.pavarde;
+Studentas &Studentas::operator=(const Studentas &other) {
+    if (this != &other) {
+        Zmogus::operator=(other);
         pazymiai = other.pazymiai;
         egzaminoPazymys = other.egzaminoPazymys;
         vidurkis = other.vidurkis;
@@ -59,8 +55,6 @@ Studentas &Studentas::operator=(const Studentas &other)
 }
 
 // Getters (unchanged)
-std::string Studentas::getVardas() const { return vardas; }
-std::string Studentas::getPavarde() const { return pavarde; }
 std::vector<int> Studentas::getPazymiai() const { return pazymiai; }
 int Studentas::getEgzaminoPazymys() const { return egzaminoPazymys; }
 float Studentas::getVidurkis() const { return vidurkis; }
@@ -69,8 +63,6 @@ float Studentas::getGalutinisVidurkis() const { return galutinisVidurkis; }
 float Studentas::getGalutineMediana() const { return galutineMediana; }
 
 // Corrected Setters
-void Studentas::setVardas(const std::string &vardas) { this->vardas = vardas; }
-void Studentas::setPavarde(const std::string &pavarde) { this->pavarde = pavarde; }
 void Studentas::setPazymiai(const std::vector<int> &pazymiai) { this->pazymiai = pazymiai; }
 void Studentas::setVidurkis(float vidurkis) { this->vidurkis = vidurkis; }
 void Studentas::setMediana(float mediana) { this->mediana = mediana; }
@@ -378,4 +370,16 @@ std::ifstream &operator>>(std::ifstream &failas, std::vector<Studentas> &student
     }
 
     return failas;
+}
+
+void Studentas::printInfo() const {
+    std::cout << "Vardas: " << vardas << ", Pavarde: " << pavarde << std::endl;
+    std::cout << "Egzamino Pazymys: " << egzaminoPazymys << std::endl;
+    std::cout << "Vidurkis: " << vidurkis << ", Mediana: " << mediana << std::endl;
+    std::cout << "Galutinis Vidurkis: " << galutinisVidurkis << ", Galutine Mediana: " << galutineMediana << std::endl;
+    std::cout << "Pazymiai: ";
+    for (const auto &pazymys : pazymiai) {
+        std::cout << pazymys << " ";
+    }
+    std::cout << std::endl;
 }
