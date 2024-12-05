@@ -416,7 +416,7 @@ Projektui sukompiliuoti naudojami šie .cmd failai:
 2. Jei norite susikompiliuokite patys,
 
 # v1.5 versija
- - Šioje versijoje programa patobulinta pridedant abstrakčią bazinę klasę Zmogus, kuri tūri tik vardą ir pavardę.
+ - Šioje versijoje programa patobulinta pridedant abstrakčią bazinę klasę Zmogus, kuri turi tik vardą ir pavardę.
  - Pridėtas kodas, kuris demonstruoja, kad bandant sukurti abstrakčios klases Zmogus objekta ivyksta klaida
 ```C++
 try
