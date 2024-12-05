@@ -1,0 +1,112 @@
+\doxysection{List\+\_\+studentas.\+cpp}
+\hypertarget{_list__studentas_8cpp_source}{}\label{_list__studentas_8cpp_source}\mbox{\hyperlink{_list__studentas_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_list__funkcijos_8h}{List\_funkcijos.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_vec__funkcijos_8h}{Vec\_funkcijos.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00004}00004\ \textcolor{comment}{//\ Constructors\ and\ Destructor}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00005}\mbox{\hyperlink{class_list___studentas_af516e6fa78a93d6b29fce52127090307}{00005}}\ \mbox{\hyperlink{class_list___studentas_af516e6fa78a93d6b29fce52127090307}{List\_Studentas::List\_Studentas}}()\ :\ \mbox{\hyperlink{class_zmogus}{Zmogus}}()}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00006}00006\ \{}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00007}00007\ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}Default\ constructor\ called\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00008}00008\ \}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00010}\mbox{\hyperlink{class_list___studentas_a4ebfe54126a56367f9f7d8c59b009d87}{00010}}\ \mbox{\hyperlink{class_list___studentas_af516e6fa78a93d6b29fce52127090307}{List\_Studentas::List\_Studentas}}(\textcolor{keyword}{const}\ std::string\ \&vardas,\ \textcolor{keyword}{const}\ std::string\ \&pavarde,}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::list<int>\ \&pazymiai,\ \textcolor{keywordtype}{int}\ egzaminoPazymys)}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00012}00012\ \ \ \ \ :\ \mbox{\hyperlink{class_zmogus}{Zmogus}}(vardas,\ pavarde),\ pazymiai(pazymiai),\ egzaminoPazymys(egzaminoPazymys)}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00014}00014\ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}Parameterized\ constructor\ called\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{class_list___studentas_a6d81230d6a0e0c3b415864b4e10e0116}{List\_skaiciuotiRezultatus}}();}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00016}00016\ \}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00018}00018\ \textcolor{comment}{//\ Destructor}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00019}\mbox{\hyperlink{class_list___studentas_a28643eb5bce3954e74bcf5a9430a2b35}{00019}}\ \mbox{\hyperlink{class_list___studentas_a28643eb5bce3954e74bcf5a9430a2b35}{List\_Studentas::\string~List\_Studentas}}()}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}Destructor\ called\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00022}00022\ \}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00024}00024\ \textcolor{comment}{//\ Copy\ Constructor}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00025}\mbox{\hyperlink{class_list___studentas_a92ddd9256cbe1545d4892c403bfbff25}{00025}}\ \mbox{\hyperlink{class_list___studentas_af516e6fa78a93d6b29fce52127090307}{List\_Studentas::List\_Studentas}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_list___studentas}{List\_Studentas}}\ \&other)}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00026}00026\ \ \ \ \ :\ \mbox{\hyperlink{class_zmogus}{Zmogus}}(other),\ pazymiai(other.pazymiai),\ egzaminoPazymys(other.egzaminoPazymys),}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00027}00027\ \ \ \ \ \ \ vidurkis(other.vidurkis),\ mediana(other.mediana),}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00028}00028\ \ \ \ \ \ \ galutinisVidurkis(other.galutinisVidurkis),\ galutineMediana(other.galutineMediana)}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00029}00029\ \{}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}Copy\ constructor\ called\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00031}00031\ \}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00033}00033\ \textcolor{comment}{//\ Copy\ Assignment\ Operator}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00034}\mbox{\hyperlink{class_list___studentas_a1f8206a078d16160c124e0feb480f119}{00034}}\ \mbox{\hyperlink{class_list___studentas}{List\_Studentas}}\ \&\mbox{\hyperlink{class_list___studentas_a1f8206a078d16160c124e0feb480f119}{List\_Studentas::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_list___studentas}{List\_Studentas}}\ \&other)}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00035}00035\ \{}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&other)}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00037}00037\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};\ \textcolor{comment}{//\ Handle\ self-\/assignment}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00039}00039\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}Copy\ assignment\ operator\ called\(\backslash\)n"{};}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00043}00043\ \ \ \ \ \textcolor{comment}{//\ Call\ base\ class\ assignment\ operator}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00044}00044\ \ \ \ \ \mbox{\hyperlink{class_zmogus_a8bc6d11547d75c71a38567f750f02612}{Zmogus::operator=}}(other);}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00046}00046\ \ \ \ \ \textcolor{comment}{//\ Copy\ fields\ specific\ to\ List\_Studentas}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00047}00047\ \ \ \ \ pazymiai\ =\ other.pazymiai;}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00048}00048\ \ \ \ \ egzaminoPazymys\ =\ other.egzaminoPazymys;}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00049}00049\ \ \ \ \ vidurkis\ =\ other.vidurkis;}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00050}00050\ \ \ \ \ mediana\ =\ other.mediana;}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00051}00051\ \ \ \ \ galutinisVidurkis\ =\ other.galutinisVidurkis;}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00052}00052\ \ \ \ \ galutineMediana\ =\ other.galutineMediana;}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00054}00054\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00055}00055\ \}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00057}00057\ \textcolor{comment}{//\ Getters}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00058}\mbox{\hyperlink{class_list___studentas_a2a422d27f859f26f74426af47d682ae2}{00058}}\ std::list<int>\ \mbox{\hyperlink{class_list___studentas_a2a422d27f859f26f74426af47d682ae2}{List\_Studentas::getPazymiai}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ pazymiai;\ \}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00059}\mbox{\hyperlink{class_list___studentas_aa5a05f409d01eb8ef8d52a4fce4a7000}{00059}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_list___studentas_aa5a05f409d01eb8ef8d52a4fce4a7000}{List\_Studentas::getEgzaminoPazymys}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ egzaminoPazymys;\ \}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00060}\mbox{\hyperlink{class_list___studentas_aef62c4146031e9ce2869b8f215a0d191}{00060}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_list___studentas_aef62c4146031e9ce2869b8f215a0d191}{List\_Studentas::getVidurkis}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ vidurkis;\ \}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00061}\mbox{\hyperlink{class_list___studentas_a27b4ab34499055bd78d9298f369656ce}{00061}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_list___studentas_a27b4ab34499055bd78d9298f369656ce}{List\_Studentas::getMediana}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ mediana;\ \}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00062}\mbox{\hyperlink{class_list___studentas_ae1a9f5e7dc0f4944212a39b72dbbf6b0}{00062}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_list___studentas_ae1a9f5e7dc0f4944212a39b72dbbf6b0}{List\_Studentas::getGalutinisVidurkis}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ galutinisVidurkis;\ \}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00063}\mbox{\hyperlink{class_list___studentas_ab2295db65bc498f5c4a26d28262240d5}{00063}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_list___studentas_ab2295db65bc498f5c4a26d28262240d5}{List\_Studentas::getGalutineMediana}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ galutineMediana;\ \}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00065}00065\ \textcolor{comment}{//\ Setters}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00066}\mbox{\hyperlink{class_list___studentas_a97dbe36b4b43e464e69586cb4f2eb871}{00066}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_list___studentas_a97dbe36b4b43e464e69586cb4f2eb871}{List\_Studentas::List\_setPazymiai}}(\textcolor{keyword}{const}\ std::list<int>\ \&pazymiai)\ \{\ this-\/>pazymiai\ =\ pazymiai;\ \}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00067}\mbox{\hyperlink{class_list___studentas_a501919427241ed4425e3cd3c9bebd5a8}{00067}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_list___studentas_a501919427241ed4425e3cd3c9bebd5a8}{List\_Studentas::setVidurkis}}(\textcolor{keywordtype}{float}\ vidurkis)\ \{\ this-\/>vidurkis\ =\ vidurkis;\ \}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00068}\mbox{\hyperlink{class_list___studentas_ac48b53197c2355a347b7982545c8bae7}{00068}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_list___studentas_ac48b53197c2355a347b7982545c8bae7}{List\_Studentas::setMediana}}(\textcolor{keywordtype}{float}\ mediana)\ \{\ this-\/>mediana\ =\ mediana;\ \}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00069}\mbox{\hyperlink{class_list___studentas_a2e590135f43d5e3263390ab1b79eb928}{00069}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_list___studentas_a2e590135f43d5e3263390ab1b79eb928}{List\_Studentas::setEgzaminoPazymys}}(\textcolor{keywordtype}{int}\ egzaminoPazymys)\ \{\ this-\/>egzaminoPazymys\ =\ egzaminoPazymys;\ \}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00070}\mbox{\hyperlink{class_list___studentas_a2322cf54df3d524eee0ca8aa1ae409ca}{00070}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_list___studentas_a2322cf54df3d524eee0ca8aa1ae409ca}{List\_Studentas::setGalutinisVidurkis}}(\textcolor{keywordtype}{float}\ galutinisVidurkis)\ \{\ this-\/>galutinisVidurkis\ =\ galutinisVidurkis;\ \}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00071}\mbox{\hyperlink{class_list___studentas_a3e8741530a2b1e18ac8c5c234a2eef91}{00071}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_list___studentas_a3e8741530a2b1e18ac8c5c234a2eef91}{List\_Studentas::setGalutineMediana}}(\textcolor{keywordtype}{float}\ galutineMediana)\ \{\ this-\/>galutineMediana\ =\ galutineMediana;\ \}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00073}00073\ \textcolor{comment}{//\ Method\ to\ add\ a\ grade}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00074}\mbox{\hyperlink{class_list___studentas_a379d3f84ba53cb0e4eec6760a3db3f06}{00074}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_list___studentas_a379d3f84ba53cb0e4eec6760a3db3f06}{List\_Studentas::pridetiPazymi}}(\textcolor{keywordtype}{int}\ pazymys)}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00075}00075\ \{}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00076}00076\ \ \ \ \ pazymiai.push\_back(pazymys);}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00077}00077\ \}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00079}00079\ \textcolor{comment}{//\ Method\ to\ calculate\ results}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00080}\mbox{\hyperlink{class_list___studentas_a6d81230d6a0e0c3b415864b4e10e0116}{00080}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_list___studentas_a6d81230d6a0e0c3b415864b4e10e0116}{List\_Studentas::List\_skaiciuotiRezultatus}}()}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00081}00081\ \{}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{comment}{//\ Calculate\ average\ and\ median}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00083}00083\ \ \ \ \ \textcolor{keywordtype}{float}\ vidurkis\ =\ \mbox{\hyperlink{_list__funkcijos_8h_a56fc72ddd546111aba41dffab416dcb5}{List\_skaiciuotiVidurki}}(pazymiai);}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00084}00084\ \ \ \ \ \textcolor{keywordtype}{float}\ mediana\ =\ \mbox{\hyperlink{_list__funkcijos_8h_afc24f880a7c386573f676512e7054cea}{List\_skaiciuotiMediana}}(pazymiai);}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00086}00086\ \ \ \ \ \mbox{\hyperlink{class_list___studentas_a501919427241ed4425e3cd3c9bebd5a8}{setVidurkis}}(vidurkis);}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00087}00087\ \ \ \ \ \mbox{\hyperlink{class_list___studentas_ac48b53197c2355a347b7982545c8bae7}{setMediana}}(mediana);}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{comment}{//\ Calculate\ final\ grades}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00090}00090\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ egzaminoBalas\ =\ 0.6f\ *\ egzaminoPazymys;}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00091}00091\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ vidurkioBalas\ =\ 0.4f\ *\ vidurkis;}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00092}00092\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ medianosBalas\ =\ 0.4f\ *\ mediana;}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00094}00094\ \ \ \ \ \mbox{\hyperlink{class_list___studentas_a2322cf54df3d524eee0ca8aa1ae409ca}{setGalutinisVidurkis}}(vidurkioBalas\ +\ egzaminoBalas);}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00095}00095\ \ \ \ \ \mbox{\hyperlink{class_list___studentas_a3e8741530a2b1e18ac8c5c234a2eef91}{setGalutineMediana}}(medianosBalas\ +\ egzaminoBalas);}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00096}00096\ \}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00098}00098\ \textcolor{comment}{//\ Override\ Zmogus's\ pure\ virtual\ function}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00099}\mbox{\hyperlink{class_list___studentas_a3fe77ea80a20d6b517e75156b24affcf}{00099}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_list___studentas_a3fe77ea80a20d6b517e75156b24affcf}{List\_Studentas::printInfo}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00100}00100\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00101}00101\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Studentas:\ "{}}\ <<\ \mbox{\hyperlink{class_zmogus_a4a580af3507a2d27efe978d5be0075ab}{getVardas}}()\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ \mbox{\hyperlink{class_zmogus_ac50d1e325af387bb385eb88bb7ff42b7}{getPavarde}}()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Egzamino\ pazymys:\ "{}}\ <<\ egzaminoPazymys\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Vidurkis:\ "{}}\ <<\ vidurkis\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Mediana:\ "{}}\ <<\ mediana\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Galutinis\ Vidurkis:\ "{}}\ <<\ galutinisVidurkis\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ \textcolor{stringliteral}{"{}Galutine\ Mediana:\ "{}}\ <<\ galutineMediana\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{_list__studentas_8cpp_source_l00107}00107\ \}}
+
+\end{DoxyCode}

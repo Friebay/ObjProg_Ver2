@@ -1,0 +1,100 @@
+\doxysection{Vec\+\_\+funkcijos.\+h}
+\hypertarget{_vec__funkcijos_8h_source}{}\label{_vec__funkcijos_8h_source}\mbox{\hyperlink{_vec__funkcijos_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ FUNKCIJOS\_H}}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ FUNKCIJOS\_H}}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_vec___biblioteka_8h}{Vec\_Biblioteka.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00006}00006\ \textcolor{comment}{//\ Abstract\ base\ class:\ Zmogus}}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00007}\mbox{\hyperlink{class_zmogus}{00007}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_zmogus}{Zmogus}}\ \{}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00008}00008\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00009}\mbox{\hyperlink{class_zmogus_a4d456bf4fea70f08e0b26517576cfbc0}{00009}}\ \ \ \ \ std::string\ \mbox{\hyperlink{class_zmogus_a4d456bf4fea70f08e0b26517576cfbc0}{vardas}};}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00010}\mbox{\hyperlink{class_zmogus_a99cc96defe5d014db052cc754e989b16}{00010}}\ \ \ \ \ std::string\ \mbox{\hyperlink{class_zmogus_a99cc96defe5d014db052cc754e989b16}{pavarde}};}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00012}00012\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00013}00013\ \ \ \ \ \textcolor{comment}{//\ Constructors\ and\ Destructor}}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00014}00014\ \ \ \ \ \mbox{\hyperlink{class_zmogus_aa7a8ba4d3c4778f9b35d59eef3e72574}{Zmogus}}();}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{class_zmogus_aa7a8ba4d3c4778f9b35d59eef3e72574}{Zmogus}}(\textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{class_zmogus_a4d456bf4fea70f08e0b26517576cfbc0}{vardas}},\ \textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{class_zmogus_a99cc96defe5d014db052cc754e989b16}{pavarde}});}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00016}00016\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_zmogus_a111f690f499186555a4f318cb1868f32}{\string~Zmogus}}();}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{class_zmogus_aa7a8ba4d3c4778f9b35d59eef3e72574}{Zmogus}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_zmogus}{Zmogus}}\ \&other);\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Copy\ constructor}}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{class_zmogus}{Zmogus}}\ \&\mbox{\hyperlink{class_zmogus_a8bc6d11547d75c71a38567f750f02612}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_zmogus}{Zmogus}}\ \&other);\ \ \textcolor{comment}{//\ Copy\ assignment\ operator}}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00020}00020\ \ \ \ \ \textcolor{comment}{//\ Pure\ virtual\ function\ (makes\ Zmogus\ abstract)}}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00021}\mbox{\hyperlink{class_zmogus_a9b368ebb8e59bd80d93cb772799cdfea}{00021}}\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_zmogus_a9b368ebb8e59bd80d93cb772799cdfea}{printInfo}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00023}00023\ \ \ \ \ \textcolor{comment}{//\ Getters\ and\ Setters}}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00024}00024\ \ \ \ \ std::string\ \mbox{\hyperlink{class_zmogus_a4a580af3507a2d27efe978d5be0075ab}{getVardas}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00025}00025\ \ \ \ \ std::string\ \mbox{\hyperlink{class_zmogus_ac50d1e325af387bb385eb88bb7ff42b7}{getPavarde}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_zmogus_a6024e8fb5c3a9fbd48ca522f976f8465}{setVardas}}(\textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{class_zmogus_a4d456bf4fea70f08e0b26517576cfbc0}{vardas}});}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00027}00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_zmogus_ae4c3b02e68af5ed87c68101ba699539c}{setPavarde}}(\textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{class_zmogus_a99cc96defe5d014db052cc754e989b16}{pavarde}});}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00028}00028\ \};}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00030}00030\ \textcolor{comment}{//\ Derived\ class:\ Studentas}}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00031}\mbox{\hyperlink{class_studentas}{00031}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_studentas}{Studentas}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_zmogus}{Zmogus}}\ \{}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00032}00032\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00033}00033\ \ \ \ \ std::vector<int>\ pazymiai;}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{int}\ egzaminoPazymys\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00035}00035\ \ \ \ \ \textcolor{keywordtype}{float}\ vidurkis\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00036}00036\ \ \ \ \ \textcolor{keywordtype}{float}\ mediana\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00037}00037\ \ \ \ \ \textcolor{keywordtype}{float}\ galutinisVidurkis\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00038}00038\ \ \ \ \ \textcolor{keywordtype}{float}\ galutineMediana\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00040}00040\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00041}00041\ \ \ \ \ \textcolor{comment}{//\ Constructors,\ Destructor,\ and\ Rule\ of\ Three}}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00042}00042\ \ \ \ \ \mbox{\hyperlink{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539}{Studentas}}();}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539}{Studentas}}(\textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{class_zmogus_a4d456bf4fea70f08e0b26517576cfbc0}{vardas}},\ \textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{class_zmogus_a99cc96defe5d014db052cc754e989b16}{pavarde}},\ \textcolor{keyword}{const}\ std::vector<int>\ \&pazymiai,\ \textcolor{keywordtype}{int}\ egzaminoPazymys);}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00044}00044\ \ \ \ \ \mbox{\hyperlink{class_studentas_a63e449e0f51a0b14340d02ee71b4be23}{\string~Studentas}}();}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00045}00045\ \ \ \ \ \mbox{\hyperlink{class_studentas_ab459e995e8c9b24cdc9aec5b09a66539}{Studentas}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\ \&other);\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Copy\ constructor}}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00046}00046\ \ \ \ \ \mbox{\hyperlink{class_studentas}{Studentas}}\ \&\mbox{\hyperlink{class_studentas_a25bcc531503d3bc490dab4a656e3b8e9}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\ \&other);\ \textcolor{comment}{//\ Copy\ assignment\ operator}}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00048}00048\ \ \ \ \ \textcolor{comment}{//\ Getters\ and\ Setters}}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00049}00049\ \ \ \ \ std::vector<int>\ \mbox{\hyperlink{class_studentas_a7e3d4738a029eeaeac96d13beee5a40f}{getPazymiai}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00050}00050\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_studentas_af0e07f59af0788e08caeda5865b245e5}{getEgzaminoPazymys}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00051}00051\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_studentas_ab4f6284b5d7e72788df52633239e5df2}{getVidurkis}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00052}00052\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_studentas_a4823327b24f27594b50432e01664df87}{getMediana}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00053}00053\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_studentas_a8a34d58e1449b8802bd316e87478d9c2}{getGalutinisVidurkis}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00054}00054\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_studentas_af142cb583a90e96fdce5ab50e61be77c}{getGalutineMediana}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00056}00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_studentas_a5fe032182860f9d70deb4cab7eaf9920}{setPazymiai}}(\textcolor{keyword}{const}\ std::vector<int>\ \&pazymiai);}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00057}00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_studentas_a07d577631829f087380efb7de898ce1a}{setEgzaminoPazymys}}(\textcolor{keywordtype}{int}\ egzaminoPazymys);}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00058}00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_studentas_a87758787f0c15e3b6c6df3d9f7226ca2}{setVidurkis}}(\textcolor{keywordtype}{float}\ vidurkis);}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00059}00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_studentas_af73a605315d5fef79e9c2b0572914769}{setMediana}}(\textcolor{keywordtype}{float}\ mediana);}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00060}00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_studentas_ad1e4fe8673a15350b6db5d44dfba90f0}{setGalutineMediana}}(\textcolor{keywordtype}{float}\ galutineMediana);}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00061}00061\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_studentas_a0b296ac5ee69e023150aaf5457fa1d43}{setGalutinisVidurkis}}(\textcolor{keywordtype}{float}\ galutinisVidurkis);}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00063}00063\ \ \ \ \ \textcolor{comment}{//\ Methods}}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00064}00064\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_studentas_aa0ecaa396e417b6147113b0c0856f223}{skaiciuotiRezultatus}}();}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00065}00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_studentas_a72aa804d9cd252698b20e84a0ee82429}{pridetiPazymi}}(\textcolor{keywordtype}{int}\ pazymys);}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00066}00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_studentas_a956e4dda0b5e1044b3d3ae99be6fae98}{printInfo}}()\ \textcolor{keyword}{const\ override};}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00068}00068\ \ \ \ \ \textcolor{keyword}{friend}\ std::ostream\ \&\mbox{\hyperlink{class_studentas_ad7b2b41ad34e122a86c8aca0a91249e8}{operator<<}}(std::ostream\ \&os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_studentas}{Studentas}}\ \&studentas);}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00069}00069\ \ \ \ \ \textcolor{keyword}{friend}\ std::istream\ \&\mbox{\hyperlink{class_studentas_a3bf7658776e3c30f6653378b3dc0d4a2}{operator>>}}(std::istream\ \&is,\ \mbox{\hyperlink{class_studentas}{Studentas}}\ \&studentas);}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00070}00070\ \};}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00072}00072\ \textcolor{comment}{//\ Other\ functions}}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00073}00073\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_vec__funkcijos_8h_a337431cc3e8ce37fd4f90562e6096d37}{Vec\_programa}}();}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00074}00074\ \mbox{\hyperlink{class_studentas}{Studentas}}\ \mbox{\hyperlink{_vec__funkcijos_8h_a029451e322666877eb1d5497e9c6d5d1}{generuotiAtsitiktiniStudenta}}();}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00075}\mbox{\hyperlink{_vec__funkcijos_8h_a90f6d214a681f0272ee677d9f376ee96}{00075}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_vec__funkcijos_8h_a90f6d214a681f0272ee677d9f376ee96}{gautiPazymi}}(\textcolor{keyword}{const}\ std::string\ \&klausimas);}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00076}\mbox{\hyperlink{_vec__funkcijos_8h_a5f95c07d9f6af51718d6c3e0bc2d40b8}{00076}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_vec__funkcijos_8h_a5f95c07d9f6af51718d6c3e0bc2d40b8}{skaiciuotiVidurki}}(\textcolor{keyword}{const}\ vector<int>\ \&vidurkis);}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00077}\mbox{\hyperlink{_vec__funkcijos_8h_a453f18d8af17dbeb094c1a18ff0e5393}{00077}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{_vec__funkcijos_8h_a453f18d8af17dbeb094c1a18ff0e5393}{skaiciuotiMediana}}(\textcolor{keyword}{const}\ vector<int>\ \&mediana);}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00078}00078\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{_vec__funkcijos_8h_ad835eaf63cec1fc6c92420a1824f84df}{generuotiSkaiciu}}(\textcolor{keywordtype}{int}\ min,\ \textcolor{keywordtype}{int}\ max);}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00079}00079\ std::string\ \mbox{\hyperlink{_vec__funkcijos_8h_a7071a26dc1ad5d532da28d442d5448d6}{generuotiVardaPavarde}}();}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00080}00080\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_vec__funkcijos_8h_a533a0a21b762dcd162d0c0ee9af14c1d}{generuotiFaila}}();}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00081}00081\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_vec__funkcijos_8h_a0a363c0e40c99775ca18132fbe3bf80f}{generuotiAtsitiktiniusFailus}}();}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00082}\mbox{\hyperlink{_vec__funkcijos_8h_ab604b3758c8c5e185faa9d2ad0e78d2f}{00082}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_vec__funkcijos_8h_ab604b3758c8c5e185faa9d2ad0e78d2f}{generuotiStudentuFaila}}(\textcolor{keywordtype}{int}\ studentuKiekis,\ \textcolor{keyword}{const}\ std::string\ \&failoPavadinimas);}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00083}00083\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_vec__funkcijos_8h_a8af30212dfb23ff59e9f4a5201ea9892}{vykdytiVisusZingsnius}}();}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00085}00085\ \textcolor{comment}{//\ Declare\ the\ operator>>}}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00086}00086\ std::ifstream\ \&\mbox{\hyperlink{_vec__funkcijos_8h_a8d22044a20fe19a88e4e890591aff354}{operator>>}}(std::ifstream\ \&failas,\ std::vector<Studentas>\ \&studentai);}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00088}00088\ \textcolor{comment}{//\ Declare\ the\ file\ reading\ function}}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00089}00089\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{_vec__funkcijos_8h_aa6c094e0ca22b9b789f91f0ff9df1baa}{skaitytiDuomenisIsFailo}}(}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00090}00090\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&failoPavadinimas,}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00091}00091\ \ \ \ \ std::vector<Studentas>\ \&studentai,}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00092}00092\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \&trukmeSkaitymo,}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00093}00093\ \ \ \ \ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ \&trukmeVidurkio);}
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{_vec__funkcijos_8h_source_l00095}00095\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
