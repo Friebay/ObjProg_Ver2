@@ -2,14 +2,14 @@
 #include "Vec_funkcijos.h"
 
 // Constructors and Destructor
-List_Studentas::List_Studentas() : Human()
+List_Studentas::List_Studentas() : Zmogus()
 {
     // std::cout << "Default constructor called\n";
 }
 
 List_Studentas::List_Studentas(const std::string &vardas, const std::string &pavarde,
                                const std::list<int> &pazymiai, int egzaminoPazymys)
-    : Human(vardas, pavarde), pazymiai(pazymiai), egzaminoPazymys(egzaminoPazymys)
+    : Zmogus(vardas, pavarde), pazymiai(pazymiai), egzaminoPazymys(egzaminoPazymys)
 {
     // std::cout << "Parameterized constructor called\n";
     List_skaiciuotiRezultatus();
@@ -23,7 +23,7 @@ List_Studentas::~List_Studentas()
 
 // Copy Constructor
 List_Studentas::List_Studentas(const List_Studentas &other)
-    : Human(other), pazymiai(other.pazymiai), egzaminoPazymys(other.egzaminoPazymys),
+    : Zmogus(other), pazymiai(other.pazymiai), egzaminoPazymys(other.egzaminoPazymys),
       vidurkis(other.vidurkis), mediana(other.mediana),
       galutinisVidurkis(other.galutinisVidurkis), galutineMediana(other.galutineMediana)
 {
@@ -41,7 +41,7 @@ List_Studentas &List_Studentas::operator=(const List_Studentas &other)
     // std::cout << "Copy assignment operator called\n";
 
     // Call base class assignment operator
-    Human::operator=(other);
+    Zmogus::operator=(other);
 
     // Copy fields specific to List_Studentas
     pazymiai = other.pazymiai;
@@ -95,7 +95,7 @@ void List_Studentas::List_skaiciuotiRezultatus()
     setGalutineMediana(medianosBalas + egzaminoBalas);
 }
 
-// Override Human's pure virtual function
+// Override Zmogus's pure virtual function
 void List_Studentas::printInfo() const
 {
     std::cout << "Studentas: " << getVardas() << " " << getPavarde() << "\n"

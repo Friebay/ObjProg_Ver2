@@ -3,21 +3,21 @@
 
 #include "Vec_Biblioteka.h"
 
-// Abstract base class: Human
-class Human {
+// Abstract base class: Zmogus
+class Zmogus {
 protected:
     std::string vardas;
     std::string pavarde;
 
 public:
     // Constructors and Destructor
-    Human();
-    Human(const std::string &vardas, const std::string &pavarde);
-    virtual ~Human();
-    Human(const Human &other);             // Copy constructor
-    Human &operator=(const Human &other);  // Copy assignment operator
+    Zmogus();
+    Zmogus(const std::string &vardas, const std::string &pavarde);
+    virtual ~Zmogus();
+    Zmogus(const Zmogus &other);             // Copy constructor
+    Zmogus &operator=(const Zmogus &other);  // Copy assignment operator
 
-    // Pure virtual function (makes Human abstract)
+    // Pure virtual function (makes Zmogus abstract)
     virtual void printInfo() const = 0;
 
     // Getters and Setters
@@ -28,7 +28,7 @@ public:
 };
 
 // Derived class: Studentas
-class Studentas : public Human {
+class Studentas : public Zmogus {
 private:
     std::vector<int> pazymiai;
     int egzaminoPazymys = 0;

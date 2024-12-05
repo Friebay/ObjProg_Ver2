@@ -4,7 +4,7 @@
 #include "List_Biblioteka.h"
 #include "Vec_funkcijos.h"
 
-class List_Studentas : public Human
+class List_Studentas : public Zmogus
 {
 private:
     std::list<int> pazymiai;
@@ -39,7 +39,7 @@ public:
     void setGalutinisVidurkis(float galutinisVidurkis);
     void setGalutineMediana(float galutineMediana);
 
-    // Required override for Human's pure virtual function
+    // Required override for Zmogus's pure virtual function
     void printInfo() const override;
 
     // Additional methods

@@ -22,6 +22,7 @@ void Vec_programa()
          << "6. Padalinti rezultatu faila i islaikius ir neislaikius\n"
          << "7. Sugeneruoti 5 atsitiktinius failus\n"
          << "8. Vykdyti visus zingsnius visiems studentu kiekiams\n"
+         << "9. Abstrakti klases Zmogus, jos objektu kurimo neleidimo parodymas\n"
          << "Jusu pasirinkimas: ";
 
     // Vartotojo pasirinkimo tikrinimas
@@ -30,10 +31,10 @@ void Vec_programa()
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-        cout << "Iveskite pasirinkima (1-8): ";
+        cout << "Iveskite pasirinkima (1-9): ";
         cin >> pasirinkimas;
 
-        if (cin.fail() || pasirinkimas < 1 || pasirinkimas > 8)
+        if (cin.fail() || pasirinkimas < 1 || pasirinkimas > 9)
         {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
@@ -103,6 +104,27 @@ void Vec_programa()
             // Kelius kartus sukamas kodas, kad sužinoti kiek laiko užtrunka kodas
             int kartai;
             vykdytiKeliskart(kartai);
+
+            return;
+        }
+        case 9:
+        {
+            // Abstralčioji klasė Zmogus
+            std::cout << "Parodysime, kad bandant sukurti abstrakčios klases Zmogus objekta ivyksta klaida:\n";
+
+            try
+            {
+                // Zmogus *h = new Zmogus("John", "Doe");
+            }
+            catch (const std::runtime_error &e)
+            {
+                std::cout << "Caught an error: " << e.what() << "\n";
+            }
+
+            // Parodysime, kad 5manoma sukurti išvestinės klasės objektus
+            Studentas studentas("Jonas", "Jonaitis", {10, 9, 8}, 9);
+            std::cout << "Sekmingai sukurtas isvestines klases 'Studentas' objektas:\n";
+            std::cout << "Vardas: " << studentas.getVardas() << ", Pavarde: " << studentas.getPavarde() << "\n";
 
             return;
         }

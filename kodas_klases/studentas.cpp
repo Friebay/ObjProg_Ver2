@@ -2,11 +2,11 @@
 #include "Vec_failo_apdorojimas.h"
 
 // Default Constructor
-Studentas::Studentas() : Human() {}
+Studentas::Studentas() : Zmogus() {}
 
 // Parameterized Constructor
 Studentas::Studentas(const std::string &vardas, const std::string &pavarde, const std::vector<int> &pazymiai, int egzaminoPazymys)
-    : Human(vardas, pavarde), pazymiai(pazymiai), egzaminoPazymys(egzaminoPazymys) {
+    : Zmogus(vardas, pavarde), pazymiai(pazymiai), egzaminoPazymys(egzaminoPazymys) {
     // std::cout << "Parameterized constructor called\n";
     skaiciuotiRezultatus();
 }
@@ -31,7 +31,7 @@ Studentas::~Studentas()
 
 // Copy Constructor
 Studentas::Studentas(const Studentas &other)
-    : Human(other), pazymiai(other.pazymiai), egzaminoPazymys(other.egzaminoPazymys),
+    : Zmogus(other), pazymiai(other.pazymiai), egzaminoPazymys(other.egzaminoPazymys),
       vidurkis(other.vidurkis), mediana(other.mediana),
       galutinisVidurkis(other.galutinisVidurkis), galutineMediana(other.galutineMediana)
 {
@@ -42,7 +42,7 @@ Studentas::Studentas(const Studentas &other)
 // Copy Assignment Operator
 Studentas &Studentas::operator=(const Studentas &other) {
     if (this != &other) {
-        Human::operator=(other);
+        Zmogus::operator=(other);
         pazymiai = other.pazymiai;
         egzaminoPazymys = other.egzaminoPazymys;
         vidurkis = other.vidurkis;
