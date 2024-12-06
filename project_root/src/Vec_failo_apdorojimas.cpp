@@ -1,4 +1,4 @@
-#include "Vec_failo_apdorojimas.h"
+#include "../include/Vec_failo_apdorojimas.h"
 
 void skaiciuotiIsFailo(Studentas &studentas, bool tinkamiPazymiai, std::vector<Studentas> &studentai)
 {

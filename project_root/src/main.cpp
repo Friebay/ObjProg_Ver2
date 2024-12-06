@@ -1,5 +1,5 @@
-#include "Vec_funkcijos.h"
-#include "List_funkcijos.h"
+#include "../include/Vec_funkcijos.h"
+#include "../include/List_funkcijos.h"
 
 int main()
 {

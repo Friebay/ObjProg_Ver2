@@ -1,5 +1,5 @@
-#include "Vec_funkcijos.h"
-#include "Vec_failo_apdorojimas.h"
+#include "../include/Vec_funkcijos.h"
+#include "../include/Vec_failo_apdorojimas.h"
 
 // Default Constructor
 Studentas::Studentas() : Zmogus() {}

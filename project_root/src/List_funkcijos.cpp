@@ -1,6 +1,6 @@
-#include "List_funkcijos.h"
-#include "List_failo_apdorojimas.h"
-#include "Vec_funkcijos_papildomos.h"
+#include "../include/List_funkcijos.h"
+#include "../include/List_failo_apdorojimas.h"
+#include "../include/Vec_funkcijos_papildomos.h"
 
 void List_ivestiStudentoDuomenis(List_Studentas &studentas)
 {

@@ -1,6 +1,6 @@
-#include "List_failo_apdorojimas.h"
-#include "List_funkcijos.h"
-#include "Vec_funkcijos_papildomos.h"
+#include "../include/List_failo_apdorojimas.h"
+#include "../include/List_funkcijos.h"
+#include "../include/Vec_funkcijos_papildomos.h"
 
 void List_skaiciuotiIsFailo(List_Studentas &studentas, bool tinkamiPazymiai, std::list<List_Studentas> &studentai)
 {

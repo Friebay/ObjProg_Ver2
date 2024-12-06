@@ -238,6 +238,8 @@ void vykdytiVisusZingsnius();
  * @param trukmeSkaitymo Skaitymo trukmė milisekundėmis.
  * @param trukmeVidurkio Vidurkių skaičiavimo trukmė milisekundėmis.
  */
+std::ifstream &operator>>(std::ifstream &failas, std::vector<Studentas> &studentai);
+
 void skaitytiDuomenisIsFailo(
     const std::string &failoPavadinimas,
     std::vector<Studentas> &studentai,

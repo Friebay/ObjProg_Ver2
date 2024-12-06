@@ -1,5 +1,5 @@
-#include "List_funkcijos.h"
-#include "Vec_funkcijos.h"
+#include "../include/List_funkcijos.h"
+#include "../include/Vec_funkcijos.h"
 
 // Constructors and Destructor
 List_Studentas::List_Studentas() : Zmogus()

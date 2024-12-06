@@ -1,4 +1,4 @@
-#include "Vec_funkcijos.h"
+#include "../include/Vec_funkcijos.h"
 
 void generuotiStudentuFaila(int studentuKiekis, const string &failoPavadinimas)
 {

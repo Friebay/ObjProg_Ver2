@@ -1,6 +1,6 @@
-#include "Vec_funkcijos.h"
-#include "Vec_funkcijos_papildomos.h"
-#include "Vec_failo_apdorojimas.h"
+#include "../include/Vec_funkcijos.h"
+#include "../include/Vec_funkcijos_papildomos.h"
+#include "../include/Vec_failo_apdorojimas.h"
 
 // Gauna pažymį iš vartotojo įvesties
 int gautiPazymi(const string &klausimas)
