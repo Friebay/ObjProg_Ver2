@@ -1,6 +1,0 @@
-var searchData=
-[
-  ['value_5ftype_0',['value_type',['../structtesting_1_1internal_1_1_is_recursive_container_impl_3_01_c_00_01true_01_4.html#a5e8e2cf58f0d2581e9e3ab5f5630cd61',1,'testing::internal::IsRecursiveContainerImpl&lt; C, true &gt;::value_type'],['../classtesting_1_1internal_1_1_native_array.html#a1f884e6c78369584f2ab3508d443cfef',1,'testing::internal::NativeArray::value_type'],['../structtesting_1_1internal_1_1_flat_tuple_elem_base_3_01_flat_tuple_3_01_t_8_8_8_01_4_00_01_i_01_4.html#ac0be5571ecb617d8218f67a6fbfe9c30',1,'testing::internal::FlatTupleElemBase&lt; FlatTuple&lt; T... &gt;, I &gt;::value_type'],['../classtesting_1_1internal_1_1_param_iterator.html#adfd6a4df207833c166180c77fbf6fa1a',1,'testing::internal::ParamIterator::value_type'],['../structfoo_1_1_path_like_1_1iterator.html#ab70f2c0d0bd7fb622aeac25edc3f6396',1,'foo::PathLike::iterator::value_type'],['../classfoo_1_1_path_like.html#aa828aab5ad4071dddf489067e7e06c5e',1,'foo::PathLike::value_type']]],
-  ['vector_1',['Vector',['../class_common_test.html#a4b586cb170336865e8553c72aba56381',1,'CommonTest']]],
-  ['void_5ft_2',['void_t',['../namespacetesting_1_1internal.html#acd2612094f9562fbec7623627cc340f2',1,'testing::internal']]]
-];
