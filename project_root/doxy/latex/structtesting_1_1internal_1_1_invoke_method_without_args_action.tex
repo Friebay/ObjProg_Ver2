@@ -1,0 +1,97 @@
+\doxysection{testing\+::internal\+::Invoke\+Method\+Without\+Args\+Action\texorpdfstring{$<$}{<} Class, Method\+Ptr \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtesting_1_1internal_1_1_invoke_method_without_args_action}{}\label{structtesting_1_1internal_1_1_invoke_method_without_args_action}\index{testing::internal::InvokeMethodWithoutArgsAction$<$ Class, MethodPtr $>$@{testing::internal::InvokeMethodWithoutArgsAction$<$ Class, MethodPtr $>$}}
+
+
+{\ttfamily \#include $<$gmock-\/actions.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{structtesting_1_1internal_1_1_invoke_method_without_args_action_a402ad087a48f62c11a8ea292ce2eb18c}{Return\+Type}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\\mbox{\hyperlink{structtesting_1_1internal_1_1_invoke_method_without_args_action_a402ad087a48f62c11a8ea292ce2eb18c}{Return\+Type}} \mbox{\hyperlink{structtesting_1_1internal_1_1_invoke_method_without_args_action_a1f4e57fe7516b5106374d9acda304a99}{operator()}} (const Args \&...) const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Class \texorpdfstring{$\ast$}{*}const \mbox{\hyperlink{structtesting_1_1internal_1_1_invoke_method_without_args_action_a86cc5d1b668ef7b54a84cd5151d6b952}{obj\+\_\+ptr}}
+\item 
+const Method\+Ptr \mbox{\hyperlink{structtesting_1_1internal_1_1_invoke_method_without_args_action_a4f8dea00c7921dd60381f6c70273cb9f}{method\+\_\+ptr}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class Class, typename Method\+Ptr$>$\newline
+struct testing\+::internal\+::\+Invoke\+Method\+Without\+Args\+Action$<$ Class, Method\+Ptr $>$}
+
+
+Definition at line \mbox{\hyperlink{gmock-actions_8h_source_l01348}{1348}} of file \mbox{\hyperlink{gmock-actions_8h_source}{gmock-\/actions.\+h}}.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{structtesting_1_1internal_1_1_invoke_method_without_args_action_a402ad087a48f62c11a8ea292ce2eb18c}\index{testing::internal::InvokeMethodWithoutArgsAction$<$ Class, MethodPtr $>$@{testing::internal::InvokeMethodWithoutArgsAction$<$ Class, MethodPtr $>$}!ReturnType@{ReturnType}}
+\index{ReturnType@{ReturnType}!testing::internal::InvokeMethodWithoutArgsAction$<$ Class, MethodPtr $>$@{testing::internal::InvokeMethodWithoutArgsAction$<$ Class, MethodPtr $>$}}
+\doxysubsubsection{\texorpdfstring{ReturnType}{ReturnType}}
+{\footnotesize\ttfamily \label{structtesting_1_1internal_1_1_invoke_method_without_args_action_a402ad087a48f62c11a8ea292ce2eb18c} 
+template$<$class Class , typename Method\+Ptr $>$ \\
+using \mbox{\hyperlink{structtesting_1_1internal_1_1_invoke_method_without_args_action}{testing\+::internal\+::\+Invoke\+Method\+Without\+Args\+Action}}$<$ Class, Method\+Ptr $>$\+::\+Return\+Type}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \textcolor{keyword}{decltype}((std::declval<Class*>()-\/>*std::declval<MethodPtr>())())}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{gmock-actions_8h_source_l01352}{1352}} of file \mbox{\hyperlink{gmock-actions_8h_source}{gmock-\/actions.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structtesting_1_1internal_1_1_invoke_method_without_args_action_a1f4e57fe7516b5106374d9acda304a99}\index{testing::internal::InvokeMethodWithoutArgsAction$<$ Class, MethodPtr $>$@{testing::internal::InvokeMethodWithoutArgsAction$<$ Class, MethodPtr $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!testing::internal::InvokeMethodWithoutArgsAction$<$ Class, MethodPtr $>$@{testing::internal::InvokeMethodWithoutArgsAction$<$ Class, MethodPtr $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily \label{structtesting_1_1internal_1_1_invoke_method_without_args_action_a1f4e57fe7516b5106374d9acda304a99} 
+template$<$class Class , typename Method\+Ptr $>$ \\
+template$<$typename... Args$>$ \\
+\mbox{\hyperlink{structtesting_1_1internal_1_1_invoke_method_without_args_action_a402ad087a48f62c11a8ea292ce2eb18c}{Return\+Type}} \mbox{\hyperlink{structtesting_1_1internal_1_1_invoke_method_without_args_action}{testing\+::internal\+::\+Invoke\+Method\+Without\+Args\+Action}}$<$ Class, Method\+Ptr $>$\+::operator() (\begin{DoxyParamCaption}\item[{const Args \&}]{...}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{gmock-actions_8h_source_l01356}{1356}} of file \mbox{\hyperlink{gmock-actions_8h_source}{gmock-\/actions.\+h}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structtesting_1_1internal_1_1_invoke_method_without_args_action_a4f8dea00c7921dd60381f6c70273cb9f}\index{testing::internal::InvokeMethodWithoutArgsAction$<$ Class, MethodPtr $>$@{testing::internal::InvokeMethodWithoutArgsAction$<$ Class, MethodPtr $>$}!method\_ptr@{method\_ptr}}
+\index{method\_ptr@{method\_ptr}!testing::internal::InvokeMethodWithoutArgsAction$<$ Class, MethodPtr $>$@{testing::internal::InvokeMethodWithoutArgsAction$<$ Class, MethodPtr $>$}}
+\doxysubsubsection{\texorpdfstring{method\_ptr}{method\_ptr}}
+{\footnotesize\ttfamily \label{structtesting_1_1internal_1_1_invoke_method_without_args_action_a4f8dea00c7921dd60381f6c70273cb9f} 
+template$<$class Class , typename Method\+Ptr $>$ \\
+const Method\+Ptr \mbox{\hyperlink{structtesting_1_1internal_1_1_invoke_method_without_args_action}{testing\+::internal\+::\+Invoke\+Method\+Without\+Args\+Action}}$<$ Class, Method\+Ptr $>$\+::method\+\_\+ptr}
+
+
+
+Definition at line \mbox{\hyperlink{gmock-actions_8h_source_l01350}{1350}} of file \mbox{\hyperlink{gmock-actions_8h_source}{gmock-\/actions.\+h}}.
+
+\Hypertarget{structtesting_1_1internal_1_1_invoke_method_without_args_action_a86cc5d1b668ef7b54a84cd5151d6b952}\index{testing::internal::InvokeMethodWithoutArgsAction$<$ Class, MethodPtr $>$@{testing::internal::InvokeMethodWithoutArgsAction$<$ Class, MethodPtr $>$}!obj\_ptr@{obj\_ptr}}
+\index{obj\_ptr@{obj\_ptr}!testing::internal::InvokeMethodWithoutArgsAction$<$ Class, MethodPtr $>$@{testing::internal::InvokeMethodWithoutArgsAction$<$ Class, MethodPtr $>$}}
+\doxysubsubsection{\texorpdfstring{obj\_ptr}{obj\_ptr}}
+{\footnotesize\ttfamily \label{structtesting_1_1internal_1_1_invoke_method_without_args_action_a86cc5d1b668ef7b54a84cd5151d6b952} 
+template$<$class Class , typename Method\+Ptr $>$ \\
+Class\texorpdfstring{$\ast$}{*} const \mbox{\hyperlink{structtesting_1_1internal_1_1_invoke_method_without_args_action}{testing\+::internal\+::\+Invoke\+Method\+Without\+Args\+Action}}$<$ Class, Method\+Ptr $>$\+::obj\+\_\+ptr}
+
+
+
+Definition at line \mbox{\hyperlink{gmock-actions_8h_source_l01349}{1349}} of file \mbox{\hyperlink{gmock-actions_8h_source}{gmock-\/actions.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+googletest/googlemock/include/gmock/\mbox{\hyperlink{gmock-actions_8h}{gmock-\/actions.\+h}}\end{DoxyCompactItemize}

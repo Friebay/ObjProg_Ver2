@@ -1,0 +1,165 @@
+\doxysection{testing\+::internal\+::String Class Reference}
+\hypertarget{classtesting_1_1internal_1_1_string}{}\label{classtesting_1_1internal_1_1_string}\index{testing::internal::String@{testing::internal::String}}
+
+
+{\ttfamily \#include $<$gtest-\/string.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classtesting_1_1internal_1_1_string_aea55761bd8e9ff8e3cbad262ac983d9b}{Clone\+CString}} (const char \texorpdfstring{$\ast$}{*}c\+\_\+str)
+\item 
+static bool \mbox{\hyperlink{classtesting_1_1internal_1_1_string_a8bea7b33e7effbd299a0b4a5522ea96e}{CString\+Equals}} (const char \texorpdfstring{$\ast$}{*}lhs, const char \texorpdfstring{$\ast$}{*}rhs)
+\item 
+static std\+::string \mbox{\hyperlink{classtesting_1_1internal_1_1_string_aaf7e376ff580677ea4954d5913d5b917}{Show\+Wide\+CString}} (const wchar\+\_\+t \texorpdfstring{$\ast$}{*}wide\+\_\+c\+\_\+str)
+\item 
+static bool \mbox{\hyperlink{classtesting_1_1internal_1_1_string_ab0373bf6e96453d6ca0de2e68df13d3a}{Wide\+CString\+Equals}} (const wchar\+\_\+t \texorpdfstring{$\ast$}{*}lhs, const wchar\+\_\+t \texorpdfstring{$\ast$}{*}rhs)
+\item 
+static bool \mbox{\hyperlink{classtesting_1_1internal_1_1_string_a116ca435d63306927ba19f90a3596787}{Case\+Insensitive\+CString\+Equals}} (const char \texorpdfstring{$\ast$}{*}lhs, const char \texorpdfstring{$\ast$}{*}rhs)
+\item 
+static bool \mbox{\hyperlink{classtesting_1_1internal_1_1_string_a1f12d1780ca7afbf8975f5d425b9f362}{Case\+Insensitive\+Wide\+CString\+Equals}} (const wchar\+\_\+t \texorpdfstring{$\ast$}{*}lhs, const wchar\+\_\+t \texorpdfstring{$\ast$}{*}rhs)
+\item 
+static bool \mbox{\hyperlink{classtesting_1_1internal_1_1_string_a968f242b709f8c7c0ed5ecf246553321}{Ends\+With\+Case\+Insensitive}} (const std\+::string \&str, const std\+::string \&suffix)
+\item 
+static std\+::string \mbox{\hyperlink{classtesting_1_1internal_1_1_string_af50b18d588355871e1982c4043523e0f}{Format\+Int\+Width2}} (int \mbox{\hyperlink{gmock-actions__test_8cc_ac4f474c82e82cbb89ca7c36dd52be0ed}{value}})
+\item 
+static std\+::string \mbox{\hyperlink{classtesting_1_1internal_1_1_string_ad36bb9d3f5bc2014b7badb38cfc57da1}{Format\+Int\+WidthN}} (int \mbox{\hyperlink{gmock-actions__test_8cc_ac4f474c82e82cbb89ca7c36dd52be0ed}{value}}, int width)
+\item 
+static std\+::string \mbox{\hyperlink{classtesting_1_1internal_1_1_string_affe59102e49092fc0684388e9b0c5c1e}{Format\+Hex\+Int}} (int \mbox{\hyperlink{gmock-actions__test_8cc_ac4f474c82e82cbb89ca7c36dd52be0ed}{value}})
+\item 
+static std\+::string \mbox{\hyperlink{classtesting_1_1internal_1_1_string_a5e1ab9d4d03b4218e761459a099a8286}{Format\+Hex\+UInt32}} (uint32\+\_\+t \mbox{\hyperlink{gmock-actions__test_8cc_ac4f474c82e82cbb89ca7c36dd52be0ed}{value}})
+\item 
+static std\+::string \mbox{\hyperlink{classtesting_1_1internal_1_1_string_af702dc7cbd569589d8e3ff215a7cafa9}{Format\+Byte}} (unsigned char \mbox{\hyperlink{gmock-actions__test_8cc_ac4f474c82e82cbb89ca7c36dd52be0ed}{value}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{gtest-string_8h_source_l00063}{63}} of file \mbox{\hyperlink{gtest-string_8h_source}{gtest-\/string.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classtesting_1_1internal_1_1_string_a116ca435d63306927ba19f90a3596787}\index{testing::internal::String@{testing::internal::String}!CaseInsensitiveCStringEquals@{CaseInsensitiveCStringEquals}}
+\index{CaseInsensitiveCStringEquals@{CaseInsensitiveCStringEquals}!testing::internal::String@{testing::internal::String}}
+\doxysubsubsection{\texorpdfstring{CaseInsensitiveCStringEquals()}{CaseInsensitiveCStringEquals()}}
+{\footnotesize\ttfamily \label{classtesting_1_1internal_1_1_string_a116ca435d63306927ba19f90a3596787} 
+bool testing\+::internal\+::\+String\+::\+Case\+Insensitive\+CString\+Equals (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{lhs}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{rhs}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{gtest_8cc_source_l02157}{2157}} of file \mbox{\hyperlink{gtest_8cc_source}{gtest.\+cc}}.
+
+\Hypertarget{classtesting_1_1internal_1_1_string_a1f12d1780ca7afbf8975f5d425b9f362}\index{testing::internal::String@{testing::internal::String}!CaseInsensitiveWideCStringEquals@{CaseInsensitiveWideCStringEquals}}
+\index{CaseInsensitiveWideCStringEquals@{CaseInsensitiveWideCStringEquals}!testing::internal::String@{testing::internal::String}}
+\doxysubsubsection{\texorpdfstring{CaseInsensitiveWideCStringEquals()}{CaseInsensitiveWideCStringEquals()}}
+{\footnotesize\ttfamily \label{classtesting_1_1internal_1_1_string_a1f12d1780ca7afbf8975f5d425b9f362} 
+bool testing\+::internal\+::\+String\+::\+Case\+Insensitive\+Wide\+CString\+Equals (\begin{DoxyParamCaption}\item[{const wchar\+\_\+t \texorpdfstring{$\ast$}{*}}]{lhs}{, }\item[{const wchar\+\_\+t \texorpdfstring{$\ast$}{*}}]{rhs}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{gtest_8cc_source_l02175}{2175}} of file \mbox{\hyperlink{gtest_8cc_source}{gtest.\+cc}}.
+
+\Hypertarget{classtesting_1_1internal_1_1_string_aea55761bd8e9ff8e3cbad262ac983d9b}\index{testing::internal::String@{testing::internal::String}!CloneCString@{CloneCString}}
+\index{CloneCString@{CloneCString}!testing::internal::String@{testing::internal::String}}
+\doxysubsubsection{\texorpdfstring{CloneCString()}{CloneCString()}}
+{\footnotesize\ttfamily \label{classtesting_1_1internal_1_1_string_aea55761bd8e9ff8e3cbad262ac983d9b} 
+static const char \texorpdfstring{$\ast$}{*} testing\+::internal\+::\+String\+::\+Clone\+CString (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{c\+\_\+str}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classtesting_1_1internal_1_1_string_a8bea7b33e7effbd299a0b4a5522ea96e}\index{testing::internal::String@{testing::internal::String}!CStringEquals@{CStringEquals}}
+\index{CStringEquals@{CStringEquals}!testing::internal::String@{testing::internal::String}}
+\doxysubsubsection{\texorpdfstring{CStringEquals()}{CStringEquals()}}
+{\footnotesize\ttfamily \label{classtesting_1_1internal_1_1_string_a8bea7b33e7effbd299a0b4a5522ea96e} 
+bool testing\+::internal\+::\+String\+::\+CString\+Equals (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{lhs}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{rhs}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{gtest_8cc_source_l01250}{1250}} of file \mbox{\hyperlink{gtest_8cc_source}{gtest.\+cc}}.
+
+\Hypertarget{classtesting_1_1internal_1_1_string_a968f242b709f8c7c0ed5ecf246553321}\index{testing::internal::String@{testing::internal::String}!EndsWithCaseInsensitive@{EndsWithCaseInsensitive}}
+\index{EndsWithCaseInsensitive@{EndsWithCaseInsensitive}!testing::internal::String@{testing::internal::String}}
+\doxysubsubsection{\texorpdfstring{EndsWithCaseInsensitive()}{EndsWithCaseInsensitive()}}
+{\footnotesize\ttfamily \label{classtesting_1_1internal_1_1_string_a968f242b709f8c7c0ed5ecf246553321} 
+bool testing\+::internal\+::\+String\+::\+Ends\+With\+Case\+Insensitive (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str}{, }\item[{const std\+::string \&}]{suffix}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{gtest_8cc_source_l02199}{2199}} of file \mbox{\hyperlink{gtest_8cc_source}{gtest.\+cc}}.
+
+\Hypertarget{classtesting_1_1internal_1_1_string_af702dc7cbd569589d8e3ff215a7cafa9}\index{testing::internal::String@{testing::internal::String}!FormatByte@{FormatByte}}
+\index{FormatByte@{FormatByte}!testing::internal::String@{testing::internal::String}}
+\doxysubsubsection{\texorpdfstring{FormatByte()}{FormatByte()}}
+{\footnotesize\ttfamily \label{classtesting_1_1internal_1_1_string_af702dc7cbd569589d8e3ff215a7cafa9} 
+std\+::string testing\+::internal\+::\+String\+::\+Format\+Byte (\begin{DoxyParamCaption}\item[{unsigned char}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{gtest_8cc_source_l02233}{2233}} of file \mbox{\hyperlink{gtest_8cc_source}{gtest.\+cc}}.
+
+\Hypertarget{classtesting_1_1internal_1_1_string_affe59102e49092fc0684388e9b0c5c1e}\index{testing::internal::String@{testing::internal::String}!FormatHexInt@{FormatHexInt}}
+\index{FormatHexInt@{FormatHexInt}!testing::internal::String@{testing::internal::String}}
+\doxysubsubsection{\texorpdfstring{FormatHexInt()}{FormatHexInt()}}
+{\footnotesize\ttfamily \label{classtesting_1_1internal_1_1_string_affe59102e49092fc0684388e9b0c5c1e} 
+std\+::string testing\+::internal\+::\+String\+::\+Format\+Hex\+Int (\begin{DoxyParamCaption}\item[{int}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{gtest_8cc_source_l02228}{2228}} of file \mbox{\hyperlink{gtest_8cc_source}{gtest.\+cc}}.
+
+\Hypertarget{classtesting_1_1internal_1_1_string_a5e1ab9d4d03b4218e761459a099a8286}\index{testing::internal::String@{testing::internal::String}!FormatHexUInt32@{FormatHexUInt32}}
+\index{FormatHexUInt32@{FormatHexUInt32}!testing::internal::String@{testing::internal::String}}
+\doxysubsubsection{\texorpdfstring{FormatHexUInt32()}{FormatHexUInt32()}}
+{\footnotesize\ttfamily \label{classtesting_1_1internal_1_1_string_a5e1ab9d4d03b4218e761459a099a8286} 
+std\+::string testing\+::internal\+::\+String\+::\+Format\+Hex\+UInt32 (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{gtest_8cc_source_l02221}{2221}} of file \mbox{\hyperlink{gtest_8cc_source}{gtest.\+cc}}.
+
+\Hypertarget{classtesting_1_1internal_1_1_string_af50b18d588355871e1982c4043523e0f}\index{testing::internal::String@{testing::internal::String}!FormatIntWidth2@{FormatIntWidth2}}
+\index{FormatIntWidth2@{FormatIntWidth2}!testing::internal::String@{testing::internal::String}}
+\doxysubsubsection{\texorpdfstring{FormatIntWidth2()}{FormatIntWidth2()}}
+{\footnotesize\ttfamily \label{classtesting_1_1internal_1_1_string_af50b18d588355871e1982c4043523e0f} 
+std\+::string testing\+::internal\+::\+String\+::\+Format\+Int\+Width2 (\begin{DoxyParamCaption}\item[{int}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{gtest_8cc_source_l02209}{2209}} of file \mbox{\hyperlink{gtest_8cc_source}{gtest.\+cc}}.
+
+\Hypertarget{classtesting_1_1internal_1_1_string_ad36bb9d3f5bc2014b7badb38cfc57da1}\index{testing::internal::String@{testing::internal::String}!FormatIntWidthN@{FormatIntWidthN}}
+\index{FormatIntWidthN@{FormatIntWidthN}!testing::internal::String@{testing::internal::String}}
+\doxysubsubsection{\texorpdfstring{FormatIntWidthN()}{FormatIntWidthN()}}
+{\footnotesize\ttfamily \label{classtesting_1_1internal_1_1_string_ad36bb9d3f5bc2014b7badb38cfc57da1} 
+std\+::string testing\+::internal\+::\+String\+::\+Format\+Int\+WidthN (\begin{DoxyParamCaption}\item[{int}]{value}{, }\item[{int}]{width}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{gtest_8cc_source_l02214}{2214}} of file \mbox{\hyperlink{gtest_8cc_source}{gtest.\+cc}}.
+
+\Hypertarget{classtesting_1_1internal_1_1_string_aaf7e376ff580677ea4954d5913d5b917}\index{testing::internal::String@{testing::internal::String}!ShowWideCString@{ShowWideCString}}
+\index{ShowWideCString@{ShowWideCString}!testing::internal::String@{testing::internal::String}}
+\doxysubsubsection{\texorpdfstring{ShowWideCString()}{ShowWideCString()}}
+{\footnotesize\ttfamily \label{classtesting_1_1internal_1_1_string_aaf7e376ff580677ea4954d5913d5b917} 
+std\+::string testing\+::internal\+::\+String\+::\+Show\+Wide\+CString (\begin{DoxyParamCaption}\item[{const wchar\+\_\+t \texorpdfstring{$\ast$}{*}}]{wide\+\_\+c\+\_\+str}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{gtest_8cc_source_l02106}{2106}} of file \mbox{\hyperlink{gtest_8cc_source}{gtest.\+cc}}.
+
+\Hypertarget{classtesting_1_1internal_1_1_string_ab0373bf6e96453d6ca0de2e68df13d3a}\index{testing::internal::String@{testing::internal::String}!WideCStringEquals@{WideCStringEquals}}
+\index{WideCStringEquals@{WideCStringEquals}!testing::internal::String@{testing::internal::String}}
+\doxysubsubsection{\texorpdfstring{WideCStringEquals()}{WideCStringEquals()}}
+{\footnotesize\ttfamily \label{classtesting_1_1internal_1_1_string_ab0373bf6e96453d6ca0de2e68df13d3a} 
+bool testing\+::internal\+::\+String\+::\+Wide\+CString\+Equals (\begin{DoxyParamCaption}\item[{const wchar\+\_\+t \texorpdfstring{$\ast$}{*}}]{lhs}{, }\item[{const wchar\+\_\+t \texorpdfstring{$\ast$}{*}}]{rhs}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{gtest_8cc_source_l02118}{2118}} of file \mbox{\hyperlink{gtest_8cc_source}{gtest.\+cc}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+googletest/googletest/include/gtest/internal/\mbox{\hyperlink{gtest-string_8h}{gtest-\/string.\+h}}\item 
+googletest/googletest/src/\mbox{\hyperlink{gtest_8cc}{gtest.\+cc}}\end{DoxyCompactItemize}

@@ -1,0 +1,62 @@
+\doxysection{testing\+::internal\+::Eq\+Helper Class Reference}
+\hypertarget{classtesting_1_1internal_1_1_eq_helper}{}\label{classtesting_1_1internal_1_1_eq_helper}\index{testing::internal::EqHelper@{testing::internal::EqHelper}}
+
+
+{\ttfamily \#include $<$gtest.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T1 , typename T2 , typename std\+::enable\+\_\+if$<$!std\+::is\+\_\+integral$<$ T1 $>$\mbox{\hyperlink{gmock-actions__test_8cc_ac4f474c82e82cbb89ca7c36dd52be0ed}{\+::value}}\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}!std\+::is\+\_\+pointer$<$ T2 $>$\mbox{\hyperlink{gmock-actions__test_8cc_ac4f474c82e82cbb89ca7c36dd52be0ed}{\+::value}} $>$\+::type \texorpdfstring{$\ast$}{*}  = nullptr$>$ }\\static Assertion\+Result \mbox{\hyperlink{classtesting_1_1internal_1_1_eq_helper_aa5ee2dafddce2496d73ba13fd34bb981}{Compare}} (const char \texorpdfstring{$\ast$}{*}lhs\+\_\+expression, const char \texorpdfstring{$\ast$}{*}rhs\+\_\+expression, const T1 \&lhs, const T2 \&rhs)
+\item 
+static Assertion\+Result \mbox{\hyperlink{classtesting_1_1internal_1_1_eq_helper_af7e402f6e00be1486d0f102e9f1bc931}{Compare}} (const char \texorpdfstring{$\ast$}{*}lhs\+\_\+expression, const char \texorpdfstring{$\ast$}{*}rhs\+\_\+expression, \mbox{\hyperlink{namespacetesting_1_1internal_a10f72a25fc44737bdc261f9ebb051ec3}{Biggest\+Int}} lhs, \mbox{\hyperlink{namespacetesting_1_1internal_a10f72a25fc44737bdc261f9ebb051ec3}{Biggest\+Int}} rhs)
+\item 
+{\footnotesize template$<$typename T $>$ }\\static Assertion\+Result \mbox{\hyperlink{classtesting_1_1internal_1_1_eq_helper_af5cac2c28545dfa0688849e205f54bec}{Compare}} (const char \texorpdfstring{$\ast$}{*}lhs\+\_\+expression, const char \texorpdfstring{$\ast$}{*}rhs\+\_\+expression, std\+::nullptr\+\_\+t, T \texorpdfstring{$\ast$}{*}rhs)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{gtest_8h_source_l01401}{1401}} of file \mbox{\hyperlink{gtest_8h_source}{gtest.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classtesting_1_1internal_1_1_eq_helper_af7e402f6e00be1486d0f102e9f1bc931}\index{testing::internal::EqHelper@{testing::internal::EqHelper}!Compare@{Compare}}
+\index{Compare@{Compare}!testing::internal::EqHelper@{testing::internal::EqHelper}}
+\doxysubsubsection{\texorpdfstring{Compare()}{Compare()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classtesting_1_1internal_1_1_eq_helper_af7e402f6e00be1486d0f102e9f1bc931} 
+static Assertion\+Result testing\+::internal\+::\+Eq\+Helper\+::\+Compare (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{lhs\+\_\+expression}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{rhs\+\_\+expression}{, }\item[{\mbox{\hyperlink{namespacetesting_1_1internal_a10f72a25fc44737bdc261f9ebb051ec3}{Biggest\+Int}}}]{lhs}{, }\item[{\mbox{\hyperlink{namespacetesting_1_1internal_a10f72a25fc44737bdc261f9ebb051ec3}{Biggest\+Int}}}]{rhs}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{gtest_8h_source_l01422}{1422}} of file \mbox{\hyperlink{gtest_8h_source}{gtest.\+h}}.
+
+\Hypertarget{classtesting_1_1internal_1_1_eq_helper_aa5ee2dafddce2496d73ba13fd34bb981}\index{testing::internal::EqHelper@{testing::internal::EqHelper}!Compare@{Compare}}
+\index{Compare@{Compare}!testing::internal::EqHelper@{testing::internal::EqHelper}}
+\doxysubsubsection{\texorpdfstring{Compare()}{Compare()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classtesting_1_1internal_1_1_eq_helper_aa5ee2dafddce2496d73ba13fd34bb981} 
+template$<$typename T1 , typename T2 , typename std\+::enable\+\_\+if$<$!std\+::is\+\_\+integral$<$ T1 $>$\mbox{\hyperlink{gmock-actions__test_8cc_ac4f474c82e82cbb89ca7c36dd52be0ed}{\+::value}}\texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}!std\+::is\+\_\+pointer$<$ T2 $>$\mbox{\hyperlink{gmock-actions__test_8cc_ac4f474c82e82cbb89ca7c36dd52be0ed}{\+::value}} $>$\+::type \texorpdfstring{$\ast$}{*}  = nullptr$>$ \\
+static Assertion\+Result testing\+::internal\+::\+Eq\+Helper\+::\+Compare (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{lhs\+\_\+expression}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{rhs\+\_\+expression}{, }\item[{const T1 \&}]{lhs}{, }\item[{const T2 \&}]{rhs}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{gtest_8h_source_l01410}{1410}} of file \mbox{\hyperlink{gtest_8h_source}{gtest.\+h}}.
+
+\Hypertarget{classtesting_1_1internal_1_1_eq_helper_af5cac2c28545dfa0688849e205f54bec}\index{testing::internal::EqHelper@{testing::internal::EqHelper}!Compare@{Compare}}
+\index{Compare@{Compare}!testing::internal::EqHelper@{testing::internal::EqHelper}}
+\doxysubsubsection{\texorpdfstring{Compare()}{Compare()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classtesting_1_1internal_1_1_eq_helper_af5cac2c28545dfa0688849e205f54bec} 
+template$<$typename T $>$ \\
+static Assertion\+Result testing\+::internal\+::\+Eq\+Helper\+::\+Compare (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{lhs\+\_\+expression}{, }\item[{const char \texorpdfstring{$\ast$}{*}}]{rhs\+\_\+expression}{, }\item[{std\+::nullptr\+\_\+t}]{}{, }\item[{T \texorpdfstring{$\ast$}{*}}]{rhs}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{gtest_8h_source_l01429}{1429}} of file \mbox{\hyperlink{gtest_8h_source}{gtest.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+googletest/googletest/include/gtest/\mbox{\hyperlink{gtest_8h}{gtest.\+h}}\end{DoxyCompactItemize}

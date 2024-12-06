@@ -1,0 +1,40 @@
+\doxysection{testing\+::internal\+::Return\+Arg\+Action\texorpdfstring{$<$}{<} k \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtesting_1_1internal_1_1_return_arg_action}{}\label{structtesting_1_1internal_1_1_return_arg_action}\index{testing::internal::ReturnArgAction$<$ k $>$@{testing::internal::ReturnArgAction$<$ k $>$}}
+
+
+{\ttfamily \#include $<$gmock-\/actions.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename... Args, typename  = typename std\+::enable\+\_\+if$<$(k $<$ sizeof...(\+Args))$>$\+::type$>$ }\\auto \mbox{\hyperlink{structtesting_1_1internal_1_1_return_arg_action_ac807779fc276151649d547ad5e0f7a7b}{operator()}} (Args \&\&... args) const -\/$>$ decltype(std\+::get$<$ k $>$(std\+::forward\+\_\+as\+\_\+tuple(std\+::forward$<$ Args $>$(args)...)))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$size\+\_\+t k$>$\newline
+struct testing\+::internal\+::\+Return\+Arg\+Action$<$ k $>$}
+
+
+Definition at line \mbox{\hyperlink{gmock-actions_8h_source_l01665}{1665}} of file \mbox{\hyperlink{gmock-actions_8h_source}{gmock-\/actions.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structtesting_1_1internal_1_1_return_arg_action_ac807779fc276151649d547ad5e0f7a7b}\index{testing::internal::ReturnArgAction$<$ k $>$@{testing::internal::ReturnArgAction$<$ k $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!testing::internal::ReturnArgAction$<$ k $>$@{testing::internal::ReturnArgAction$<$ k $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily \label{structtesting_1_1internal_1_1_return_arg_action_ac807779fc276151649d547ad5e0f7a7b} 
+template$<$size\+\_\+t k$>$ \\
+template$<$typename... Args, typename  = typename std\+::enable\+\_\+if$<$(k $<$ sizeof...(\+Args))$>$\+::type$>$ \\
+auto \mbox{\hyperlink{structtesting_1_1internal_1_1_return_arg_action}{testing\+::internal\+::\+Return\+Arg\+Action}}$<$ k $>$\+::operator() (\begin{DoxyParamCaption}\item[{Args \&\&...}]{args}{}\end{DoxyParamCaption}) const -\/$>$ decltype(std\+::get$<$k$>$(       std\+::forward\+\_\+as\+\_\+tuple(std\+::forward$<$Args$>$(args)...))) \hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{gmock-actions_8h_source_l01668}{1668}} of file \mbox{\hyperlink{gmock-actions_8h_source}{gmock-\/actions.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+googletest/googlemock/include/gmock/\mbox{\hyperlink{gmock-actions_8h}{gmock-\/actions.\+h}}\end{DoxyCompactItemize}

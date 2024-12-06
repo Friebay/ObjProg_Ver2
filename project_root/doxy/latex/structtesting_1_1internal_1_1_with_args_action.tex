@@ -1,0 +1,99 @@
+\doxysection{testing\+::internal\+::With\+Args\+Action\texorpdfstring{$<$}{<} Inner\+Action, I \texorpdfstring{$>$}{>} Struct Template Reference}
+\hypertarget{structtesting_1_1internal_1_1_with_args_action}{}\label{structtesting_1_1internal_1_1_with_args_action}\index{testing::internal::WithArgsAction$<$ InnerAction, I $>$@{testing::internal::WithArgsAction$<$ InnerAction, I $>$}}
+
+
+{\ttfamily \#include $<$gmock-\/actions.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename R , typename... Args$>$ }\\using \mbox{\hyperlink{structtesting_1_1internal_1_1_with_args_action_acb9e9974b6d6d297df417fec0a08ca6f}{Inner\+Signature}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename R , typename... Args, typename std\+::enable\+\_\+if$<$ std\+::is\+\_\+convertible$<$ Inner\+Action, \mbox{\hyperlink{classtesting_1_1_once_action}{Once\+Action}}$<$ R(\mbox{\hyperlink{namespacetesting_1_1internal_af9d8d15f4b9a816816f247531b2956f7}{internal\+::\+Tuple\+Element}}$<$ I, std\+::tuple$<$ Args... $>$ $>$...)$>$ $>$\mbox{\hyperlink{gmock-actions__test_8cc_ac4f474c82e82cbb89ca7c36dd52be0ed}{\+::value}}, int $>$\+::type  = 0$>$ }\\\mbox{\hyperlink{structtesting_1_1internal_1_1_with_args_action_ad0fbdb166e065c975d3b2eca56704427}{operator Once\+Action$<$ R}} (Args...)$>$() \&\&
+\item 
+{\footnotesize template$<$typename R , typename... Args, typename std\+::enable\+\_\+if$<$ std\+::is\+\_\+convertible$<$ const Inner\+Action \&, \mbox{\hyperlink{classtesting_1_1_action}{Action}}$<$ R(\mbox{\hyperlink{namespacetesting_1_1internal_af9d8d15f4b9a816816f247531b2956f7}{internal\+::\+Tuple\+Element}}$<$ I, std\+::tuple$<$ Args... $>$ $>$...)$>$ $>$\mbox{\hyperlink{gmock-actions__test_8cc_ac4f474c82e82cbb89ca7c36dd52be0ed}{\+::value}}, int $>$\+::type  = 0$>$ }\\\mbox{\hyperlink{structtesting_1_1internal_1_1_with_args_action_aa351f425dae2a8e71fc983358c5060d6}{operator Action$<$ R}} (Args...)$>$() const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Inner\+Action \mbox{\hyperlink{structtesting_1_1internal_1_1_with_args_action_abe6da3bc9f57fa5926b5f53b8095a90d}{inner\+\_\+action}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Inner\+Action, size\+\_\+t... I$>$\newline
+struct testing\+::internal\+::\+With\+Args\+Action$<$ Inner\+Action, I $>$}
+
+
+Definition at line \mbox{\hyperlink{gmock-actions_8h_source_l01412}{1412}} of file \mbox{\hyperlink{gmock-actions_8h_source}{gmock-\/actions.\+h}}.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\Hypertarget{structtesting_1_1internal_1_1_with_args_action_acb9e9974b6d6d297df417fec0a08ca6f}\index{testing::internal::WithArgsAction$<$ InnerAction, I $>$@{testing::internal::WithArgsAction$<$ InnerAction, I $>$}!InnerSignature@{InnerSignature}}
+\index{InnerSignature@{InnerSignature}!testing::internal::WithArgsAction$<$ InnerAction, I $>$@{testing::internal::WithArgsAction$<$ InnerAction, I $>$}}
+\doxysubsubsection{\texorpdfstring{InnerSignature}{InnerSignature}}
+{\footnotesize\ttfamily \label{structtesting_1_1internal_1_1_with_args_action_acb9e9974b6d6d297df417fec0a08ca6f} 
+template$<$typename Inner\+Action , size\+\_\+t... I$>$ \\
+template$<$typename R , typename... Args$>$ \\
+using \mbox{\hyperlink{structtesting_1_1internal_1_1_with_args_action}{testing\+::internal\+::\+With\+Args\+Action}}$<$ Inner\+Action, I $>$\+::\+Inner\+Signature}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ R(\textcolor{keyword}{typename}\ std::tuple\_element<I,\ std::tuple<Args...>>::type...)}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{gmock-actions_8h_source_l01418}{1418}} of file \mbox{\hyperlink{gmock-actions_8h_source}{gmock-\/actions.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structtesting_1_1internal_1_1_with_args_action_aa351f425dae2a8e71fc983358c5060d6}\index{testing::internal::WithArgsAction$<$ InnerAction, I $>$@{testing::internal::WithArgsAction$<$ InnerAction, I $>$}!operator Action$<$ R@{operator Action$<$ R}}
+\index{operator Action$<$ R@{operator Action$<$ R}!testing::internal::WithArgsAction$<$ InnerAction, I $>$@{testing::internal::WithArgsAction$<$ InnerAction, I $>$}}
+\doxysubsubsection{\texorpdfstring{operator Action$<$ R()}{operator Action< R()}}
+{\footnotesize\ttfamily \label{structtesting_1_1internal_1_1_with_args_action_aa351f425dae2a8e71fc983358c5060d6} 
+template$<$typename Inner\+Action , size\+\_\+t... I$>$ \\
+template$<$typename R , typename... Args, typename std\+::enable\+\_\+if$<$ std\+::is\+\_\+convertible$<$ const Inner\+Action \&, \mbox{\hyperlink{classtesting_1_1_action}{Action}}$<$ R(\mbox{\hyperlink{namespacetesting_1_1internal_af9d8d15f4b9a816816f247531b2956f7}{internal\+::\+Tuple\+Element}}$<$ I, std\+::tuple$<$ Args... $>$ $>$...)$>$ $>$\mbox{\hyperlink{gmock-actions__test_8cc_ac4f474c82e82cbb89ca7c36dd52be0ed}{\+::value}}, int $>$\+::type  = 0$>$ \\
+\mbox{\hyperlink{structtesting_1_1internal_1_1_with_args_action}{testing\+::internal\+::\+With\+Args\+Action}}$<$ Inner\+Action, I $>$\+::operator \mbox{\hyperlink{classtesting_1_1_action}{Action}}$<$ R (\begin{DoxyParamCaption}\item[{Args...}]{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{gmock-actions_8h_source_l01467}{1467}} of file \mbox{\hyperlink{gmock-actions_8h_source}{gmock-\/actions.\+h}}.
+
+\Hypertarget{structtesting_1_1internal_1_1_with_args_action_ad0fbdb166e065c975d3b2eca56704427}\index{testing::internal::WithArgsAction$<$ InnerAction, I $>$@{testing::internal::WithArgsAction$<$ InnerAction, I $>$}!operator OnceAction$<$ R@{operator OnceAction$<$ R}}
+\index{operator OnceAction$<$ R@{operator OnceAction$<$ R}!testing::internal::WithArgsAction$<$ InnerAction, I $>$@{testing::internal::WithArgsAction$<$ InnerAction, I $>$}}
+\doxysubsubsection{\texorpdfstring{operator OnceAction$<$ R()}{operator OnceAction< R()}}
+{\footnotesize\ttfamily \label{structtesting_1_1internal_1_1_with_args_action_ad0fbdb166e065c975d3b2eca56704427} 
+template$<$typename Inner\+Action , size\+\_\+t... I$>$ \\
+template$<$typename R , typename... Args, typename std\+::enable\+\_\+if$<$ std\+::is\+\_\+convertible$<$ Inner\+Action, \mbox{\hyperlink{classtesting_1_1_once_action}{Once\+Action}}$<$ R(\mbox{\hyperlink{namespacetesting_1_1internal_af9d8d15f4b9a816816f247531b2956f7}{internal\+::\+Tuple\+Element}}$<$ I, std\+::tuple$<$ Args... $>$ $>$...)$>$ $>$\mbox{\hyperlink{gmock-actions__test_8cc_ac4f474c82e82cbb89ca7c36dd52be0ed}{\+::value}}, int $>$\+::type  = 0$>$ \\
+\mbox{\hyperlink{structtesting_1_1internal_1_1_with_args_action}{testing\+::internal\+::\+With\+Args\+Action}}$<$ Inner\+Action, I $>$\+::operator \mbox{\hyperlink{classtesting_1_1_once_action}{Once\+Action}}$<$ R (\begin{DoxyParamCaption}\item[{Args...}]{}{}\end{DoxyParamCaption}) \&\&\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{gmock-actions_8h_source_l01440}{1440}} of file \mbox{\hyperlink{gmock-actions_8h_source}{gmock-\/actions.\+h}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structtesting_1_1internal_1_1_with_args_action_abe6da3bc9f57fa5926b5f53b8095a90d}\index{testing::internal::WithArgsAction$<$ InnerAction, I $>$@{testing::internal::WithArgsAction$<$ InnerAction, I $>$}!inner\_action@{inner\_action}}
+\index{inner\_action@{inner\_action}!testing::internal::WithArgsAction$<$ InnerAction, I $>$@{testing::internal::WithArgsAction$<$ InnerAction, I $>$}}
+\doxysubsubsection{\texorpdfstring{inner\_action}{inner\_action}}
+{\footnotesize\ttfamily \label{structtesting_1_1internal_1_1_with_args_action_abe6da3bc9f57fa5926b5f53b8095a90d} 
+template$<$typename Inner\+Action , size\+\_\+t... I$>$ \\
+Inner\+Action \mbox{\hyperlink{structtesting_1_1internal_1_1_with_args_action}{testing\+::internal\+::\+With\+Args\+Action}}$<$ Inner\+Action, I $>$\+::inner\+\_\+action}
+
+
+
+Definition at line \mbox{\hyperlink{gmock-actions_8h_source_l01413}{1413}} of file \mbox{\hyperlink{gmock-actions_8h_source}{gmock-\/actions.\+h}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+googletest/googlemock/include/gmock/\mbox{\hyperlink{gmock-actions_8h}{gmock-\/actions.\+h}}\end{DoxyCompactItemize}
