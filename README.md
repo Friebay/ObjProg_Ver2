@@ -435,3 +435,7 @@ std::cout << "Vardas: " << studentas.getVardas() << ", Pavarde: " << studentas.g
 
 return;
 ```
+
+# v2.0 versija
+ - Šioje versijoje pridėta Doxygen dokumentacija, kurią galite peržiūrėti faile doxy_html/index.html
+ - Pridėtas unit testų kodas aplankale project_root/tests, kuriame galima išbandyti Žmogaus ir Studento klases.
