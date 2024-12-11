@@ -34,7 +34,6 @@
 stud_duomenys/studentai100000.txt
 stud_duomenys/studentai1000000.txt
 stud_duomenys/desktop.ini
-*.txt
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/settings.json
@@ -67,3 +66,5 @@ stud_duomenys/desktop.ini
 /kodas_klases/.vscode
 /.vscode
 /kodas_klases/build
+project_root/src/txt_failai/studentai1000000.txt
+/project_root/src/txt_failai
