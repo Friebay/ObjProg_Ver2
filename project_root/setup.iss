@@ -6,13 +6,13 @@
 ; Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
 AppId={{7D4C52CD-1C44-46FF-AFA3-A2E462AE3304}
-AppName=MyProgram
+AppName=StudPazSkaiciuokle
 AppVersion=1.0
-AppPublisher=MyCompany
-DefaultDirName={pf}\MyProgram
-DefaultGroupName=MyProgram
+AppPublisher=Vilniaus Universitetas
+DefaultDirName={pf}\StudPazSkaiciuokle
+DefaultGroupName=StudPazSkaiciuokle
 OutputDir=.
-OutputBaseFilename=MyProgramInstaller
+OutputBaseFilename=StudPazSkaiciuokle
 Compression=lzma
 SolidCompression=yes
 PrivilegesRequired=admin
@@ -21,15 +21,16 @@ PrivilegesRequired=admin
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
-Source: "C:\Users\zabit\Documents\GitHub\ObjProg_Ver2\project_root\build\program.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\zabit\Documents\GitHub\ObjProg_Ver2\project_root\build\StudPazSkaiciuokle.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Users\zabit\Documents\GitHub\ObjProg_Ver2\project_root\program.manifest"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\zabit\Documents\GitHub\ObjProg_Ver2\project_root\src\txt_failai\*"; DestDir: "{app}\src\txt_failai"; Flags: ignoreversion recursesubdirs createallsubdirs
 
 [Icons]
-Name: "{group}\MyProgram"; Filename: "{app}\program.exe"
-Name: "{commondesktop}\MyProgram"; Filename: "{app}\program.exe"
+Name: "{group}\StudPazSkaiciuokle"; Filename: "{app}\StudPazSkaiciuokle.exe"
+Name: "{commondesktop}\StudPazSkaiciuokle"; Filename: "{app}\StudPazSkaiciuokle.exe"
 
 [Run]
-Filename: "{app}\program.exe"; Description: "{cm:LaunchProgram,MyProgram}"; Flags: nowait postinstall skipifsilent
+Filename: "{app}\program.exe"; Description: "{cm:LaunchProgram,StudPazSkaiciuokle}"; Flags: nowait postinstall skipifsilent
 
 [Code]
 function InitializeSetup(): Boolean;
