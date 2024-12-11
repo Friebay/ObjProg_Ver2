@@ -15,12 +15,14 @@ OutputDir=.
 OutputBaseFilename=MyProgramInstaller
 Compression=lzma
 SolidCompression=yes
+PrivilegesRequired=admin
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Files]
 Source: "C:\Users\zabit\Documents\GitHub\ObjProg_Ver2\project_root\build\program.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\zabit\Documents\GitHub\ObjProg_Ver2\project_root\program.manifest"; DestDir: "{app}"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\MyProgram"; Filename: "{app}\program.exe"
@@ -28,3 +30,18 @@ Name: "{commondesktop}\MyProgram"; Filename: "{app}\program.exe"
 
 [Run]
 Filename: "{app}\program.exe"; Description: "{cm:LaunchProgram,MyProgram}"; Flags: nowait postinstall skipifsilent
+
+[Code]
+function InitializeSetup(): Boolean;
+begin
+  // Request administrative privileges for the installer
+  if not IsAdminLoggedOn then
+  begin
+    MsgBox('This installer requires administrative privileges. Please run as administrator.', mbError, MB_OK);
+    Result := False;
+  end
+  else
+  begin
+    Result := True;
+  end;
+end;
