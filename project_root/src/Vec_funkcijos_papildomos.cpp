@@ -175,7 +175,7 @@ void generuotiAtsitiktiniusFailus()
     for (int i = 1; i <= 5; ++i)
     {
         int studentuKiekis = generuotiSkaiciu(1, 1000000);
-        string failoPavadinimas = "txt_failai/studentai_random_" + to_string(i) + ".txt";
+        string failoPavadinimas = "src/txt_failai/studentai_random_" + to_string(i) + ".txt";
         generuotiStudentuFaila(studentuKiekis, failoPavadinimas);
         cout << "Sugeneruotas failas " << failoPavadinimas << " su " << studentuKiekis << " studentu.\n";
     }
@@ -211,7 +211,7 @@ void vykdytiVisusZingsnius()
         string timestamp = ss.str();
 
         // Generuoti studentų failą
-        string studentuFailas = "txt_failai/studentai_" + to_string(kiekis) + ".txt";
+        string studentuFailas = "src/txt_failai/studentai_" + to_string(kiekis) + ".txt";
         auto pradziaGeneravimo = std::chrono::high_resolution_clock::now();
         generuotiStudentuFaila(kiekis, studentuFailas);
         auto pabaigaGeneravimo = std::chrono::high_resolution_clock::now();
@@ -219,7 +219,7 @@ void vykdytiVisusZingsnius()
         cout << "Failo su " << kiekis << "studentais generavimas uztruko " << trukmeGeneravimo.count() << " ms.\n";
 
         // Skaitomas sugeneruotas failas, apskaičiuoja galutinius rezultatus ir išvedamas į rezultatų failą
-        string rezultatuFailas = "txt_failai/rezultatai_" + to_string(kiekis) + ".txt";
+        string rezultatuFailas = "src/txt_failai/rezultatai_" + to_string(kiekis) + ".txt";
         cout << "Skaitomi duomenys ir isvedami i " << rezultatuFailas << "...\n";
         long long trukmeSkaitymo, trukmeVidurkio, trukmeIrasymo;
         auto pradziaSkaitymo = std::chrono::high_resolution_clock::now();
@@ -231,8 +231,8 @@ void vykdytiVisusZingsnius()
         cout << "Duomenu isvedimas i " << rezultatuFailas << " uztruko " << trukmeIrasymo << " ms.\n";
 
         // Rezultatų failo padalijimas į išlaikiusius ir neišlaikiusius
-        string islaikeFailas = "txt_failai/rezultatai_" + to_string(kiekis) + "_islaike.txt";
-        string neislaikeFailas = "txt_failai/rezultatai_" + to_string(kiekis) + "_neislaike.txt";
+        string islaikeFailas = "src/txt_failai/rezultatai_" + to_string(kiekis) + "_islaike.txt";
+        string neislaikeFailas = "src/txt_failai/rezultatai_" + to_string(kiekis) + "_neislaike.txt";
         cout << "Dalinamas rezultatu failas i islaikiusius ir neislaikiusius...\n";
         long long trukmeRezultatuSkaitymo, trukmeRezultatuSkaidymas, trukmeSkaidymoIrasymas;
         padalintiRezultatuFaila(rezultatuFailas, islaikeFailas, neislaikeFailas, trukmeRezultatuSkaitymo, trukmeRezultatuSkaidymas, trukmeSkaidymoIrasymas);
@@ -353,25 +353,25 @@ void nuskaitytiDuomenisIsFailo(vector<Studentas> &studentai, long long &trukmeSk
     switch (failoPasirinkimas)
     {
     case 1:
-        failoPavadinimas = "txt_failai/studentai10.txt";
+        failoPavadinimas = "src/txt_failai/studentai10.txt";
         break;
     case 2:
-        failoPavadinimas = "txt_failai/studentai100.txt";
+        failoPavadinimas = "src/txt_failai/studentai100.txt";
         break;
     case 3:
-        failoPavadinimas = "txt_failai/studentai10000.txt";
+        failoPavadinimas = "src/txt_failai/studentai10000.txt";
         break;
     case 4:
-        failoPavadinimas = "txt_failai/studentai100000.txt";
+        failoPavadinimas = "src/txt_failai/studentai100000.txt";
         break;
     case 5:
-        failoPavadinimas = "txt_failai/studentai1000000.txt";
+        failoPavadinimas = "src/txt_failai/studentai1000000.txt";
         break;
     case 6:
-        failoPavadinimas = "txt_failai/studentai10_blog.txt";
+        failoPavadinimas = "src/txt_failai/studentai10_blog.txt";
         break;
     case 7:
-        failoPavadinimas = "txt_failai/tuscias.txt";
+        failoPavadinimas = "src/txt_failai/tuscias.txt";
         break;
     }
 
@@ -400,8 +400,8 @@ void skaiciuotiRezultatus(long long &trukmeSkaitymo, long long &trukmeVidurkio, 
     }
 
     // Generuoti failų pavadinimus pagal pasirinkimą
-    std::string duomenuFailas = "txt_failai/studentai" + studentuSkaicius[failoPasirinkimas - 1] + ".txt";
-    std::string isvestiesFailoPavadinimas = "txt_failai/rezultatai" + studentuSkaicius[failoPasirinkimas - 1] + ".txt";
+    std::string duomenuFailas = "src/txt_failai/studentai" + studentuSkaicius[failoPasirinkimas - 1] + ".txt";
+    std::string isvestiesFailoPavadinimas = "src/txt_failai/rezultatai" + studentuSkaicius[failoPasirinkimas - 1] + ".txt";
 
     skaitytiIrIsvestiDuomenis(duomenuFailas, isvestiesFailoPavadinimas, trukmeSkaitymo, trukmeVidurkio, trukmeIrasymo);
     std::cout << "Duomenys nuskaityti is " << duomenuFailas
@@ -427,9 +427,9 @@ void rusiuotiRezultatus(long long &trukmeRezultatuSkaitymo, long long &trukmeRez
     }
 
     // Generuoti failų pavadinimus pagal pasirinkimą
-    string duomenuFailas = "txt_failai/rezultatai" + studentuSkaicius[failoPasirinkimas - 1] + ".txt";
-    string islaikiusiuFailoPavadinimas = "txt_failai/rezultatai" + studentuSkaicius[failoPasirinkimas - 1] + "_islaike.txt";
-    string neislaikiusiuFailoPavadinimas = "txt_failai/rezultatai" + studentuSkaicius[failoPasirinkimas - 1] + "_neislaike.txt";
+    string duomenuFailas = "src/txt_failai/rezultatai" + studentuSkaicius[failoPasirinkimas - 1] + ".txt";
+    string islaikiusiuFailoPavadinimas = "src/txt_failai/rezultatai" + studentuSkaicius[failoPasirinkimas - 1] + "_islaike.txt";
+    string neislaikiusiuFailoPavadinimas = "src/txt_failai/rezultatai" + studentuSkaicius[failoPasirinkimas - 1] + "_neislaike.txt";
 
     padalintiRezultatuFaila(duomenuFailas, islaikiusiuFailoPavadinimas, neislaikiusiuFailoPavadinimas, trukmeRezultatuSkaitymo, trukmeRezultatuSkaidymas, trukmeSkaidymoIrasymas);
     cout << "Rezultatu failas padalintas i " << islaikiusiuFailoPavadinimas << " ir " << neislaikiusiuFailoPavadinimas << '\n';

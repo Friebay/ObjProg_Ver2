@@ -79,7 +79,7 @@ void generuotiFaila()
     }
 
     int studentuKiekis = studentuSkaicius[pasirinkimas - 1];
-    string failoPavadinimas = "txt_failai/studentai_" + to_string(studentuKiekis) + ".txt";
+    string failoPavadinimas = "src/txt_failai/studentai_" + to_string(studentuKiekis) + ".txt";
 
     try
     {
