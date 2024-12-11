@@ -22,7 +22,7 @@ REM Check if the program was built successfully in \build\Release
 if exist "Release\program.exe" (
     REM Move and rename executable to the main directory, then clean up
     echo Moving and renaming executable to cmake_compiled_program.exe in main directory...
-    move /Y "Release\program.exe" "..\cmake_compiled_program.exe"
+    move /Y "Release\program.exe" "..\StudPazSkaiciuokle.exe"
 ) else (
     echo Build failed or program.exe not found in build\Release directory.
     pause
@@ -32,5 +32,5 @@ if exist "Release\program.exe" (
 cd ..
 rmdir /S /Q build
 
-echo Build complete! The program executable is ready as cmake_compiled_program.exe.
+echo Build complete! The program executable is ready as StudPazSkaiciuokle.exe.
 pause
