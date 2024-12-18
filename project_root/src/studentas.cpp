@@ -70,17 +70,18 @@ void Studentas::setEgzaminoPazymys(int egzaminoPazymys) { this->egzaminoPazymys 
 void Studentas::setGalutinisVidurkis(float galutinisVidurkis) { this->galutinisVidurkis = galutinisVidurkis; }
 void Studentas::setGalutineMediana(float galutineMediana) { this->galutineMediana = galutineMediana; }
 
-void Studentas::skaiciuotiRezultatus()
-{
-    // Implement calculation of vidurkis, mediana, galutinisVidurkis, galutineMediana
-    if (!pazymiai.empty())
-    {
-        vidurkis = skaiciuotiVidurki(pazymiai);
-        mediana = skaiciuotiMediana(pazymiai);
-
-        // Example calculation of final grades (adjust as needed)
-        galutinisVidurkis = 0.4 * vidurkis + 0.6 * egzaminoPazymys;
-        galutineMediana = 0.4 * mediana + 0.6 * egzaminoPazymys;
+void Studentas::skaiciuotiRezultatus() {
+    if (!pazymiai.empty()) {
+        vidurkis = std::accumulate(pazymiai.begin(), pazymiai.end(), 0.0f) / pazymiai.size();
+        std::vector<int> tempPazymiai = pazymiai;
+        std::sort(tempPazymiai.begin(), tempPazymiai.end());
+        if (tempPazymiai.size() % 2 == 0) {
+            mediana = (tempPazymiai[tempPazymiai.size() / 2 - 1] + tempPazymiai[tempPazymiai.size() / 2]) / 2.0f;
+        } else {
+            mediana = tempPazymiai[tempPazymiai.size() / 2];
+        }
+        galutinisVidurkis = 0.4f * vidurkis + 0.6f * egzaminoPazymys;
+        galutineMediana = 0.4f * mediana + 0.6f * egzaminoPazymys;
     }
 }
 

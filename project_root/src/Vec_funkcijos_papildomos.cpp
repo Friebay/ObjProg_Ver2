@@ -74,7 +74,7 @@ void rusiuotiPagalVidurkiMazejanciai(std::vector<Studentas> &studentai)
 }
 
 // Skaičiuoja pažymių medianą
-float skaiciuotiMediana(const std::vector<int> &pazymiai)
+float skaiciuotiMediana(const std::vector<int>& pazymiai)
 {
     if (pazymiai.empty())
         return 0;
@@ -97,7 +97,7 @@ float skaiciuotiMediana(const std::vector<int> &pazymiai)
 }
 
 // Skaičiuoja pažymių vidurkį
-float skaiciuotiVidurki(const std::vector<int> &pazymiai)
+float skaiciuotiVidurki(const std::vector<int>& pazymiai)
 {
     if (pazymiai.empty())
     {

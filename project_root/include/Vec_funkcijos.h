@@ -186,14 +186,14 @@ int gautiPazymi(const std::string &klausimas);
  * @param vidurkis Pažymių sąrašas.
  * @return Apskaičiuotas vidurkis.
  */
-float skaiciuotiVidurki(const std::vector<int> &vidurkis);
+float skaiciuotiVidurki(const std::vector<int>& vidurkis);
 
 /**
  * @brief Apskaičiuoja pažymių medianą.
  * @param mediana Pažymių sąrašas.
  * @return Apskaičiuota mediana.
  */
-float skaiciuotiMediana(const std::vector<int> &mediana);
+float skaiciuotiMediana(const std::vector<int>& mediana);
 
 /**
  * @brief Generuoja atsitiktinį skaičių intervalo ribose.
