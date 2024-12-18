@@ -20,9 +20,20 @@ cmake --build . --config Release
 
 REM Check if the program was built successfully in \build\Release
 if exist "Release\program.exe" (
+<<<<<<< Updated upstream
     REM Move and rename executable to the main directory, then clean up
     echo Moving and renaming executable to cmake_compiled_program.exe in main directory...
     move /Y "Release\program.exe" "..\cmake_compiled_program.exe"
+=======
+    REM Copy manifest first
+    copy /Y "..\StudPazSkaiciuokle.manifest" "Release\program.exe.manifest"
+    
+    REM Embed manifest using mt.exe
+    mt.exe -manifest "Release\program.exe.manifest" -outputresource:"Release\program.exe";1
+    
+    REM Move and rename executable
+    move /Y "Release\program.exe" "..\StudPazSkaiciuokle.exe"
+>>>>>>> Stashed changes
 ) else (
     echo Build failed or program.exe not found in build\Release directory.
     pause
