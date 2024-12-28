@@ -435,3 +435,7 @@ std::cout << "Vardas: " << studentas.getVardas() << ", Pavarde: " << studentas.g
 
 return;
 ```
+
+# v2.0 versija
+ - Šioje versijoje pridėta Doxygen dokumentacija, kurią galite peržiūrėti atsisuntę repozitoriją ir atsidarę failą doxy_html/index.html
+ - Pridėtas unit testų kodas aplankale project_root/tests. Norint įjungti testavimą, reikia „Command Prompt“ programoje paleisti komandas, esančias project_root/testavimo_komandos.txt faile.
