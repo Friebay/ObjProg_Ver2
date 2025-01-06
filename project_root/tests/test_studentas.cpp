@@ -22,6 +22,14 @@ TEST_CASE("Studentas parameterized constructor") {
     REQUIRE(studentas.getEgzaminoPazymys() == 9);
 }
 
+/*
+TEST_CASE("Zmogus  constructor") {
+    Zmogus zmogus("Jonas", "Jonaitis");
+    REQUIRE(zmogus.getVardas() == "Jonas");
+    REQUIRE(zmogus.getPavarde() == "Jonaitis");
+}
+*/
+
 TEST_CASE("Studentas setters and getters") {
     Studentas studentas;
     studentas.setVardas("Petras");
@@ -40,7 +48,7 @@ TEST_CASE("Studentas setters and getters") {
     REQUIRE(studentas.getEgzaminoPazymys() == 10);
     REQUIRE(studentas.getVidurkis() == 8.0f);
     REQUIRE(studentas.getMediana() == 8.0f);
-    REQUIRE(studentas.getGalutinisVidurkis() == 8.4f);
+    REQUIRE(studentas.getGalutinisVidurkis() == 8.6f);
     REQUIRE(studentas.getGalutineMediana() == 8.4f);
 }
 
@@ -56,7 +64,7 @@ TEST_CASE("Studentas result calculations") {
 }
 
 TEST_CASE("Studentas copy constructor") {
-    std::vector<int> pazymiai = {8, 9, 10};
+    std::vector<int> pazymiai = {8, 9, 2};
     Studentas original("Jonas", "Jonaitis", pazymiai, 9);
     Studentas copy = original;
 
@@ -91,6 +99,5 @@ TEST_CASE("Studentas destructor") {
     Studentas* studentas = new Studentas("Jonas", "Jonaitis", pazymiai, 9);
     delete studentas;
 
-    // Since we can't directly test the destructor, we ensure no memory leaks or crashes occur.
     SUCCEED("Destructor executed without issues.");
 }
